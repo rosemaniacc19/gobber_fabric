@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "pattern":
+  [
+    "III",
+    "III",
+    "III"
+  ],
+
+  "key":
+  {
+    "I": { "item": "gobber2:gobber2_globette_end" }
+  },
+
+  "result": { "item": "gobber2:gobber2_glob_end" }
+}

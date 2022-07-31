@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "pattern":
+  [
+    "CDC",
+    "BAB",
+    "CDC"
+  ],
+
+  "key":
+  {
+    "A":
+    {
+      "item": "gobber2:gobber2_medallion_end"
+    },
+    "B":
+    {
+      "item": "minecraft:nether_star"
+    },
+    "C":
+    {
+      "item": "gobber2:gobber2_ingot_end"
+    },
+    "D":
+    {
+      "item": "gobber2:gobber2_sword_end"
+    }
+  },
+
+  "result":
+  {
+    "item": "gobber2:gobber2_medallion_suffering",
+    "count": 1
+  }
+}

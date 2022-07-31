@@ -1,0 +1,36 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "ABA",
+        "DCD",
+        "ABA"
+    ],
+    
+    "key":
+    {
+        "A":
+        {
+            "item": "minecraft:glowstone"
+        },
+        "B":
+        {
+            "item": "minecraft:beacon"
+        },
+        "C":
+        {
+            "item": "gobber2:gobber2_ring_nether"
+        },
+        "D":
+        {
+            "item": "minecraft:blaze_rod"
+        }
+    },
+    
+    "result":
+    {
+        "item": "gobber2:gobber2_ring_strength",
+        "count": 1
+    }
+}

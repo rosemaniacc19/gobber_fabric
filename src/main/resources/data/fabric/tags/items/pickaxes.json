@@ -1,0 +1,45 @@
+{
+  "replace": false,
+  "values": [
+	  {
+		  "id": "gobber2:gobber2_pickaxe",
+		  "required": false
+	  },
+	  {
+		  "id": "gobber2:gobber2_pickaxe_nether",
+		  "required": false
+	  },
+	  {
+		  "id": "gobber2:gobber2_pickaxe_end",
+		  "required": false
+	  },
+	  {
+		  "id": "gobber2:gobber2_paxel",
+		  "required": false
+	  },
+	  {
+		  "id": "gobber2:gobber2_paxel_nether",
+		  "required": false
+	  },
+	  {
+		  "id": "gobber2:gobber2_paxel_end",
+		  "required": false
+	  },
+	  {
+		  "id":  "gobber2:gobber2_paxel_stars",
+		  "required": false
+	  },
+	  {
+		  "id": "gobber2:gobber2_hammer",
+		  "required": false
+	  },
+	  {
+		  "id": "gobber2:gobber2_hammer_nether",
+		  "required": false
+	  },
+	  {
+		  "id": "gobber2:gobber2_hammer_end",
+		  "required": false
+	  }
+  ]
+}

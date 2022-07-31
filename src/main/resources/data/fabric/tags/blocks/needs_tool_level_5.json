@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "gobber2:gobber2_ore_nether",
+      "required": false
+    },
+    {
+      "id": "gobber2:gobber2_block_nether",
+      "required": false
+    },
+    {
+      "id": "gobber2:gobber2_glass_nether",
+      "required": false
+    }
+  ]
+}

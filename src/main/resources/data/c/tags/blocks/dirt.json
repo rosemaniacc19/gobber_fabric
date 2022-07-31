@@ -1,0 +1,15 @@
+
+{
+  "replace": false,
+  "values": [
+    "minecraft:dirt",
+    "minecraft:podzol",
+    "minecraft:mycelium",
+    "minecraft:coarse_dirt",
+    "minecraft:dirt_path",
+    "minecraft:soul_soil",
+    "minecraft:grass_block",
+    "minecraft:crimson_nylium",
+    "minecraft:warped_nylium"
+  ]
+}

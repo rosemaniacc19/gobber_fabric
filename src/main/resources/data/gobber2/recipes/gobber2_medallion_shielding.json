@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "pattern":
+  [
+    "CBC",
+    "BAB",
+    "CDC"
+  ],
+
+  "key":
+  {
+    "A":
+    {
+      "item": "gobber2:gobber2_medallion_nether"
+    },
+    "B":
+    {
+      "item": "minecraft:ghast_tear"
+    },
+    "C":
+    {
+      "item": "minecraft:arrow"
+    },
+    "D":
+    {
+      "item": "gobber2:gobber2_bow_nether"
+    }
+  },
+
+  "result":
+  {
+    "item": "gobber2:gobber2_medallion_shielding",
+    "count": 1
+  }
+}

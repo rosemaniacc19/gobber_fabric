@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "gobber2:gobber2_ring_teleport",
+      "required": false
+    },
+    {
+      "id": "gobber2:gobber2_ring_ascent",
+      "required": false
+    },
+    {
+      "id": "gobber2:gobber2_ring_return",
+      "required": false
+    },
+    {
+      "id": "gobber2:gobber2_ring_haste",
+      "required": false
+    }
+  ]
+}

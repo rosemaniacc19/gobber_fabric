@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "gobber2:gobber2_lucky_block",
+      "required": false
+    },
+    {
+      "id": "gobber2:gobber2_lucky_block_deepslate",
+      "required": false
+    },
+    {
+      "id": "gobber2:gobber2_lucky_block_nether",
+      "required": false
+    },
+    {
+      "id": "gobber2:clear_glass",
+      "required": false
+    }
+  ]
+}

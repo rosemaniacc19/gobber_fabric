@@ -1,0 +1,44 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.kwpugh.gobber2.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+    "AbstractDonkeyEntityMixinInteract",
+    "AllayEntityMixinInteract",
+    "ArmorItemMixinKnockback",
+    "ClampedEntityAttributeMixin",
+    "EnchantmentTargetMixin",
+    "EndermanEntityMixinBlinders",
+    "EndermanEntityMixinDamage",
+    "EntityAttributeMixinArmor",
+    "EntityMixinFireFreeze",
+    "ExperienceOrbEntityMixin",
+    "LivingEntityMixinBreathing",
+    "LivingEntityMixinGlide",
+    "MobEntityMixinSetTarget",
+    "ParrotEntityMixinInteract",
+    "PiglinBrainMixinGlided",
+    "PlayerEntityMixinArmor",
+    "PlayerEntityMixinAttack",
+    "PlayerEntityMixinDamage",
+    "PlayerEntityMixinFallFlying",
+    "PlayerEntityMixinHand",
+    "PlayerEntityMixinSolidFooting",
+    "ServerPlayerEntityMixinTick",
+    "UnbreakingEnchantmentMixin",
+    "VibrationListenerMixin",
+    "VillagerEntityMixinInteract",
+    "WanderingTraderEntityMixinInteract",
+    "WitherSkeletonEntityMixin",
+    "WolfEntityMixinInteract"
+  ],
+  "client": [
+    "ClientPlayerEntityMixinFallFlying",
+    "EntityRenderDispatcherMixinStealth",
+    "LivingEntityRendererMixinStealth"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

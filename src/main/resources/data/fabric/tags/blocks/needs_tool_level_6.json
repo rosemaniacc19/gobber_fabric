@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "gobber2:gobber2_ore_end",
+      "required": false
+    },
+    {
+      "id": "gobber2:gobber2_block_end",
+      "required": false
+    },
+    {
+      "id": "gobber2:gobber2_glass_end",
+      "required": false
+    }
+  ]
+}

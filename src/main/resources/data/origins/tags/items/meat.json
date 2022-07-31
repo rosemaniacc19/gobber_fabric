@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "gobber2:gobber2_gooey_beef",
+      "required": false
+    },
+    {
+      "id": "gobber2:gobber2_gooey_beefstew",
+      "required": false
+    },
+    {
+      "id": "gobber2:gobber2_gooey_beef_nether",
+      "required": false
+    },
+    {
+      "id": "gobber2:gobber2_gooey_beefstew_nether",
+      "required": false
+    }
+  ]
+}

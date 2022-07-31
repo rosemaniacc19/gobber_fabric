@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+  	"minecraft:netherite_scrap",
+  	"minecraft:prismarine_shard",
+  	"minecraft:prismarine_crystals",
+  	"minecraft:nautilus_shell",
+    {
+      "id": "gobber2:gobber2_ingot_nether",
+      "required": false
+    },
+    {
+      "id": "gobber2:gobber2_ring_return",
+      "required": false
+    },
+    {
+      "id": "gobber2:gobber2_ring_attraction",
+      "required": false
+    },
+    {
+      "id": "gobber2:gobber2_ring_sunshine",
+      "required": false
+    }
+  ]
+}

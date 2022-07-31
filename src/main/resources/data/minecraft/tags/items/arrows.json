@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "gobber2:gobber2_arrow",
+      "required": false
+    },
+    {
+      "id": "gobber2:gobber2_arrow_nether",
+      "required": false
+    },
+    {
+      "id": "gobber2:gobber2_arrow_end",
+      "required": false
+    }
+  ]
+}

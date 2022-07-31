@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "pattern":
+  [
+    " B ",
+    "BAB",
+    " B "
+  ],
+
+  "key":
+  {
+    "A":
+    {
+      "item": "gobber2:gobber2_staff_ensnarement"
+    },
+
+    "B":
+    {
+      "item": "gobber2:gobber2_ingot_end"
+    }
+  },
+
+  "result":
+  {
+    "item": "gobber2:gobber2_staff_hostile_ensnarement",
+    "count": 1
+  }
+}

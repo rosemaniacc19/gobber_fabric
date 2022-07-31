@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "gobber2:gobber2_bow",
+      "required": false
+    },
+    {
+      "id": "gobber2:gobber2_bow_nether",
+      "required": false
+    },
+    {
+      "id": "gobber2:gobber2_bow_end",
+      "required": false
+    },
+    {
+      "id": "gobber2:gobber2_sword_sniper",
+      "required": false
+    },
+    {
+      "id": "gobber2:gobber2_staff_sniper",
+      "required": false
+    }
+  ]
+}
