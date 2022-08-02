@@ -33,5 +33,10 @@ public class MedallionHealing extends BaseMedallion
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext)
     {
         tooltip.add(Text.translatable("item.gobber2.while_in_inventory").formatted(Formatting.YELLOW));
+
+        if(Gobber2.CONFIG.GENERAL.allowRingsTicksInEnderchest)
+        {
+            tooltip.add(Text.translatable("item.gobber2.while_in_enderchest").formatted(Formatting.AQUA));
+        }
     }
 }

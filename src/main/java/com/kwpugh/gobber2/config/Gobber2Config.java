@@ -151,6 +151,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 				+"\n***********************")
 		public int effectDuration = 8;
 		public int effectDurationKnowledge = 120;
+		public int effectDurationNightVision = 120;
 
  		 @Comment("\n"
  				+"\n"

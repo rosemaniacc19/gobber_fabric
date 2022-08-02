@@ -116,7 +116,7 @@ public abstract class ServerPlayerEntityMixinTick extends LivingEntity
                 ItemStack stack = PlayerEquipUtil.getItemStackInEnder(player, ItemInit.GOBBER2_RING_VISION);
                 if(EnableUtil.isEnabled(stack))
                 {
-                    StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.NIGHT_VISION, Gobber2.CONFIG.GENERAL.effectDuration, 0, false, false);
+                    StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.NIGHT_VISION, Gobber2.CONFIG.GENERAL.effectDurationNightVision, 0, false, false);
                     player.addStatusEffect(effect);
 
                     if(player.hasStatusEffect(StatusEffects.DARKNESS))

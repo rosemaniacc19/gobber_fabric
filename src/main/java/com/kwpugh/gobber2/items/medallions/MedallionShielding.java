@@ -36,5 +36,10 @@ public class MedallionShielding extends BaseMedallion
     {
         tooltip.add(Text.translatable("item.gobber2.gobber2_medallion_shielding.tip1").formatted(Formatting.GREEN));
         tooltip.add(Text.translatable("item.gobber2.while_in_inventory").formatted(Formatting.YELLOW));
+
+        if(Gobber2.CONFIG.GENERAL.allowRingsTicksInEnderchest)
+        {
+            tooltip.add(Text.translatable("item.gobber2.while_in_enderchest").formatted(Formatting.AQUA));
+        }
     }
 }

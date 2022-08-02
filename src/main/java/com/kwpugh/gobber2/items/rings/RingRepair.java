@@ -58,5 +58,10 @@ public class RingRepair extends BaseRing
 		tooltip.add(Text.translatable("item.gobber2.gobber2_ring_repair.tip1").formatted(Formatting.GREEN));
 		tooltip.add(Text.translatable("item.gobber2.gobber2_ring_repair.tip2").formatted(Formatting.GREEN));
 		tooltip.add(Text.translatable("item.gobber2.while_in_inventory").formatted(Formatting.YELLOW));
+
+		if(Gobber2.CONFIG.GENERAL.allowRingsTicksInEnderchest)
+		{
+			tooltip.add(Text.translatable("item.gobber2.while_in_enderchest").formatted(Formatting.AQUA));
+		}
 	} 
 }

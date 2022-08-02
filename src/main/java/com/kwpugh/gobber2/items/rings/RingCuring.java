@@ -62,7 +62,15 @@ public class RingCuring extends BaseRing
 		}
 		else
 		{
-			tooltip.add(Text.translatable("item.gobber2.while_in_inventory").formatted(Formatting.YELLOW));
+			if(Gobber2.CONFIG.GENERAL.allowRingsTicksInEnderchest)
+			{
+				tooltip.add(Text.translatable("item.gobber2.while_in_enderchest").formatted(Formatting.YELLOW));
+				tooltip.add(Text.translatable("item.gobber2.while_in_inventory").formatted(Formatting.YELLOW));
+			}
+			else
+			{
+				tooltip.add(Text.translatable("item.gobber2.while_in_inventory").formatted(Formatting.AQUA));
+			}
 		}
 	}
 }

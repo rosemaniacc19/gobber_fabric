@@ -1,5 +1,6 @@
 package com.kwpugh.gobber2.items.medallions;
 
+import com.kwpugh.gobber2.Gobber2;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -41,5 +42,10 @@ public class MedallionHero extends BaseMedallion
 	{
 		tooltip.add(Text.translatable("item.gobber2.gobber2_medallion_hero.tip1").formatted(Formatting.GREEN));
 		tooltip.add(Text.translatable("item.gobber2.while_in_inventory").formatted(Formatting.YELLOW));
+
+		if(Gobber2.CONFIG.GENERAL.allowRingsTicksInEnderchest)
+		{
+			tooltip.add(Text.translatable("item.gobber2.while_in_enderchest").formatted(Formatting.AQUA));
+		}
 	} 
 }

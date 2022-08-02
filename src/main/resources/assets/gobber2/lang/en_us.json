@@ -203,6 +203,7 @@
 	"item.gobber2.status_changed": "Status changed!",
 	"item.gobber2.range_changed": "Range changed!",
 	"item.gobber2.while_in_inventory": "Works while in inventory",
+	"item.gobber2.while_in_enderchest": "Works while in player enderchest",
 	"item.gobber2.while_in_main hand": "Works while in main hand",
 	"item.gobber2.while_in_off_hand": "Works while in off hand",
 	"item.gobber2.right_click": "Right click to toggle on/off",

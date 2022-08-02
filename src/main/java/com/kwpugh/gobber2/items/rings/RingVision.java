@@ -31,7 +31,7 @@ public class RingVision extends BaseRing
 		{
 			if(entity instanceof PlayerEntity)
 			{
-				StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.NIGHT_VISION, Gobber2.CONFIG.GENERAL.effectDuration, 0, false, false);
+				StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.NIGHT_VISION, Gobber2.CONFIG.GENERAL.effectDurationNightVision, 0, false, false);
 				LivingEntity player = (LivingEntity) entity;
 
 				player.addStatusEffect(effect);
@@ -68,5 +68,11 @@ public class RingVision extends BaseRing
 	{
 		tooltip.add(Text.translatable("item.gobber2.gobber2_ring_vision.tip1").formatted(Formatting.GREEN));
 		tooltip.add(Text.translatable("item.gobber2.right_click").formatted(Formatting.YELLOW));
+		tooltip.add(Text.translatable("item.gobber2.while_in_inventory").formatted(Formatting.YELLOW));
+
+		if(Gobber2.CONFIG.GENERAL.allowRingsTicksInEnderchest)
+		{
+			tooltip.add(Text.translatable("item.gobber2.while_in_enderchest").formatted(Formatting.AQUA));
+		}
 	}
 }
