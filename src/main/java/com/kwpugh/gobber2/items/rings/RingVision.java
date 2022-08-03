@@ -70,7 +70,7 @@ public class RingVision extends BaseRing
 		tooltip.add(Text.translatable("item.gobber2.right_click").formatted(Formatting.YELLOW));
 		tooltip.add(Text.translatable("item.gobber2.while_in_inventory").formatted(Formatting.YELLOW));
 
-		if(Gobber2.CONFIG.GENERAL.allowRingsTicksInEnderchest)
+		if(Gobber2.CONFIG.GENERAL.allowWorkInEnderchest)
 		{
 			tooltip.add(Text.translatable("item.gobber2.while_in_enderchest").formatted(Formatting.AQUA));
 		}

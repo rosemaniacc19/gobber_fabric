@@ -2,6 +2,7 @@ package com.kwpugh.gobber2.init;
 
 import com.kwpugh.gobber2.Gobber2;
 import com.kwpugh.gobber2.blocks.BaseOreBlock;
+import com.kwpugh.gobber2.blocks.ModBlock;
 import com.kwpugh.gobber2.blocks.ModGlass;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
@@ -22,9 +23,9 @@ public class BlockInit
 	public static final Block GOBBER2_ORE_NETHER = new BaseOreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
 	public static final Block GOBBER2_ORE_END = new BaseOreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
 
-	public static final Block GOBBER2_BLOCK = new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
-	public static final Block GOBBER2_BLOCK_NETHER = new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
-	public static final Block GOBBER2_BLOCK_END = new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
+	public static final Block GOBBER2_BLOCK = new ModBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
+	public static final Block GOBBER2_BLOCK_NETHER = new ModBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
+	public static final Block GOBBER2_BLOCK_END = new ModBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
 
 	public static final Block GOBBER2_GLASS = new ModGlass(FabricBlockSettings.of(Material.STONE).luminance(15).nonOpaque().requiresTool().strength(2.0F, 2.0F));
 	public static final Block GOBBER2_GLASS_NETHER = new ModGlass(FabricBlockSettings.of(Material.STONE).luminance(15).nonOpaque().requiresTool().strength(2.0F, 2.0F));

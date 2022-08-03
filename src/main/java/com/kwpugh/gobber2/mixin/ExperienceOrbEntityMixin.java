@@ -32,7 +32,7 @@ public abstract class ExperienceOrbEntityMixin extends Entity
 		if(!world.isClient)
 		{
 			if(PlayerEquipUtil.hasItemInOffHand(player, ItemInit.GOBBER2_MEDALLION_EXP) ||
-					(PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_MEDALLION_EXP) && Gobber2.CONFIG.GENERAL.allowRingsTicksInEnderchest))
+					(PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_MEDALLION_EXP) && Gobber2.CONFIG.GENERAL.allowWorkInEnderchest))
 			{
 				if(this.amount < 4)
 				{

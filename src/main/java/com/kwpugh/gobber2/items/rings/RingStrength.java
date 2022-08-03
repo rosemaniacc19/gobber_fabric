@@ -53,7 +53,7 @@ public class RingStrength extends BaseRing implements HandRemoveHandler, HandTic
 		tooltip.add(Text.translatable("item.gobber2.while_in_off_hand").formatted(Formatting.YELLOW));
 		tooltip.add(Text.translatable("item.gobber2.while_in_inventory").formatted(Formatting.YELLOW));
 
-		if(Gobber2.CONFIG.GENERAL.allowRingsTicksInEnderchest)
+		if(Gobber2.CONFIG.GENERAL.allowWorkInEnderchest)
 		{
 			tooltip.add(Text.translatable("item.gobber2.while_in_enderchest").formatted(Formatting.AQUA));
 		}

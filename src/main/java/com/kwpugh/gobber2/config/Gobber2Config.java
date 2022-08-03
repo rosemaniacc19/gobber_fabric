@@ -59,6 +59,15 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public double rareThreshold = .01;
 		public String defaultDrop = "gobbers:gobber2_foo";
 
+		@Comment("\n"
+				+"\n"
+				+ "***********************"
+				+"\nBlast Resistance"
+				+"\n***********************")
+		public int oreBlastResistance = 1300;
+		public int glassBlastResistance = 1300;
+		public int blockBlastResistance = 1300;
+
 	    @Comment("\n"
 	    		+"\n"
 	    		+ "***********************"    		
@@ -137,7 +146,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public int ringSwiftnessLevel = 1;
  		public double ringTravelerLaunch = 4.0;
  		public double ringTravelerCruising = 0.2;
- 		public boolean allowRingsTicksInEnderchest = false;
+ 		public boolean allowWorkInEnderchest = false;
  		public boolean enableRingStealthInvisible = true;
 
 		@Comment("\n"
@@ -151,7 +160,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 				+"\n***********************")
 		public int effectDuration = 8;
 		public int effectDurationKnowledge = 120;
-		public int effectDurationNightVision = 120;
+		public int effectDurationNightVision = 240;
 
  		 @Comment("\n"
  				+"\n"
@@ -420,17 +429,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public int healingPointsDragonArmor = 4;
 		public boolean enableDragonCuring  =  true;
 		public boolean enableDragonNoFallDamage = true;
-		public boolean enableGlidingDragonArmor = true;
 		public boolean enableDragonFlying = true;
-
-		@Comment("\n"
-				+"\n"
-				+ "***********************"
- 	    		+"\nEnchantments"
- 	    		+"\n***********************")
-		public boolean enableSummonerBonusStats = true;
-		public boolean summonerGoldGear = true;
-		public int summonerMobLifespan = 120;
 
 		@Comment("\n"
 				+"\n"
@@ -442,6 +441,9 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public int rebuffingMaxLevel = 3;
 		public int untouchableDamage = 8;
 		public int untouchableMaxLevel = 3;
+		public boolean enableSummonerBonusStats = true;
+		public boolean summonerGoldGear = true;
+		public int summonerMobLifespan = 120;
 		public double summonerHealthBonus = 30.0;
 		public double summonerAttackBonus = 10.0;
 		public double summonerMovementBonus = 0.60;

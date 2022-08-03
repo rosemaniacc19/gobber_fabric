@@ -52,7 +52,7 @@ public class ProtectionManager
             }
 
             if(PlayerEquipUtil.hasItemInInventory(player, ItemInit.GOBBER2_RING_PHOENIX) ||
-                    (PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_RING_PHOENIX) && Gobber2.CONFIG.GENERAL.allowRingsTicksInEnderchest))
+                    (PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_RING_PHOENIX) && Gobber2.CONFIG.GENERAL.allowWorkInEnderchest))
             {
                 return false;
             }
@@ -81,7 +81,7 @@ public class ProtectionManager
             }
 
             if(PlayerEquipUtil.hasItemInInventory(player, ItemInit.GOBBER2_RING_PHOENIX) ||
-                    (PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_RING_PHOENIX) && Gobber2.CONFIG.GENERAL.allowRingsTicksInEnderchest))
+                    (PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_RING_PHOENIX) && Gobber2.CONFIG.GENERAL.allowWorkInEnderchest))
             {
                 return true;
             }
@@ -110,13 +110,13 @@ public class ProtectionManager
             }
 
             if(PlayerEquipUtil.hasItemInInventory(player, ItemInit.GOBBER2_MEDALLION_BREATHING) ||
-                    (PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_MEDALLION_BREATHING) && Gobber2.CONFIG.GENERAL.allowRingsTicksInEnderchest))
+                    (PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_MEDALLION_BREATHING) && Gobber2.CONFIG.GENERAL.allowWorkInEnderchest))
             {
                 return false;
             }
 
             if(PlayerEquipUtil.hasItemInInventory(player, ItemInit.GOBBER2_MEDALLION_SEA) ||
-                    (PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_MEDALLION_SEA) && Gobber2.CONFIG.GENERAL.allowRingsTicksInEnderchest))
+                    (PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_MEDALLION_SEA) && Gobber2.CONFIG.GENERAL.allowWorkInEnderchest))
             {
                 return false;
             }
@@ -145,13 +145,13 @@ public class ProtectionManager
             }
 
             if(PlayerEquipUtil.hasItemInInventory(player, ItemInit.GOBBER2_MEDALLION_SEA) ||
-                    (PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_MEDALLION_SEA) && Gobber2.CONFIG.GENERAL.allowRingsTicksInEnderchest))
+                    (PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_MEDALLION_SEA) && Gobber2.CONFIG.GENERAL.allowWorkInEnderchest))
             {
                 return true;
             }
 
             if(PlayerEquipUtil.hasItemInInventory(player, ItemInit.GOBBER2_MEDALLION_BREATHING) ||
-                    (PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_MEDALLION_BREATHING) && Gobber2.CONFIG.GENERAL.allowRingsTicksInEnderchest))
+                    (PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_MEDALLION_BREATHING) && Gobber2.CONFIG.GENERAL.allowWorkInEnderchest))
             {
                 return true;
             }
@@ -178,7 +178,7 @@ public class ProtectionManager
     public static boolean hasCuring(PlayerEntity player, DamageSource source)
     {
         if(PlayerEquipUtil.hasItemInInventory(player, ItemInit.GOBBER2_RING_CURING) ||
-                (PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_RING_CURING) && Gobber2.CONFIG.GENERAL.allowRingsTicksInEnderchest))
+                (PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_RING_CURING) && Gobber2.CONFIG.GENERAL.allowWorkInEnderchest))
         {
             return true;
         }

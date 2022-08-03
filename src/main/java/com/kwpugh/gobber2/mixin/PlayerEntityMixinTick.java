@@ -27,7 +27,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixinTick extends LivingEntity
 {
-    private static boolean allowEnder = Gobber2.CONFIG.GENERAL.allowRingsTicksInEnderchest;
+    private static boolean allowEnder = Gobber2.CONFIG.GENERAL.allowWorkInEnderchest;
     private static int strengthLevel = Gobber2.CONFIG.GENERAL.ringStrengthLevel;
     private static int resistenceLevel = Gobber2.CONFIG.GENERAL.ringStrengthResistenceLevel;
     private static int hasteLevel = Gobber2.CONFIG.GENERAL.ringHasteLevel;

@@ -23,7 +23,7 @@ public class RingPhoenix extends BaseRing
 		tooltip.add(Text.translatable("item.gobber2.gobber2_ring_phoenix.tip2").formatted(Formatting.GREEN));
 		tooltip.add(Text.translatable("item.gobber2.while_in_inventory").formatted(Formatting.YELLOW));
 
-		if(Gobber2.CONFIG.GENERAL.allowRingsTicksInEnderchest)
+		if(Gobber2.CONFIG.GENERAL.allowWorkInEnderchest)
 		{
 			tooltip.add(Text.translatable("item.gobber2.while_in_enderchest").formatted(Formatting.AQUA));
 		}

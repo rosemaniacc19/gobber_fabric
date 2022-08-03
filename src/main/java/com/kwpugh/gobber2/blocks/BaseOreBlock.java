@@ -28,6 +28,7 @@ public class BaseOreBlock extends OreBlock
     private static int chunkChance;
     private static String miningLevel;
     private static String spawnDim;
+    private static int blastRes;
 
     public BaseOreBlock(FabricBlockSettings settings)
     {
@@ -46,6 +47,12 @@ public class BaseOreBlock extends OreBlock
         }
     }
 
+    @Override
+    public float getBlastResistance()
+    {
+        return Gobber2.CONFIG.ORES.oreBlastResistance;
+    }
+
     @Environment(EnvType.CLIENT)
     public void appendTooltip(ItemStack stack, BlockView world, List<Text> tooltip, TooltipContext options)
     {
@@ -56,12 +63,14 @@ public class BaseOreBlock extends OreBlock
         tooltip.add(Text.translatable("item.gobber2.ore_spawn.tip3", chunkChance).formatted(Formatting.GREEN));
         tooltip.add(Text.translatable("item.gobber2.ore_mining.tip1", miningLevel).formatted(Formatting.YELLOW));
         tooltip.add(Text.translatable("item.gobber2.ore_dim.tip1", spawnDim).formatted(Formatting.YELLOW));
+        tooltip.add(Text.translatable("item.gobber2.blast_res.tip1", blastRes).formatted(Formatting.YELLOW));
     }
 
     public static void oreTips(ItemStack stack)
     {
         miningLevel = "Iron";
         spawnDim = "Overworld";
+        blastRes = Gobber2.CONFIG.ORES.oreBlastResistance;
 
         if(stack.isOf(BlockInit.GOBBER2_LUCKY_BLOCK.asItem()))
         {
