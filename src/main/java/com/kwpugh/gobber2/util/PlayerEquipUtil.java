@@ -155,7 +155,6 @@ public final class PlayerEquipUtil
 		}
 
 		return false;
-
 	}
 
 	// Return itemstack for item in ender chest
