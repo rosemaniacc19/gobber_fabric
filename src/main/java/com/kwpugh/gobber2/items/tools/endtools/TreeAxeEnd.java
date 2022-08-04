@@ -19,7 +19,7 @@ public class TreeAxeEnd extends TreeAxe
 
     public TreeAxeEnd(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings)
     {
-        super(material, attackDamage, attackSpeed, settings);
+        super(material, attackDamage, attackSpeed, Gobber2.CONFIG.GENERAL.enableFullDamage, settings);
     }
 
     @Override

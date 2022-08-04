@@ -1,5 +1,6 @@
 package com.kwpugh.gobber2.items.tools.areatools;
 
+import com.kwpugh.gobber2.Gobber2;
 import com.kwpugh.pugh_tools.Tools.TreeAxe;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
@@ -15,7 +16,7 @@ public class ModTreeAxe extends TreeAxe
 {
     public ModTreeAxe(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings)
     {
-        super(material, attackDamage, attackSpeed, settings);
+        super(material, attackDamage, attackSpeed, Gobber2.CONFIG.GENERAL.enableFullDamage, settings);
     }
 
     @Override

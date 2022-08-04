@@ -29,7 +29,7 @@ public class ExcavatorEnd extends Excavator
 
     public ExcavatorEnd(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings)
     {
-        super(material, attackDamage, attackSpeed, settings);
+        super(material, attackDamage, attackSpeed, Gobber2.CONFIG.GENERAL.enableFullDamage, settings);
     }
 
     int radius = 1;

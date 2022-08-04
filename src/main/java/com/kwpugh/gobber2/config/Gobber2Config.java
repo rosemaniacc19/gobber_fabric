@@ -288,6 +288,14 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public byte piercingLevelEndArrow = 2;
 		public int punchLevelEndArrow = 2;
 
+		@Comment("\n"
+				+"\n"
+				+ "***********************"
+				+"\nFull Tool Damage"
+				+"\n- effects hammer/excavator/treeaxe"
+				+"\n***********************")
+		public boolean enableFullDamage = false;
+
       	@Comment("\n"
     			+"\n"
     			+"\n"

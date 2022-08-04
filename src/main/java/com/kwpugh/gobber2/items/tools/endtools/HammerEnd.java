@@ -27,7 +27,7 @@ public class HammerEnd extends Hammer
 {
     public HammerEnd(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings)
     {
-        super(material, attackDamage, attackSpeed, settings);
+        super(material, attackDamage, attackSpeed, Gobber2.CONFIG.GENERAL.enableFullDamage, settings);
     }
 
     int radius = 1;
