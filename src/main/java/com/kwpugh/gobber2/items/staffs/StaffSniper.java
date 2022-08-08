@@ -38,16 +38,16 @@ public class StaffSniper extends BaseStaff
 		
         if (!world.isClient)
         {
-			if(!hasQuickUse && quickUseAllowed)
+			if(!hasQuickUse || !quickUseAllowed)
 			{
 				player.getItemCooldownManager().set(this, cooldown);
 			}
 
             ArrowItem itemarrow = (ArrowItem)Items.ARROW;
             PersistentProjectileEntity persistentProjectileEntity = itemarrow.createArrow(world, new ItemStack(Items.ARROW), player);
-            float arrowVelocity = 60.0F;
+            float arrowVelocity = Gobber2.CONFIG.GENERAL.staffSniperArrowVelocity;
             persistentProjectileEntity.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, arrowVelocity, 0.0F);
-            persistentProjectileEntity.setDamage(1);
+            persistentProjectileEntity.setDamage(Gobber2.CONFIG.GENERAL.staffSniperArrowExtraDamage);
             world.spawnEntity(persistentProjectileEntity);
             persistentProjectileEntity.pickupType = PickupPermission.DISALLOWED;
         }

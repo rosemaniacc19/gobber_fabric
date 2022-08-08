@@ -188,6 +188,8 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public int staffClearingVertRange = 3;
  		public int staffClearingCooldown = 120;
  		public int staffSniperCooldown = 240;
+		public float staffSniperArrowVelocity = 60.0F;
+		public int staffSniperArrowExtraDamage = 1;
  		public boolean staffSniperEnableQuickUse = true;
 		public int staffFarmerHorizRange = 12;
 		public int staffFarmerVertRange = 6;
@@ -202,6 +204,8 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
  	    		+"\nTool Settings"
  	    		+"\n***********************")	
 		public int swordSniperCooldoown = 240;
+		public float swordSniperArrowVelocity = 60.0F;
+		public int swordSniperArrowExtraDamage = 1;
 		public boolean swordSniperEnableQuickUse = true;
 		public boolean enableEndHammer5x5 = true;
 		public boolean enableEndExcavator5x5 = true;
