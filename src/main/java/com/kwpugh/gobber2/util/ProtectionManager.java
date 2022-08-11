@@ -61,35 +61,6 @@ public class ProtectionManager
         return true;
     }
 
-    public static boolean isFireproof(Entity entity)
-    {
-        if(entity instanceof PlayerEntity player)
-        {
-            if(PlayerEquipUtil.isWearingNetherArmor(player) && Gobber2.CONFIG.GENERAL.enableNetherFirePerk)
-            {
-               return true;
-            }
-
-            if(PlayerEquipUtil.isWearingEndArmor(player) && Gobber2.CONFIG.GENERAL.enableEndFirePerk)
-            {
-                return true;
-            }
-
-            if(PlayerEquipUtil.isWearingDragonArmor(player) && Gobber2.CONFIG.GENERAL.enableDragonFirePerk)
-            {
-                return true;
-            }
-
-            if(PlayerEquipUtil.hasItemInInventory(player, ItemInit.GOBBER2_RING_PHOENIX) ||
-                    (PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_RING_PHOENIX) && Gobber2.CONFIG.GENERAL.allowWorkInEnderchest))
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
     public static boolean canDrown(PlayerEntity player, DamageSource source)
     {
         if(source == DamageSource.DROWN)
@@ -123,6 +94,35 @@ public class ProtectionManager
         }
 
         return true;
+    }
+
+    public static boolean isFireproof(Entity entity)
+    {
+        if(entity instanceof PlayerEntity player)
+        {
+            if(PlayerEquipUtil.isWearingNetherArmor(player) && Gobber2.CONFIG.GENERAL.enableNetherFirePerk)
+            {
+               return true;
+            }
+
+            if(PlayerEquipUtil.isWearingEndArmor(player) && Gobber2.CONFIG.GENERAL.enableEndFirePerk)
+            {
+                return true;
+            }
+
+            if(PlayerEquipUtil.isWearingDragonArmor(player) && Gobber2.CONFIG.GENERAL.enableDragonFirePerk)
+            {
+                return true;
+            }
+
+            if(PlayerEquipUtil.hasItemInInventory(player, ItemInit.GOBBER2_RING_PHOENIX) ||
+                    (PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_RING_PHOENIX) && Gobber2.CONFIG.GENERAL.allowWorkInEnderchest))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public static boolean canBreathUnderwater(LivingEntity livingEntity)

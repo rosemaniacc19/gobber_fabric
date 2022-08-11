@@ -115,6 +115,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
  	    		+"\n***********************")
 		public int ringAboveCooldown = 120;
 		public boolean enableAirWalkingPlaceGlass = true;
+		public int ringAscentDuration = 3200;
 		public int ringAttractionRange = 8;
 		public int ringBlinkDistance = 100;
 		public int ringBlinkCooldown = 120;

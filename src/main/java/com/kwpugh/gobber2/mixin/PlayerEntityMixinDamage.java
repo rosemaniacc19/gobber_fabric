@@ -47,11 +47,6 @@ public abstract class PlayerEntityMixinDamage extends LivingEntity
             cir.setReturnValue(false);
         }
 
-        if(ProtectionManager.hasCuring(player, source))
-        {
-            cir.setReturnValue(false);
-        }
-
         if(ProtectionManager.isMagicProof(player, source) && Gobber2.CONFIG.GENERAL.apotropaicEventEnable)
         {
             cir.setReturnValue(false);

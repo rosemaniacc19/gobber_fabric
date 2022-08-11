@@ -1,5 +1,6 @@
 package com.kwpugh.gobber2.items.rings;
 
+import com.kwpugh.gobber2.Gobber2;
 import com.kwpugh.gobber2.api.HandRemoveHandler;
 import com.kwpugh.gobber2.api.HandTickable;
 import com.kwpugh.gobber2.init.ItemInit;
@@ -53,6 +54,14 @@ public class RingAscent extends BaseRing implements HandRemoveHandler, HandTicka
 
 		if(entity instanceof PlayerEntity player)
 		{
+			// Remove status effect if player sneaks
+			if(player.hasStatusEffect(StatusEffects.LEVITATION) &&
+					player.getOffHandStack().isOf(ItemInit.GOBBER2_RING_ASCENT.asItem()) &&
+					player.isSneaking())
+			{
+				player.removeStatusEffect(StatusEffects.LEVITATION);
+			}
+
 			player.fallDistance = 0.0F;
 		}
 	}
@@ -64,7 +73,7 @@ public class RingAscent extends BaseRing implements HandRemoveHandler, HandTicka
 
 		if (!world.isClient && player.isOnGround() && offHandStack.isOf(ItemInit.GOBBER2_RING_ASCENT))
 		{
-			StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.LEVITATION, 3200, 1, false, false);
+			StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.LEVITATION, Gobber2.CONFIG.GENERAL.ringAscentDuration, 1, false, false);
 
 			player.addStatusEffect(effect);
 		}
