@@ -23,7 +23,7 @@
     "PlayerEntityMixinAttack",
     "PlayerEntityMixinDamage",
     "PlayerEntityMixinFallFlying",
-    "PlayerEntityMixinHand",
+    "PlayerEntityMixinTickHand",
     "PlayerEntityMixinSolidFooting",
     "PlayerEntityMixinTick",
     "PowderSnowBlockMixin",

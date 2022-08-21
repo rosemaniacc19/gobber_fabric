@@ -2,6 +2,7 @@ package com.kwpugh.gobber2.init;
 
 import com.kwpugh.gobber2.Gobber2;
 import com.kwpugh.gobber2.blocks.BaseOreBlock;
+import com.kwpugh.gobber2.blocks.LuckyBlock;
 import com.kwpugh.gobber2.blocks.ModBlock;
 import com.kwpugh.gobber2.blocks.ModGlass;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -14,9 +15,9 @@ import net.minecraft.util.registry.Registry;
 
 public class BlockInit
 {
-	public static final Block GOBBER2_LUCKY_BLOCK = new BaseOreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
-	public static final Block GOBBER2_LUCKY_BLOCK_DEEPSLATE = new BaseOreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
-	public static final Block GOBBER2_LUCKY_BLOCK_NETHER = new BaseOreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
+	public static final Block GOBBER2_LUCKY_BLOCK = new LuckyBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
+	public static final Block GOBBER2_LUCKY_BLOCK_DEEPSLATE = new LuckyBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
+	public static final Block GOBBER2_LUCKY_BLOCK_NETHER = new LuckyBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
 
 	public static final Block GOBBER2_ORE = new BaseOreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
 	public static final Block GOBBER2_ORE_DEEPSLATE = new BaseOreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));

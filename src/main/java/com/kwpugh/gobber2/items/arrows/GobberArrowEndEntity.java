@@ -39,6 +39,11 @@ public class GobberArrowEndEntity extends PersistentProjectileEntity
         super(EntityInit.GOBBER2_ARROW_END, owner, world);
     }
 
+    public GobberArrowEndEntity(World world, double x, double y, double z)
+    {
+        super(EntityInit.GOBBER2_ARROW_END, x, y, z, world);
+    }
+
     public void tick()
     {
         super.tick();

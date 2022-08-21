@@ -35,6 +35,11 @@ public class GobberArrowNetherEntity extends PersistentProjectileEntity
         super(EntityInit.GOBBER2_ARROW_NETHER, owner, world);
     }
 
+    public GobberArrowNetherEntity(World world, double x, double y, double z)
+    {
+        super(EntityInit.GOBBER2_ARROW_NETHER, x, y, z, world);
+    }
+
     public void tick()
     {
         super.tick();

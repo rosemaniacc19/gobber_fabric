@@ -38,5 +38,6 @@ public class Gobber2 implements ModInitializer
 		SummonerEvent.register();
 		SummonerManager.init();
 		EntityInit.registerEntities();
+		DispenserBehaviorInit.registerBehaviors();
     }
 }

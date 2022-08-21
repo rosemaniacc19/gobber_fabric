@@ -41,17 +41,18 @@ public class LuckyBlock extends BaseOreBlock
 	@Override
 	public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player)
 	{
-
 		if(world.isClient) return;
-		
+
+		ItemStack tool = player.getMainHandStack();
+		boolean suitable = tool.isSuitableFor(world.getBlockState(pos));
+
 		int tries = 1;  // Default value if Fortune not enabled
 		
 		if(enableFortune)
 		{
-			ItemStack stack2 = player.getMainHandStack();
 			boolean enchanted = player.getMainHandStack().hasEnchantments();	
-			boolean hasFortune = stack2.getEnchantments().toString().contains("fortune");
-			int level = EnchantmentHelper.getLevel(Enchantments.FORTUNE, stack2);
+			boolean hasFortune = tool.getEnchantments().toString().contains("fortune");
+			int level = EnchantmentHelper.getLevel(Enchantments.FORTUNE, tool);
 						
 			if(enchanted && hasFortune)
 			{
@@ -63,16 +64,16 @@ public class LuckyBlock extends BaseOreBlock
 			}			
 		}
 
-		if(enableExtraLoot)
+		if(enableExtraLoot & suitable)
 		{
 			for(int i = 1; i < (tries + 1); i++)
 			{
-				Random random = Random.create(); // AbstractRandom ??
+				Random random = Random.create();
 				double r = random.nextDouble();  //generate a random double between 0 and 1
 
 				if(r >= Gobber2.CONFIG.ORES.cutoffThreshold)  // cutoff threshold
 				{
-					// no drops
+					// Nada, nothing
 				}
 				else if(r >= Gobber2.CONFIG.ORES.commonThreshold) // Common
 				{
@@ -102,22 +103,5 @@ public class LuckyBlock extends BaseOreBlock
 				dropStack(world, pos, stack);
 			}			
 		}
-	}
-	
-	@Environment(EnvType.CLIENT)
-	public void appendTooltip(ItemStack stack, BlockView world, List<Text> tooltip, TooltipContext options)
-	{
-
-
-		if(stack.isOf(BlockInit.GOBBER2_LUCKY_BLOCK_NETHER.asItem()))
-		{
-
-			tooltip.add(Text.translatable("item.gobber2.ore_nether.tip1").formatted(Formatting.GREEN));
-		}
-		else
-		{
-			tooltip.add(Text.translatable("item.gobber2.ore_overworld.tip1").formatted(Formatting.GREEN));
-		}
-		tooltip.add(Text.translatable("item.gobber2.gobber2_lucky_block.tip1").formatted(Formatting.YELLOW));
 	}
 }
