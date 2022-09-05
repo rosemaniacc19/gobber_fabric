@@ -61,23 +61,28 @@ public class HammerEnd extends Hammer
     {
         ItemStack stack = playerIn.getMainHandStack();
         NbtCompound tag = stack.getNbt();
+        int materialMiningLevel = this.getMaterial().getMiningLevel();
 
-        if(tag != null)
+        if(isCorrectMiningLevel(state))
         {
-            radius = tag.getInt("radius");
-
-            if(!playerIn.isSneaking() && playerIn.getMainHandStack().isSuitableFor(world.getBlockState(pos)))
+            if(tag != null)
             {
-                obsidianFlag = (state.getBlock() == Blocks.OBSIDIAN || state.getBlock() == Blocks.CRYING_OBSIDIAN) ? true : false;
-                AreaUtil.attemptBreakNeighbors(world, playerIn, radius, "hammer", obsidianFlag);
+                radius = tag.getInt("radius");
+
+                if(!playerIn.isSneaking() && playerIn.getMainHandStack().isSuitableFor(world.getBlockState(pos)))
+                {
+                    obsidianFlag = (state.getBlock() == Blocks.OBSIDIAN || state.getBlock() == Blocks.CRYING_OBSIDIAN) ? true : false;
+                    AreaUtil.attemptBreakNeighbors(world, playerIn, radius, "hammer", obsidianFlag, materialMiningLevel);
+                }
             }
+
+            return true;
         }
 
-        return true;
+        return false;
     }
 
-    @Override
-    public boolean isSuitableFor(BlockState state)
+    public boolean isCorrectMiningLevel(BlockState state)
     {
         if(Items.NETHERITE_PICKAXE.isSuitableFor(state))
         {

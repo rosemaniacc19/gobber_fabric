@@ -5,88 +5,89 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import org.apache.logging.log4j.core.jmx.Server;
 
 public class GrowingUtil
 {
 	//  Accelerates growth in area of effect
-	public static void growCrops(World world, PlayerEntity player, int baseTickDelay, int cactusTickDelay, int radius, int height)
+	public static void growCrops(World world, PlayerEntity player, int regularDelay, int cactusDelay, int horiz, int vertical, boolean extraCrops)
 	{
 		BlockPos playerPos = new BlockPos(player.getPos());
 
-		if (player.age % (baseTickDelay) == 0)
+		for (BlockPos targetPos : BlockPos.iterateOutwards(playerPos, horiz, vertical, horiz))
 		{
-			for (BlockPos targetPos : BlockPos.iterateOutwards(playerPos, radius, height, radius))
-			{
-				BlockState blockstate = world.getBlockState(targetPos);
-				Block block = blockstate.getBlock();
+			BlockState blockstate = world.getBlockState(targetPos);
+			Block block = blockstate.getBlock();
 
-				if (   (block instanceof CropBlock) ||  //Beets Carrots Potatoes
-						block instanceof BambooSaplingBlock ||
-						block instanceof BambooBlock ||
-						block instanceof CocoaBlock ||
-						block instanceof StemBlock ||
-						block instanceof SweetBerryBushBlock ||
-						block instanceof FungusBlock ||
-						block instanceof SaplingBlock  || //all sapling
-						block instanceof KelpBlock ||
-						block instanceof KelpPlantBlock ||
-						block instanceof AzaleaBlock ||
-						block instanceof SmallDripleafBlock ||
-						block instanceof BigDripleafStemBlock
-				)
+			// Fertilizable crops
+			if ((block instanceof CropBlock) ||  //Beets Carrots Potatoes
+					block instanceof BambooSaplingBlock ||
+					block instanceof BambooBlock ||
+					block instanceof CocoaBlock ||
+					block instanceof StemBlock ||
+					block instanceof SweetBerryBushBlock ||
+					block instanceof FungusBlock ||
+					block instanceof SaplingBlock || //all sapling
+					block instanceof KelpBlock ||
+					block instanceof KelpPlantBlock ||
+					block instanceof AzaleaBlock ||
+					block instanceof SmallDripleafBlock ||
+					block instanceof BigDripleafStemBlock)
+			{
+				if (player.age % (regularDelay) == 0)
 				{
-					Fertilizable fertilizable = (Fertilizable)blockstate.getBlock();
+					Fertilizable fertilizable = (Fertilizable) blockstate.getBlock();
 					if (fertilizable.isFertilizable(world, targetPos, blockstate, world.isClient))
 					{
 						if (world instanceof ServerWorld)
 						{
 							if (fertilizable.canGrow(world, world.random, targetPos, blockstate))
 							{
-								fertilizable.grow((ServerWorld)world, world.random, targetPos, blockstate);
+								fertilizable.grow((ServerWorld) world, world.random, targetPos, blockstate);
 							}
 						}
 					}
 				}
 			}
-		}
 
-		if (world.getTime() % (cactusTickDelay) == 0)
-		{
-			for (BlockPos tickTarget : BlockPos.iterateOutwards(playerPos, radius, height, radius))
+			// Random tick crops
+			if (block instanceof SugarCaneBlock ||
+					block instanceof CactusBlock ||
+					block instanceof BuddingAmethystBlock ||
+					block instanceof NetherWartBlock ||
+					block instanceof ChorusFlowerBlock)
 			{
-				BlockState blockstate2 = world.getBlockState(tickTarget);
-				Block blockToTick = blockstate2.getBlock();
-
-				if(blockToTick instanceof SugarCaneBlock ||
-						blockToTick instanceof CactusBlock ||
-						blockToTick instanceof BuddingAmethystBlock ||
-						blockToTick instanceof NetherWartBlock ||
-						blockToTick instanceof ChorusFlowerBlock)
+				if (world.getTime() % (cactusDelay) == 0)
 				{
-					if(world instanceof ServerWorld)
+					if (world instanceof ServerWorld)
 					{
-						blockToTick.randomTick(blockstate2, (ServerWorld) world, tickTarget, world.random);
+						block.randomTick(blockstate, (ServerWorld) world, targetPos, world.random);
 					}
 				}
 			}
-		}
 
-		if (world.getTime() % (baseTickDelay) == 0)
-		{
-			for (BlockPos tickTarget : BlockPos.iterateOutwards(playerPos, radius, height, radius))
+			// Random tick for special case
+			if (block instanceof CropBlock && extraCrops)
 			{
-				BlockState blockstate2 = world.getBlockState(tickTarget);
-				Block blockToTick = blockstate2.getBlock();
-
-				if(blockToTick instanceof PointedDripstoneBlock)
+				if (world.getTime() % (cactusDelay) == 0)
 				{
-					if(world instanceof ServerWorld)
+					if (world instanceof ServerWorld)
 					{
-						blockToTick.randomTick(blockstate2, (ServerWorld) world, tickTarget, world.random);
+						block.randomTick(blockstate, (ServerWorld) world, targetPos, world.random);
+					}
+				}
+			}
 
-						PointedDripstoneBlock.dripTick(blockstate2, (ServerWorld) world, tickTarget,.9f);
-						PointedDripstoneBlock.tryGrow(blockstate2, (ServerWorld) world, tickTarget, world.random);
+			// Random tick for dripstone
+			if (block instanceof PointedDripstoneBlock)
+			{
+				if (world.getTime() % (regularDelay) == 0)
+				{
+					if (world instanceof ServerWorld)
+					{
+						block.randomTick(blockstate, (ServerWorld) world, targetPos, world.random);
+
+						PointedDripstoneBlock.dripTick(blockstate, (ServerWorld) world, targetPos, .9f);
+						PointedDripstoneBlock.tryGrow(blockstate, (ServerWorld) world, targetPos, world.random);
 					}
 				}
 			}

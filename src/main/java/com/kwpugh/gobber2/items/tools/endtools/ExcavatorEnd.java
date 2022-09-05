@@ -103,11 +103,16 @@ public class ExcavatorEnd extends Excavator
         ItemStack stack = playerIn.getMainHandStack();
         NbtCompound tag = stack.getNbt();
         radius = tag.getInt("radius");
+        int materialMiningLevel = this.getMaterial().getMiningLevel();
 
-        if(!playerIn.isSneaking() && playerIn.getMainHandStack().isSuitableFor(world.getBlockState(pos)))
+        if(isSuitableFor(state))
         {
-            AreaUtil.attemptBreakNeighbors(world, playerIn, radius, "excavator", false);
+            if(!playerIn.isSneaking() && playerIn.getMainHandStack().isSuitableFor(world.getBlockState(pos)))
+            {
+                AreaUtil.attemptBreakNeighbors(world, playerIn, radius, "excavator", false, materialMiningLevel);
+            }
         }
+
 
         return true;
     }

@@ -18,6 +18,7 @@ public class RingFarmer extends BaseRing
 	static int rangeVertical = Gobber2.CONFIG.GENERAL.ringFarmerVertRange;
 	static int interval = Gobber2.CONFIG.GENERAL.ringFarmerInterval;
 	static int intervalCactus = Gobber2.CONFIG.GENERAL.ringFarmerIntervalCactus;
+	static boolean extraCrops = Gobber2.CONFIG.GENERAL.ringFarmerExtraCrops;
 
 	public RingFarmer(Settings settings)
 	{
@@ -32,7 +33,7 @@ public class RingFarmer extends BaseRing
         
         if(stack == equippedMain)
         {
-        	GrowingUtil.growCrops(world, player, range, rangeVertical, interval, intervalCactus);
+        	GrowingUtil.growCrops(world, player, range, rangeVertical, interval, intervalCactus, extraCrops);
         }
     }
 	

@@ -132,6 +132,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public int ringFarmerVertRange = 6;
 		public int ringFarmerInterval = 60;
 		public int ringFarmerIntervalCactus = 20;
+		public boolean ringFarmerExtraCrops = false;
 		public int ringPhoenixHealAmount = 5;
 		public int ringHasteLevel = 2;
 		public int ringLuckLevel = 4;
@@ -196,6 +197,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public int staffFarmerVertRange = 6;
 		public int staffFarmerInterval = 60;
 		public int staffFarmerIntervalCactus = 20;
+		public boolean staffFarmerExtraCrops = false;
  		public boolean staffFarmerReplant = true;
  		public boolean staffEnsnarementHotileMobs = false;
 		

@@ -32,7 +32,7 @@ public class BaseOreBlock extends OreBlock
 
     public BaseOreBlock(FabricBlockSettings settings)
     {
-        super(settings);
+        super(settings.requiresTool());
         this.settings.requiresTool();
     }
 

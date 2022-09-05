@@ -15,7 +15,7 @@ public class OreGobber extends BaseOreBlock
 {
 	public OreGobber(FabricBlockSettings settings) 
 	{
-		super(settings);
+		super(settings.requiresTool());
 		this.settings.requiresTool();
 	}
 

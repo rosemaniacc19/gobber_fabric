@@ -18,18 +18,18 @@ import java.util.List;
 
 public class StaffFarmer extends BaseStaff
 {
+	static int range = Gobber2.CONFIG.GENERAL.staffFarmerHorizRange;
+	static int rangeVertical = Gobber2.CONFIG.GENERAL.staffFarmerVertRange;
+	static int interval = Gobber2.CONFIG.GENERAL.staffFarmerInterval;
+	static int intervalCactus = Gobber2.CONFIG.GENERAL.staffFarmerIntervalCactus;
+	static boolean replant = Gobber2.CONFIG.GENERAL.staffFarmerReplant;
+	static boolean extraCrops = Gobber2.CONFIG.GENERAL.ringFarmerExtraCrops;
+
 	public StaffFarmer(Settings settings)
 	{
 		super(settings);
 	}
 
-	static int range = Gobber2.CONFIG.GENERAL.staffFarmerHorizRange;
-	static int rangeVertical = Gobber2.CONFIG.GENERAL.staffFarmerVertRange;
-	static int interval = Gobber2.CONFIG.GENERAL.staffFarmerInterval;
-	static int intervalCactus = Gobber2.CONFIG.GENERAL.staffFarmerIntervalCactus;
-
-	static boolean replant = Gobber2.CONFIG.GENERAL.staffFarmerReplant;
-	
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected)
 	{
@@ -45,7 +45,7 @@ public class StaffFarmer extends BaseStaff
         {
         	if (!world.isClient)
         	{
-				GrowingUtil.growCrops(world, player, range, rangeVertical, interval, intervalCactus);
+				GrowingUtil.growCrops(world, player, range, rangeVertical, interval, intervalCactus, extraCrops);
         	}	
         }
 	}
