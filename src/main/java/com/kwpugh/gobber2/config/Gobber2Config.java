@@ -22,6 +22,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public int luckyVeinSize = 4;
 		public int luckyMaxLevel = 120;
 		public int luckyPerChunk = 15;
+		public int luckyExpOrbs = 2;
 
 		@Comment("\n"
 				+"\n"
@@ -40,6 +41,15 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public int luckyNetherVeinSize = 4;
 		public int luckyNetherMaxLevel = 128;
 		public int luckyNetherPerChunk = 15;
+
+		@Comment("\n"
+				+"\n"
+				+ "***********************"
+				+"\nLucky Block - End"
+				+"\n***********************")
+		public int luckyEndVeinSize = 9;
+		public int luckyEndMaxLevel = 180;
+		public int luckyEndPerChunk = 25;
 
 		@Comment("\n"
 				+ "\n"

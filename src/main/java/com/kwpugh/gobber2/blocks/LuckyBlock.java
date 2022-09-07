@@ -93,7 +93,7 @@ public class LuckyBlock extends BaseOreBlock
 							items.getRandom(random)).map((itemEntry) ->
 							(itemEntry.value()).getDefaultStack()).orElse(stack);
 				}
-				else
+				else  //Very Rare
 				{
 					stack = Registry.ITEM.getEntryList(TagInit.VERY_RARE_LOOT).flatMap((items) ->
 							items.getRandom(random)).map((itemEntry) ->

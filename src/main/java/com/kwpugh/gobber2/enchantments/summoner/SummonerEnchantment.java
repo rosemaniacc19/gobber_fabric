@@ -1,4 +1,4 @@
-package com.kwpugh.gobber2.enchantments;
+package com.kwpugh.gobber2.enchantments.summoner;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;

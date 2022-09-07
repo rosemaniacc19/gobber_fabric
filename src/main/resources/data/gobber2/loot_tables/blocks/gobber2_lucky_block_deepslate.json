@@ -28,39 +28,18 @@
 		{
 		  "type": "minecraft:item",
 		  "weight": 20,
-		  "name": "gobber2:gobber2_gooey_bread_nether"
-		},
-		{
-		  "type": "minecraft:item",
-		  "weight": 20,
-		  "name": "gobber2:gobber2_gooey_beef_nether"
-		},
-		{
-		  "type": "minecraft:item",
-		  "weight": 10,
-		  "name": "gobber2:gobber2_gooey_beefstew_nether"
-		},
-		{
-		  "type": "minecraft:item",
-		  "weight": 20,
-		  "name": "gobber2:gobber2_goo_nether"
-		},
-		{
-		  "type": "minecraft:item",
-		  "weight": 20,
 		  "name": "gobber2:gobber2_foo"
 		},
 		{
 		  "type": "minecraft:item",
 		  "weight": 20,
-		  "name": "gobber2:gobber2_foo_nether"
+		  "name": "gobber2:gobber2_arrow"
 		},
 		{
 		  "type": "minecraft:item",
 		  "weight": 20,
-		  "name": "gobber2:gobber2_foo_end"
+		  "name": "gobber2:gobber2_rod"
 		}
-		
       ],
       "conditions": [
         {

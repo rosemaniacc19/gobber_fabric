@@ -43,7 +43,7 @@ public class BaseOreBlock extends OreBlock
 
         if (EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 0)
         {
-            this.dropExperience(world, pos, 2);
+            this.dropExperience(world, pos, CONFIG.luckyExpOrbs);
         }
     }
 
@@ -84,13 +84,6 @@ public class BaseOreBlock extends OreBlock
             veinSize = CONFIG.luckyDeepslateVeinSize;
             chunkChance = CONFIG.luckyDeepslatePerChunk;
         }
-        else if(stack.isOf(BlockInit.GOBBER2_LUCKY_BLOCK_NETHER.asItem()))
-        {
-            maxLevel = CONFIG.luckyNetherMaxLevel;
-            veinSize = CONFIG.luckyNetherVeinSize;
-            chunkChance = CONFIG.luckyNetherPerChunk;
-            spawnDim = "Nether";
-        }
         else if(stack.isOf(BlockInit.GOBBER2_ORE.asItem()))
         {
             maxLevel = CONFIG.gobberMaxLevel;
@@ -105,6 +98,14 @@ public class BaseOreBlock extends OreBlock
             chunkChance = CONFIG.gobberDeepslatePerChunk;
             miningLevel = "Netherite";
         }
+        else if(stack.isOf(BlockInit.GOBBER2_LUCKY_BLOCK_NETHER.asItem()))
+        {
+            maxLevel = CONFIG.luckyNetherMaxLevel;
+            veinSize = CONFIG.luckyNetherVeinSize;
+            chunkChance = CONFIG.luckyNetherPerChunk;
+            miningLevel = "Diamond";
+            spawnDim = "Nether";
+        }
         else if(stack.isOf(BlockInit.GOBBER2_ORE_NETHER.asItem()))
         {
             maxLevel = CONFIG.netherGobberMaxLevel;
@@ -112,6 +113,14 @@ public class BaseOreBlock extends OreBlock
             chunkChance = CONFIG.netherGobberPerChunk;
             miningLevel = "Gobber";
             spawnDim = "Nether";
+        }
+        else if(stack.isOf(BlockInit.GOBBER2_LUCKY_BLOCK_END.asItem()))
+        {
+            maxLevel = CONFIG.luckyEndMaxLevel;
+            veinSize = CONFIG.luckyEndVeinSize;
+            chunkChance = CONFIG.luckyEndPerChunk;
+            miningLevel = "Netherite";
+            spawnDim = "The End";
         }
         else if(stack.isOf(BlockInit.GOBBER2_ORE_END.asItem()))
         {

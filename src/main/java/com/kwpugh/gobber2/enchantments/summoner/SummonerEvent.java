@@ -1,8 +1,7 @@
-package com.kwpugh.gobber2.events;
+package com.kwpugh.gobber2.enchantments.summoner;
 
 import com.kwpugh.gobber2.Gobber2;
 import com.kwpugh.gobber2.init.EnchantmentInit;
-import com.kwpugh.gobber2.util.SummonerManager;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityType;

@@ -21,6 +21,7 @@ public class GobberOreConfiguredFeature
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_GOBBER_OVERWORLD_DEEPSLATE;
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_LUCKY_BLOCK_NETHER;
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_GOBBER_NETHER;
+    public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_LUCKY_BLOCK_END;
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_GOBBER_THEEND;
 
     static
@@ -31,6 +32,7 @@ public class GobberOreConfiguredFeature
         ORE_GOBBER_OVERWORLD_DEEPSLATE = ConfiguredFeatures.register("ore_gobber_overworld_deepslate", Feature.ORE, new OreFeatureConfig(List.of(OreFeatureConfig.createTarget(OreConfiguredFeatures.DEEPSLATE_ORE_REPLACEABLES, BlockInit.GOBBER2_ORE_DEEPSLATE.getDefaultState())), CONFIG.gobberDeepslateVeinSize));
         ORE_LUCKY_BLOCK_NETHER = ConfiguredFeatures.register("ore_lucky_block_nether", Feature.ORE, new OreFeatureConfig(List.of(OreFeatureConfig.createTarget(OreConfiguredFeatures.NETHERRACK, BlockInit.GOBBER2_LUCKY_BLOCK_NETHER.getDefaultState())), CONFIG.luckyNetherVeinSize));
         ORE_GOBBER_NETHER = ConfiguredFeatures.register("ore_gobber_nether", Feature.ORE, new OreFeatureConfig(List.of(OreFeatureConfig.createTarget(OreConfiguredFeatures.NETHERRACK, BlockInit.GOBBER2_ORE_NETHER.getDefaultState())), CONFIG.netherGobberVeinSize));
+        ORE_LUCKY_BLOCK_END = ConfiguredFeatures.register("ore_lucky_block_end", Feature.ORE, new OreFeatureConfig(List.of(OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.END_STONE), BlockInit.GOBBER2_LUCKY_BLOCK_END.getDefaultState())), CONFIG.luckyEndVeinSize));
         ORE_GOBBER_THEEND = ConfiguredFeatures.register("ore_gobber_end", Feature.ORE, new OreFeatureConfig(List.of(OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.END_STONE), BlockInit.GOBBER2_ORE_END.getDefaultState())), CONFIG.endGobberVeinSize));
     }
 }

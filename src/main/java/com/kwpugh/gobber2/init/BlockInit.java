@@ -18,6 +18,7 @@ public class BlockInit
 	public static final Block GOBBER2_LUCKY_BLOCK = new LuckyBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
 	public static final Block GOBBER2_LUCKY_BLOCK_DEEPSLATE = new LuckyBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
 	public static final Block GOBBER2_LUCKY_BLOCK_NETHER = new LuckyBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
+	public static final Block GOBBER2_LUCKY_BLOCK_END = new LuckyBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
 
 	public static final Block GOBBER2_ORE = new BaseOreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
 	public static final Block GOBBER2_ORE_DEEPSLATE = new BaseOreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
@@ -39,6 +40,7 @@ public class BlockInit
 			Registry.register(Registry.BLOCK, new Identifier(Gobber2.MOD_ID, "gobber2_lucky_block"), GOBBER2_LUCKY_BLOCK);
 			Registry.register(Registry.BLOCK, new Identifier(Gobber2.MOD_ID, "gobber2_lucky_block_deepslate"), GOBBER2_LUCKY_BLOCK_DEEPSLATE);
 			Registry.register(Registry.BLOCK, new Identifier(Gobber2.MOD_ID, "gobber2_lucky_block_nether"), GOBBER2_LUCKY_BLOCK_NETHER);
+			Registry.register(Registry.BLOCK, new Identifier(Gobber2.MOD_ID, "gobber2_lucky_block_end"), GOBBER2_LUCKY_BLOCK_END);
 
 			Registry.register(Registry.BLOCK, new Identifier(Gobber2.MOD_ID, "gobber2_ore"), GOBBER2_ORE);
 			Registry.register(Registry.BLOCK, new Identifier(Gobber2.MOD_ID, "gobber2_ore_deepslate"), GOBBER2_ORE_DEEPSLATE);
@@ -63,6 +65,7 @@ public class BlockInit
 			Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_lucky_block"), new BlockItem(GOBBER2_LUCKY_BLOCK, new Item.Settings().group(Gobber2.GOBBER2_GROUP)));
 			Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_lucky_block_deepslate"), new BlockItem(GOBBER2_LUCKY_BLOCK_DEEPSLATE, new Item.Settings().group(Gobber2.GOBBER2_GROUP)));
 			Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_lucky_block_nether"), new BlockItem(GOBBER2_LUCKY_BLOCK_NETHER, new Item.Settings().group(Gobber2.GOBBER2_GROUP)));
+			Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_lucky_block_end"), new BlockItem(GOBBER2_LUCKY_BLOCK_END, new Item.Settings().group(Gobber2.GOBBER2_GROUP)));
 
 			Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_ore"), new BlockItem(GOBBER2_ORE, new Item.Settings().group(Gobber2.GOBBER2_GROUP)));
 			Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_ore_deepslate"), new BlockItem(GOBBER2_ORE_DEEPSLATE, new Item.Settings().group(Gobber2.GOBBER2_GROUP)));

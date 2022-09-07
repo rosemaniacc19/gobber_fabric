@@ -27,6 +27,7 @@ public class GobberOrePlacedFeature
     public static final RegistryEntry<PlacedFeature> ORE_GOBBER_OVERWORLD_DEEPSLATE;
     public static final RegistryEntry<PlacedFeature> ORE_LUCKY_BLOCK_NETHER;
     public static final RegistryEntry<PlacedFeature> ORE_GOBBER_NETHER;
+    public static final RegistryEntry<PlacedFeature> ORE_LUCKY_BLOCK_END;
     public static final RegistryEntry<PlacedFeature> ORE_GOBBER_THEEND;
 
 
@@ -37,7 +38,8 @@ public class GobberOrePlacedFeature
         ORE_GOBBER_OVERWORLD = PlacedFeatures.register("ore_gobber_overworld", GobberOreConfiguredFeature.ORE_GOBBER_OVERWORLD, modifiersWithCount(CONFIG.gobberPerChunk, HeightRangePlacementModifier.uniform(YOffset.fixed(0),YOffset.fixed(CONFIG.gobberMaxLevel))  ));
         ORE_GOBBER_OVERWORLD_DEEPSLATE = PlacedFeatures.register("ore_gobber_overworld_deepslate", GobberOreConfiguredFeature.ORE_GOBBER_OVERWORLD_DEEPSLATE, modifiersWithCount(CONFIG.gobberDeepslatePerChunk, HeightRangePlacementModifier.uniform(YOffset.fixed(-64),YOffset.fixed(CONFIG.gobberDeepslateMaxLevel))  ));
         ORE_LUCKY_BLOCK_NETHER = PlacedFeatures.register("ore_lucky_block_nether", GobberOreConfiguredFeature.ORE_LUCKY_BLOCK_NETHER, modifiersWithCount(CONFIG.luckyNetherPerChunk, HeightRangePlacementModifier.uniform(YOffset.fixed(0),YOffset.fixed(CONFIG.luckyNetherMaxLevel))  ));
-        ORE_GOBBER_NETHER = PlacedFeatures.register("ore_gobber_nether", GobberOreConfiguredFeature.ORE_GOBBER_NETHER, modifiersWithCount(CONFIG.netherGobberPerChunk, HeightRangePlacementModifier.uniform(YOffset.fixed(0),YOffset.fixed(CONFIG.netherGobberMaxLevel)) ));
+        ORE_GOBBER_NETHER = PlacedFeatures.register("ore_gobber_nether", GobberOreConfiguredFeature.ORE_GOBBER_NETHER, modifiersWithCount(CONFIG.netherGobberPerChunk, HeightRangePlacementModifier.uniform(YOffset.fixed(0),YOffset.fixed(CONFIG.netherGobberMaxLevel))));
+        ORE_LUCKY_BLOCK_END = PlacedFeatures.register("ore_lucky_block_end", GobberOreConfiguredFeature.ORE_LUCKY_BLOCK_END, modifiersWithCount(CONFIG.luckyEndPerChunk, HeightRangePlacementModifier.uniform(YOffset.fixed(0),YOffset.fixed(CONFIG.luckyEndMaxLevel)) ));
         ORE_GOBBER_THEEND = PlacedFeatures.register("ore_gobber_end", GobberOreConfiguredFeature.ORE_GOBBER_THEEND, modifiersWithCount(CONFIG.endGobberPerChunk, HeightRangePlacementModifier.uniform(YOffset.fixed(0),YOffset.fixed(CONFIG.endGobberMaxLevel)) ));
     }
 
@@ -51,6 +53,7 @@ public class GobberOrePlacedFeature
         RegistryKey<PlacedFeature> overworldGobberOreDeepslate = ORE_GOBBER_OVERWORLD_DEEPSLATE.getKey().get();
         RegistryKey<PlacedFeature> netherLuckyBlock = ORE_LUCKY_BLOCK_NETHER.getKey().get();
         RegistryKey<PlacedFeature> netherGobberOre = ORE_GOBBER_NETHER.getKey().get();
+        RegistryKey<PlacedFeature> endLuckyBlock = ORE_LUCKY_BLOCK_END.getKey().get();
         RegistryKey<PlacedFeature> endGobberOre = ORE_GOBBER_THEEND.getKey().get();
 
         // Inject into Biomes
@@ -60,6 +63,7 @@ public class GobberOrePlacedFeature
         BiomeModifications.addFeature(overworldSelector(), GenerationStep.Feature.UNDERGROUND_ORES, overworldGobberOreDeepslate);
         BiomeModifications.addFeature(netherSelector(), GenerationStep.Feature.UNDERGROUND_ORES, netherLuckyBlock);
         BiomeModifications.addFeature(netherSelector(), GenerationStep.Feature.UNDERGROUND_ORES, netherGobberOre);
+        BiomeModifications.addFeature(endSelector(), GenerationStep.Feature.UNDERGROUND_ORES, endLuckyBlock);
         BiomeModifications.addFeature(endSelector(), GenerationStep.Feature.UNDERGROUND_ORES, endGobberOre);
     }
 
