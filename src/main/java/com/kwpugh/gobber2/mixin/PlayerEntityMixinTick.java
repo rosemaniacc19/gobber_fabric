@@ -9,6 +9,7 @@ import com.kwpugh.gobber2.util.PlayerEquipUtil;
 import com.kwpugh.gobber2.util.PlayerSpecialAbilities;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;

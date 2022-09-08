@@ -42,14 +42,14 @@ public class RingHaste extends BaseRing
 		}
 	}
 	
-	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand)
+	public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand)
 	{
-		ItemStack itemStack = user.getStackInHand(hand);
+		ItemStack itemStack = player.getStackInHand(hand);
 
-		if (!world.isClient && !user.isSneaking())
+		if (!world.isClient)
 		{
-			EnableUtil.changeEnabled(user, hand);
-			user.sendMessage((Text.translatable("Status changed")), true);
+			EnableUtil.changeEnabled(player, hand);
+			player.sendMessage((Text.translatable("Status changed")), true);
 		}
 
 		return TypedActionResult.success(itemStack);

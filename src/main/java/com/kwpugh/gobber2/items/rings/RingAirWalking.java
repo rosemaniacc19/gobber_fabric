@@ -52,24 +52,24 @@ public class RingAirWalking extends BaseRing implements HandRemoveHandler, HandT
 	}
 	
 	@Override   
-	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand)
+	public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand)
 	{
-		 ItemStack wand = user.getStackInHand(hand);
+		 ItemStack wand = player.getStackInHand(hand);
 		
 		if(!world.isClient && Gobber2.CONFIG.GENERAL.enableAirWalkingPlaceGlass)
 		{			
-			ServerPlayerEntity player = (ServerPlayerEntity) user;
+			ServerPlayerEntity serverPlayer = (ServerPlayerEntity) player;
 			
-			ItemStack stack = player.getMainHandStack();
+			ItemStack stack = serverPlayer.getMainHandStack();
 
-			BlockPos pos = traceForBlock(player, 3);
+			BlockPos pos = traceForBlock(serverPlayer, 2);
 			Block glassBlock = BlockInit.CLEAR_GLASS;
 			BlockState glassDefaultState = glassBlock.getDefaultState();	      
       
 			if (world.isAir(pos) || !world.getFluidState(pos).isEmpty())
 			{
 				world.setBlockState(pos, glassDefaultState);
-				stack.damage(1, player, (p_220038_0_) -> {
+				stack.damage(1, serverPlayer, (p_220038_0_) -> {
 			         p_220038_0_.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
 			         });
 			}	

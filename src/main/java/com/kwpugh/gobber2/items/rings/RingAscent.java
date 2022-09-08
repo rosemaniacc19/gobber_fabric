@@ -4,6 +4,7 @@ import com.kwpugh.gobber2.Gobber2;
 import com.kwpugh.gobber2.api.HandRemoveHandler;
 import com.kwpugh.gobber2.api.HandTickable;
 import com.kwpugh.gobber2.init.ItemInit;
+import com.kwpugh.gobber2.util.EnableUtil;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -55,7 +56,8 @@ public class RingAscent extends BaseRing implements HandRemoveHandler, HandTicka
 		if(entity instanceof PlayerEntity player)
 		{
 			// Remove status effect if player sneaks
-			if(player.hasStatusEffect(StatusEffects.LEVITATION) &&
+			if(!player.isOnGround() &&
+					player.hasStatusEffect(StatusEffects.LEVITATION) &&
 					player.getOffHandStack().isOf(ItemInit.GOBBER2_RING_ASCENT.asItem()) &&
 					player.isSneaking())
 			{
@@ -68,17 +70,31 @@ public class RingAscent extends BaseRing implements HandRemoveHandler, HandTicka
 
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand)
 	{
-		ItemStack stack = player.getStackInHand(hand);
+		ItemStack mainHandstack = player.getStackInHand(hand);
 		ItemStack offHandStack = player.getOffHandStack();
 
-		if (!world.isClient && player.isOnGround() && offHandStack.isOf(ItemInit.GOBBER2_RING_ASCENT))
+		if(world.isClient) return TypedActionResult.success(mainHandstack);
+
+		if(player.isOnGround() && offHandStack.isOf(ItemInit.GOBBER2_RING_ASCENT))
 		{
 			StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.LEVITATION, Gobber2.CONFIG.GENERAL.ringAscentDuration, 1, false, false);
 
 			player.addStatusEffect(effect);
 		}
 
-		return TypedActionResult.success(stack);
+		if(player.isSneaking() && mainHandstack.isOf(ItemInit.GOBBER2_RING_ASCENT))
+		{
+			EnableUtil.changeEnabled(player, hand);
+			player.sendMessage((Text.translatable("Status changed")), true);
+		}
+
+		return TypedActionResult.success(mainHandstack);
+	}
+
+	@Override
+	public boolean hasGlint(ItemStack stack)
+	{
+		return EnableUtil.isEnabled(stack);
 	}
 
 	@Override
@@ -87,5 +103,6 @@ public class RingAscent extends BaseRing implements HandRemoveHandler, HandTicka
 		tooltip.add(Text.translatable("item.gobber2.gobber2_ring_ascent.tip1").formatted(Formatting.GREEN));
 		tooltip.add(Text.translatable("item.gobber2.gobber2_ring_ascent.tip2").formatted(Formatting.GREEN));
 		tooltip.add(Text.translatable("item.gobber2.gobber2_ring_ascent.tip3").formatted(Formatting.YELLOW));
+		tooltip.add(Text.translatable("item.gobber2.gobber2_ring_ascent.tip4").formatted(Formatting.BLUE));
 	}
 }

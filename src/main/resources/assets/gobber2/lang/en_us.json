@@ -259,7 +259,8 @@
 	"item.gobber2.gobber2_ring_ascent.tip1": "Provides a few minutes of floating",
 	"item.gobber2.gobber2_ring_ascent.tip2": "No Fall Damage while in inventory",
 	"item.gobber2.gobber2_ring_ascent.tip3": "Right-click while in offhand to activate",
-	
+	"item.gobber2.gobber2_ring_ascent.tip4": "Sneak + right-click to toggle wall climbing",
+
 	"item.gobber2.gobber2_ring_curing": "Ring of Curing",
 	"item.gobber2.gobber2_ring_curing.tip1": "Provides curing for negative potion effects",
 
