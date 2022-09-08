@@ -40,12 +40,12 @@ public class ClimbingUtil
 
                 if(checkBlockBelow(stateDown))
                 {
-                    if(ClimbingUtil.canBegin(player.world, north, south, east, west, stateNorth, stateSouth, stateEast, stateWest))
+                    if(canBegin(player.world, north, south, east, west, stateNorth, stateSouth, stateEast, stateWest))
                     {
                         value = true;
                     }
                 }
-                else if(ClimbingUtil.canContinue(stateNorth, stateSouth, stateEast, stateWest))
+                else if(canContinue(stateNorth, stateSouth, stateEast, stateWest))
                 {
                     value = true;
                 }
@@ -61,12 +61,12 @@ public class ClimbingUtil
         return block != Blocks.AIR && !state.isIn(BlockTags.REPLACEABLE_PLANTS) && !state.isIn(BlockTags.FLOWERS);
     }
 
-    public static boolean checkContinueState(Block block, BlockState state)
+    public static boolean checkContinue(Block block, BlockState state)
     {
         return block != Blocks.AIR && !state.isIn(BlockTags.REPLACEABLE_PLANTS);
     }
 
-    public static boolean checkBeginState(Block block, Block blockUp, BlockState state, BlockState stateUp)
+    public static boolean checkBegin(Block block, Block blockUp, BlockState state, BlockState stateUp)
     {
         return block != Blocks.AIR && blockUp != Blocks.AIR && !state.isIn(BlockTags.REPLACEABLE_PLANTS) && !stateUp.isIn(BlockTags.REPLACEABLE_PLANTS);
     }
@@ -78,35 +78,35 @@ public class ClimbingUtil
         BlockState stateEastUp = world.getBlockState(east.offset(Direction.UP, 1));
         BlockState stateWestUp = world.getBlockState(west.offset(Direction.UP, 1));
 
-        if(checkBeginState(stateNorth.getBlock(), stateNorthUp.getBlock(), stateNorth, stateNorthUp))
+        if(checkBegin(stateNorth.getBlock(), stateNorthUp.getBlock(), stateNorth, stateNorthUp))
         {
             return true;
         }
-        else if(checkBeginState(stateSouth.getBlock(), stateSouthUp.getBlock(), stateSouth, stateSouthUp))
+        else if(checkBegin(stateSouth.getBlock(), stateSouthUp.getBlock(), stateSouth, stateSouthUp))
         {
             return true;
         }
-        else if(checkBeginState(stateEast.getBlock(), stateEastUp.getBlock(), stateEast, stateEastUp))
+        else if(checkBegin(stateEast.getBlock(), stateEastUp.getBlock(), stateEast, stateEastUp))
         {
             return true;
         }
-        return checkBeginState(stateWest.getBlock(), stateWestUp.getBlock(), stateWest, stateWestUp);
+        return checkBegin(stateWest.getBlock(), stateWestUp.getBlock(), stateWest, stateWestUp);
     }
 
     public static boolean canContinue(BlockState stateNorth, BlockState stateSouth, BlockState stateEast, BlockState stateWest)
     {
-        if(checkContinueState(stateNorth.getBlock(), stateNorth))
+        if(checkContinue(stateNorth.getBlock(), stateNorth))
         {
             return true;
         }
-        if(checkContinueState(stateSouth.getBlock(), stateSouth))
+        if(checkContinue(stateSouth.getBlock(), stateSouth))
         {
             return true;
         }
-        if(checkContinueState(stateEast.getBlock(), stateEast))
+        if(checkContinue(stateEast.getBlock(), stateEast))
         {
             return true;
         }
-        return checkContinueState(stateWest.getBlock(), stateWest);
+        return checkContinue(stateWest.getBlock(), stateWest);
     }
 }

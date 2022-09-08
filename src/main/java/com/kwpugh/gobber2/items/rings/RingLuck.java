@@ -45,7 +45,7 @@ public class RingLuck extends BaseRing
 	{
 		ItemStack itemStack = player.getStackInHand(hand);
 
-		if (!world.isClient && player.isSneaking())
+		if (!world.isClient)
 		{
 			EnableUtil.changeEnabled(player, hand);
 			player.sendMessage((Text.translatable("Status changed")), true);
