@@ -24,7 +24,7 @@ public abstract class LivingEntityMixinClimbing extends Entity
         if(!cir.getReturnValue())
         {
             LivingEntity livingEntity = (LivingEntity) (Object) this;
-            boolean value = ClimbingUtil.canClimb(world, livingEntity, livingEntity.getBlockPos());
+            boolean value = ClimbingUtil.canClimb(world, livingEntity);
             cir.setReturnValue(value);
         }
     }
