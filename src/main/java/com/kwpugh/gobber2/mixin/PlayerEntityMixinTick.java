@@ -7,6 +7,7 @@ import com.kwpugh.gobber2.items.rings.RingRepair;
 import com.kwpugh.gobber2.util.EnableUtil;
 import com.kwpugh.gobber2.util.PlayerEquipUtil;
 import com.kwpugh.gobber2.util.PlayerSpecialAbilities;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.data.TrackedData;
@@ -18,6 +19,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.stat.Stat;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -45,6 +47,16 @@ public abstract class PlayerEntityMixinTick extends LivingEntity
     protected PlayerEntityMixinTick(EntityType<? extends LivingEntity> type, World world)
     {
         super(type, world);
+    }
+
+    @Inject(at = @At("HEAD"), method = "slowMovement", cancellable = true)
+    public void gobberSlowMovement(BlockState state, Vec3d multiplier, CallbackInfo info)
+    {
+        PlayerEntity player = (PlayerEntity) (Object) this;
+        if(PlayerEquipUtil.hasItemInInventory(player, ItemInit.GOBBER2_RING_SWIFTNESS))
+        {
+            info.cancel();
+        }
     }
 
     @Inject(method = "tick", at = @At("HEAD"))

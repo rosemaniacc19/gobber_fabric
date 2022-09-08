@@ -10,7 +10,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 /*
-    Wall  climbing for Ring of Ascent
+    Wall climbing for Ring of Ascent
 
     Credit to Technovision and
     code in Advancced Genetics
@@ -21,7 +21,7 @@ public class ClimbingUtil
 {
     public static boolean canClimb(World world, LivingEntity livingEntity)
     {
-        boolean value = false;  // just to be clear, should be false coming in
+        boolean value = false;  // just to be safe, should be false when called
 
         if(livingEntity instanceof PlayerEntity player)
         {
@@ -76,6 +76,11 @@ public class ClimbingUtil
         return checkBeginSpace(stateWest, stateWestUp);
     }
 
+    public static boolean checkBeginSpace(BlockState state, BlockState stateUp)
+    {
+        return !state.isAir() && !stateUp.isAir() && !state.isIn(BlockTags.REPLACEABLE_PLANTS) && !stateUp.isIn(BlockTags.REPLACEABLE_PLANTS);
+    }
+
     public static boolean canContinueClimbing(BlockState stateNorth, BlockState stateSouth, BlockState stateEast, BlockState stateWest)
     {
         if(checkContinueSpace(stateNorth))
@@ -91,11 +96,6 @@ public class ClimbingUtil
             return true;
         }
         return checkContinueSpace(stateWest);
-    }
-
-    public static boolean checkBeginSpace(BlockState state, BlockState stateUp)
-    {
-        return !state.isAir() && !stateUp.isAir() && !state.isIn(BlockTags.REPLACEABLE_PLANTS) && !stateUp.isIn(BlockTags.REPLACEABLE_PLANTS);
     }
 
     public static boolean checkContinueSpace(BlockState state)
