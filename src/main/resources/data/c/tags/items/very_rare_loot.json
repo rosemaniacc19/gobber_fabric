@@ -3,21 +3,10 @@
   "values": [
    	"minecraft:totem_of_undying",
   	"minecraft:elytra",
-    {
-      "id": "gobber2:gobber2_ingot_end",
-      "required": false
-    },
-    {
-      "id": "gobber2:gobber2_ring_teleport",
-      "required": false
-    },
-    {
-      "id": "gobber2:gobber2_ring_ascent",
-      "required": false
-    },
-    {
-      "id": "gobber2:gobber2_ring_swiftness",
-      "required": false
-    }
+    "gobber2:gobber2_ingot_end",
+    "gobber2:gobber2_ring_teleport",
+    "gobber2:gobber2_ring_ascent",
+    "gobber2:gobber2_ring_swiftness",
+    "gobber2:gobber2_arrow_end"
   ]
 }

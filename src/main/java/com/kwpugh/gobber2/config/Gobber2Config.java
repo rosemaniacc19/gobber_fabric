@@ -490,7 +490,6 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 				+"\n"
 				+ "***********************"
  	    		+"\nLoot Chests"
-				+"\nNot working in 1.19 for now"
  	    		+"\n***********************")
 		public boolean lootEnable = true;
 		public float lootChance = .04F;
@@ -505,8 +504,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 	            +"\nMin/Max range from world spawn to search"
 				+"\nor from the player's current position"
 		    	+"\nItem does NOT have a standard recipe"
-		    	+ "\n***********************") 
-		public boolean enableSpecialItem = true;
+		    	+ "\n***********************")
 		public int specialItemMin = 20000;
 		public int specialItemMax = 75000;
 		public boolean specialItemUsePlayerPos = false;

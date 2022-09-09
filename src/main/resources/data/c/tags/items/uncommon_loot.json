@@ -8,9 +8,7 @@
   	"minecraft:heart_of_the_sea",
   	"minecraft:blaze_rod",
   	"minecraft:ghast_tear",
-	{
-	  "id": "gobber2:gobber2_ingot",
-	  "required": false
-	}
+	"gobber2:gobber2_ingot",
+	"gobber2:gobber2_arrow"
   ]
 }
