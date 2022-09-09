@@ -40,7 +40,7 @@ public class StaffHostileEnsnarement extends BaseStaff
     {
         if(!player.world.isClient)
         {
-            if((stack.getOrCreateNbt().isEmpty()) &&
+            if((stack.getOrCreateSubNbt("captured_entity").isEmpty()) &&
                     (entity instanceof AnimalEntity ||
                             entity instanceof GolemEntity ||
                             entity instanceof VillagerEntity) ||
