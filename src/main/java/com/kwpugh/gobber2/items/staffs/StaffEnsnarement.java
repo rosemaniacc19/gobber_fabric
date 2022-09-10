@@ -75,42 +75,6 @@ public class StaffEnsnarement extends BaseStaff
 		return ActionResult.SUCCESS;
 	}
 
-//    @Override
-//    public ActionResult useOnEntity(ItemStack stack, PlayerEntity player, LivingEntity entity, Hand hand)
-//    {
-//    	if(!player.world.isClient)
-//    	{
-//	       	 if((enableHostileUse) && (stack.getOrCreateNbt().isEmpty()) &&
-//	    			 (entity instanceof HostileEntity) && !(entity instanceof WitherEntity))
-//	    	 {
-//	       		 if(EnsnarementUtil.saveEntityToStack(entity, stack))
-//	       		 {
-//	       			 player.setStackInHand(hand, stack);
-//	       		 }
-//
-//	 			return ActionResult.SUCCESS;
-//	    	 }
-//
-//			if((stack.getOrCreateNbt().isEmpty()) &&
-//					(entity instanceof AnimalEntity ||
-//							entity instanceof GolemEntity ||
-//							entity instanceof VillagerEntity) ||
-//							entity instanceof FishEntity ||
-//							entity instanceof DolphinEntity ||
-//							entity instanceof AllayEntity ||
-//							entity instanceof WanderingTraderEntity)
-//        	 {
-//           		 if(EnsnarementUtil.saveEntityToStack(entity, stack))
-//           		 {
-//           			 player.setStackInHand(hand, stack);
-//           		 }
-//
-//     			return ActionResult.SUCCESS;
-//        	 }
-//    	}
-//
-//        return ActionResult.SUCCESS;
-//    }
 
     // Right-click on block, if staff has stored entity set it's position, spawn it in, and remove tags on staff
     @SuppressWarnings("resource")
