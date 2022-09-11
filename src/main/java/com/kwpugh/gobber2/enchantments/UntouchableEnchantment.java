@@ -1,17 +1,12 @@
 package com.kwpugh.gobber2.enchantments;
 
-import java.util.Random;
-
 import com.kwpugh.gobber2.Gobber2;
-
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.ItemStack;
 
 public class UntouchableEnchantment extends Enchantment
 {	
@@ -19,9 +14,6 @@ public class UntouchableEnchantment extends Enchantment
 	{
 		super(weight, target, slotTypes);
 	}
-
-	static int damage = Gobber2.CONFIG.GENERAL.untouchableDamage;
-	static int maxLevel = Gobber2.CONFIG.GENERAL.untouchableMaxLevel;
 	
 	public int getMinPower(int level) 
 	{
@@ -36,35 +28,36 @@ public class UntouchableEnchantment extends Enchantment
 	@Override
 	public int getMaxLevel()
 	{
-	    return maxLevel;
-	}
-
-	@Override
-	public boolean isAcceptableItem(ItemStack stack)
-	{
-		return stack.getItem() instanceof ArmorItem ? true : super.isAcceptableItem(stack);
+	    return Gobber2.CONFIG.GENERAL.untouchableMaxLevel;
 	}
 
 	@Override
 	public void onUserDamaged(LivingEntity user, Entity attacker, int level)
 	{
-	      Random random = new Random();
-	      if (shouldDamageAttacker(level, random))
-	      {
-	         if (attacker != null)
-	         {
-	            attacker.damage(DamageSource.thorns(user), (float)getDamageAmount(level, random));
-	         }
-	      }
-	   }
-
-	public static boolean shouldDamageAttacker(int level, Random random)
-	{
-		return true;
+		if(user.getRandom().nextFloat() <= (Gobber2.CONFIG.GENERAL.untouchableAttackChance + (level / 10)))
+		{
+			if(attacker != null)
+			{
+				attacker.damage(DamageSource.thorns(user), Gobber2.CONFIG.GENERAL.untouchableBaseDamage + (level * 1.5F));
+			}
+		}
 	}
 
-	public static int getDamageAmount(int level, Random random)
+	@Override
+	public boolean isTreasure()
 	{
-		return damage * level;
+		return Gobber2.CONFIG.GENERAL.enableUntouchable;
+	}
+
+	@Override
+	public boolean isAvailableForEnchantedBookOffer()
+	{
+		return Gobber2.CONFIG.GENERAL.enableUntouchable;
+	}
+
+	@Override
+	public boolean isAvailableForRandomSelection()
+	{
+		return Gobber2.CONFIG.GENERAL.enableUntouchable;
 	}
 }

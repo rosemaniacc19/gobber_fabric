@@ -459,13 +459,31 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		@Comment("\n"
 				+"\n"
 				+ "***********************"
+				+"\nEnable/Disable Enchantments"
+				+"\n***********************")
+		public boolean enableApotropaic = true;
+		public boolean enableBlinders = true;
+		public boolean enableFasterObsidian = true;
+		public boolean enableFluidMaster = true;
+		public boolean enableQuickUse = true;
+		public boolean enableQuietFeet = true;
+		public boolean enableRebuffing = true;
+		public boolean enableSmithBlade = true;
+		public boolean enableSoildFooting = true;
+		public boolean enableSummoner = true;
+		public boolean enableUntouchable = true;
+
+		@Comment("\n"
+				+"\n"
+				+ "***********************"
 				+"\nEnchantment Settings"
 				+"\n***********************")
 		public int smithbladeAttackAmount = 2 ;
 		public int smithbladeMaxLevel = 5;
 		public int rebuffingMaxLevel = 3;
-		public int untouchableDamage = 8;
-		public int untouchableMaxLevel = 3;
+		public int untouchableBaseDamage = 8;
+		public int untouchableMaxLevel = 4;
+		public float untouchableAttackChance = .5F;
 		public boolean enableSummonerBonusStats = true;
 		public boolean summonerGoldGear = true;
 		public int summonerMobLifespan = 120;

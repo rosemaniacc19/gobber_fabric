@@ -48,11 +48,29 @@ public class RebuffingEnchantment extends Enchantment
         	attacker.damage(DamageSource.thorns(user), (float)getDamageAmount(level, random));			       		
 		}    		
     	    	
-    	super.onTargetDamaged(user, attacker, level);
+    	//super.onTargetDamaged(user, attacker, level);
     }
     
     public static int getDamageAmount(int level, Random random)
     {
     	return level > 10 ? level - 10 : 1 + random.nextInt(3);
     }
+
+	@Override
+	public boolean isTreasure()
+	{
+		return Gobber2.CONFIG.GENERAL.enableRebuffing;
+	}
+
+	@Override
+	public boolean isAvailableForEnchantedBookOffer()
+	{
+		return Gobber2.CONFIG.GENERAL.enableRebuffing;
+	}
+
+	@Override
+	public boolean isAvailableForRandomSelection()
+	{
+		return Gobber2.CONFIG.GENERAL.enableRebuffing;
+	}
 }

@@ -1,5 +1,6 @@
 package com.kwpugh.gobber2.enchantments.summoner;
 
+import com.kwpugh.gobber2.Gobber2;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.*;
@@ -27,4 +28,21 @@ public class SummonerEnchantment extends Enchantment
         return 5;
     }
 
+    @Override
+    public boolean isTreasure()
+    {
+        return Gobber2.CONFIG.GENERAL.enableSummoner;
+    }
+
+    @Override
+    public boolean isAvailableForEnchantedBookOffer()
+    {
+        return Gobber2.CONFIG.GENERAL.enableSummoner;
+    }
+
+    @Override
+    public boolean isAvailableForRandomSelection()
+    {
+        return Gobber2.CONFIG.GENERAL.enableSummoner;
+    }
 }

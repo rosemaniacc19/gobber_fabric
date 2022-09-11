@@ -1,5 +1,6 @@
 package com.kwpugh.gobber2.enchantments;
 
+import com.kwpugh.gobber2.Gobber2;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
@@ -25,5 +26,23 @@ public class ApotropaicEnchantment extends Enchantment
     public int getMaxLevel()
     {
         return 1;
+    }
+
+    @Override
+    public boolean isTreasure()
+    {
+        return Gobber2.CONFIG.GENERAL.enableApotropaic;
+    }
+
+    @Override
+    public boolean isAvailableForEnchantedBookOffer()
+    {
+        return Gobber2.CONFIG.GENERAL.enableApotropaic;
+    }
+
+    @Override
+    public boolean isAvailableForRandomSelection()
+    {
+        return Gobber2.CONFIG.GENERAL.enableApotropaic;
     }
 }

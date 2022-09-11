@@ -38,4 +38,21 @@ public class SmithBladeEnchantment extends Enchantment
 		return attackAmount * level;
    }
 
+    @Override
+    public boolean isTreasure()
+    {
+        return Gobber2.CONFIG.GENERAL.enableSmithBlade;
+    }
+
+    @Override
+    public boolean isAvailableForEnchantedBookOffer()
+    {
+        return Gobber2.CONFIG.GENERAL.enableSmithBlade;
+    }
+
+    @Override
+    public boolean isAvailableForRandomSelection()
+    {
+        return Gobber2.CONFIG.GENERAL.enableSmithBlade;
+    }
 }

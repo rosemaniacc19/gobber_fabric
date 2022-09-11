@@ -1,5 +1,6 @@
 package com.kwpugh.gobber2.enchantments;
 
+import com.kwpugh.gobber2.Gobber2;
 import com.kwpugh.gobber2.init.ItemInit;
 
 import net.minecraft.enchantment.Enchantment;
@@ -31,31 +32,24 @@ public class FluidMasterEnchantment extends Enchantment
         return 1;
     }
 
-    /*
-     * Makes the enchant only available
-     *  from Village librarian
-     */
+    @Override
+    public boolean isTreasure()
+    {
+        return Gobber2.CONFIG.GENERAL.enableFluidMaster;
+    }
+
     @Override
     public boolean isAvailableForEnchantedBookOffer()
     {
-        return true;
+        return Gobber2.CONFIG.GENERAL.enableFluidMaster;
     }
 
-    /*
-     * This excludes enchant from enchanting table
-     * and loot
-     */
     @Override
     public boolean isAvailableForRandomSelection()
     {
-        return false;
+        return Gobber2.CONFIG.GENERAL.enableFluidMaster;
     }
 
-    /*
-     *  So basically this does nothing since the enchantment
-     *  table screen handler pulls enchantments by type
-     *   in EnchantmentTarget
-     */
     @Override
     public boolean isAcceptableItem(ItemStack stack)
     {

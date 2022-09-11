@@ -1,5 +1,6 @@
 package com.kwpugh.gobber2.enchantments;
 
+import com.kwpugh.gobber2.Gobber2;
 import com.kwpugh.gobber2.init.ItemInit;
 
 import net.minecraft.enchantment.Enchantment;
@@ -30,32 +31,25 @@ public class QuickUseEnchantment extends Enchantment
     {
         return 1;
     }
-    
-	 /* 
-     * Makes the enchant only available
-     *  from Village librarian
-     */
+
 	@Override
-	public boolean isAvailableForEnchantedBookOffer() 
+	public boolean isTreasure()
 	{
-		return true;
+		return Gobber2.CONFIG.GENERAL.enableQuickUse;
 	}
-	   
-    /* 
-     * This excludes enchant from enchanting table 
-     * and loot
-     */
-    @Override
-    public boolean isAvailableForRandomSelection()
-    {
-    	return false;
-    }
-    
-	/*
-	 *  So basically this does nothing since the enchantment
-	 *  table screen handler pulls enchantments by type
-	 *  in EnchantmentTarget
-	 */
+
+	@Override
+	public boolean isAvailableForEnchantedBookOffer()
+	{
+		return Gobber2.CONFIG.GENERAL.enableQuickUse;
+	}
+
+	@Override
+	public boolean isAvailableForRandomSelection()
+	{
+		return Gobber2.CONFIG.GENERAL.enableQuickUse;
+	}
+
 	@Override
 	public boolean isAcceptableItem(ItemStack stack)
 	{

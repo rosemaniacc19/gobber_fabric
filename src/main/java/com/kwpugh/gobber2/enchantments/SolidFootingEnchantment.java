@@ -1,5 +1,6 @@
 package com.kwpugh.gobber2.enchantments;
 
+import com.kwpugh.gobber2.Gobber2;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
@@ -26,24 +27,22 @@ public class SolidFootingEnchantment extends Enchantment
     {
         return 1;
     }
-    
-	 /* 
-     * Makes the enchant only available
-     *  from Village librarian
-     */
+
 	@Override
-	public boolean isAvailableForEnchantedBookOffer() 
+	public boolean isTreasure()
 	{
-		return true;
+		return Gobber2.CONFIG.GENERAL.enableSoildFooting;
 	}
-	   
-    /* 
-     * This excludes enchant from enchanting table 
-     * and loot
-     */
-    @Override
-    public boolean isAvailableForRandomSelection()
-    {
-    	return false;
-    }
+
+	@Override
+	public boolean isAvailableForEnchantedBookOffer()
+	{
+		return Gobber2.CONFIG.GENERAL.enableSoildFooting;
+	}
+
+	@Override
+	public boolean isAvailableForRandomSelection()
+	{
+		return Gobber2.CONFIG.GENERAL.enableSoildFooting;
+	}
 }
