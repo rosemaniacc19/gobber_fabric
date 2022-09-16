@@ -2,8 +2,9 @@ package com.kwpugh.gobber2;
 
 import com.kwpugh.gobber2.config.Gobber2Config;
 import com.kwpugh.gobber2.enchantments.summoner.SummonerEvent;
-import com.kwpugh.gobber2.init.*;
 import com.kwpugh.gobber2.enchantments.summoner.SummonerManager;
+import com.kwpugh.gobber2.init.*;
+import com.kwpugh.gobber2.util.ElytraEvent;
 import com.kwpugh.gobber2.world.GobberOrePlacedFeature;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
@@ -39,5 +40,6 @@ public class Gobber2 implements ModInitializer
 		SummonerManager.init();
 		EntityInit.registerEntities();
 		DispenserBehaviorInit.registerBehaviors();
+		ElytraEvent.init();
     }
 }

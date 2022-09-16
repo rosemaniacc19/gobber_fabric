@@ -3,9 +3,11 @@ package com.kwpugh.gobber2.items.armor;
 import com.kwpugh.gobber2.Gobber2;
 import com.kwpugh.gobber2.util.PlayerEquipUtil;
 import com.kwpugh.gobber2.util.PlayerSpecialAbilities;
+import net.fabricmc.fabric.api.entity.event.v1.FabricElytraItem;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
@@ -16,7 +18,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class EndArmor extends ArmorItem
+public class EndArmor extends ArmorItem implements FabricElytraItem
 {
 	public EndArmor(ArmorMaterial material, EquipmentSlot slot, Settings settings)
 	{
