@@ -60,6 +60,7 @@ public class StaffEnsnarement extends BaseStaff
 					entity instanceof VillagerEntity ||
 					entity instanceof FishEntity ||
 					entity instanceof DolphinEntity ||
+					entity instanceof BatEntity ||
 					entity instanceof AllayEntity ||
 					entity instanceof WanderingTraderEntity))
 			{

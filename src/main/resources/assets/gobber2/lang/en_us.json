@@ -338,6 +338,8 @@
 	"item.gobber2.gobber2_medallion_healing": "Medallion of Lesser Healing",
 	"item.gobber2.gobber2_medallion_exp": "Medallion of Experience",
 	"item.gobber2.gobber2_medallion_exp.tip1": "Provides extra xp while mining and fighting",
+	"item.gobber2.gobber2_medallion_exp.tip2": "Currently stored xp points:  %s",
+	"item.gobber2.gobber2_medallion_exp.tip3": "Sneak + right-click to store xp, right-click to retrieve xp",
 	"item.gobber2.gobber2_medallion_healing2": "Medallion of Healing",
 	"item.gobber2.gobber2_medallion_shielding": "Medallion of Shielding",
 	"item.gobber2.gobber2_medallion_shielding.tip1": "Takes the sting out of projectiles",
