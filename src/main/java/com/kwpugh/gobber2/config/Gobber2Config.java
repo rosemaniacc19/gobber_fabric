@@ -178,8 +178,9 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
  				+"\n"
  				+ "***********************"
   	    		+"\nMedallion Settings"
-  	    		+"\n***********************") 
- 		public int medallionExpAmplifer = 2;
+  	    		+"\n***********************")
+ 		public boolean medallionExpXPBoost = true;
+		public int medallionExpAmplifer = 2;
 		public int medallionLesserHealingAmount = 1;
 		public int medallionHealingAmount = 2;
 		public int medallionGreaterHealingAmount = 3;

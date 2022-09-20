@@ -1,6 +1,7 @@
-package com.kwpugh.gobber2.util;
+package com.kwpugh.gobber2.events;
 
 import com.kwpugh.gobber2.Gobber2;
+import com.kwpugh.gobber2.util.PlayerEquipUtil;
 import net.fabricmc.fabric.api.entity.event.v1.EntityElytraEvents;
 import net.minecraft.entity.player.PlayerEntity;
 

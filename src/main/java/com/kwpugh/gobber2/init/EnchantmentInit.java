@@ -2,7 +2,7 @@ package com.kwpugh.gobber2.init;
 
 import com.kwpugh.gobber2.Gobber2;
 import com.kwpugh.gobber2.enchantments.*;
-import com.kwpugh.gobber2.enchantments.summoner.SummonerEnchantment;
+import com.kwpugh.gobber2.enchantments.SummonerEnchantment;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;

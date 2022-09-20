@@ -281,6 +281,7 @@ public class PlayerSpecialAbilities
 			}
 		}
 
+		// Give Knowledge Boost even without enchantment, if has medallion of exp
 		if(PlayerEquipUtil.hasItemInInventory(player, ItemInit.GOBBER2_MEDALLION_EXP))
 		{
 			StatusEffectInstance effect = new StatusEffectInstance(EffectsInit.KNOWLEDGE, Gobber2.CONFIG.GENERAL.effectDurationKnowledge, 5, true, true);

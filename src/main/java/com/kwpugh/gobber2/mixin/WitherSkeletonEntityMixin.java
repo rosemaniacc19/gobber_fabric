@@ -25,6 +25,7 @@ import net.minecraft.world.World;
 /*
 	Needed for Nether Sword perks
  */
+
 @Mixin(WitherSkeletonEntity.class)
 public abstract class WitherSkeletonEntityMixin extends AbstractSkeletonEntity
 {

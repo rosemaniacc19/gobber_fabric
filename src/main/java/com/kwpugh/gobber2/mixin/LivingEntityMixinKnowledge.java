@@ -25,11 +25,13 @@ public class LivingEntityMixinKnowledge
 {
     @Shadow @Nullable protected PlayerEntity attackingPlayer;
 
+    // This cover killing xp, check event manager for ore block breaking
     @Inject(at = @At("HEAD"), method = "onDeath", cancellable = true)
     private void onDeathWisdom(DamageSource source, CallbackInfo ci)
     {
         if(!(source.getAttacker() instanceof PlayerEntity)) return;
 
+        // Check for Knowledge Boost on swords
         if(attackingPlayer.getEquippedStack(EquipmentSlot.MAINHAND) != null)
         {
             if(EnchantmentHelper.getLevel(EnchantmentInit.KNOWLEDGE, attackingPlayer.getEquippedStack(EquipmentSlot.MAINHAND)) > 0)
@@ -40,6 +42,10 @@ public class LivingEntityMixinKnowledge
             }
         }
 
+        // Exit if medallion boost false in config
+        if(!Gobber2.CONFIG.GENERAL.medallionExpXPBoost) return;
+
+        // Give Knowledge effect if medallion of exp in inv or ender inv
         if(PlayerEquipUtil.hasItemInInventory(attackingPlayer, ItemInit.GOBBER2_MEDALLION_EXP) ||
                 (PlayerEquipUtil.hasItemInEnder(attackingPlayer, ItemInit.GOBBER2_MEDALLION_EXP) && Gobber2.CONFIG.GENERAL.allowWorkInEnderchest))
         {

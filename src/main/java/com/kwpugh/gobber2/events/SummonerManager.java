@@ -1,4 +1,4 @@
-package com.kwpugh.gobber2.enchantments.summoner;
+package com.kwpugh.gobber2.events;
 
 import com.kwpugh.gobber2.Gobber2;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
