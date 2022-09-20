@@ -9,7 +9,6 @@ public class ElytraEvent
     public static void init()
     {
         EntityElytraEvents.CUSTOM.register((entity, tickElytra) -> {
-            //if(EnchantmentHelper.getLevel(EnchantmentInit.REBUFFING, entity.getEquippedStack(EquipmentSlot.CHEST)) > 0)
             if(entity instanceof PlayerEntity player)
             {
                 if(Gobber2.CONFIG.GENERAL.enableGlidingEndArmor && PlayerEquipUtil.isWearingEndArmor(player))

@@ -46,9 +46,7 @@ public class RebuffingEnchantment extends Enchantment
   			Random random = new Random();
         	attacker.addVelocity(vec.x * 2 * level, vec.y * 3 * level, vec.z * 2 * level);
         	attacker.damage(DamageSource.thorns(user), (float)getDamageAmount(level, random));			       		
-		}    		
-    	    	
-    	//super.onTargetDamaged(user, attacker, level);
+		}
     }
     
     public static int getDamageAmount(int level, Random random)

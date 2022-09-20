@@ -19,12 +19,12 @@ import java.util.Random;
 
 public class MedallionExp extends BaseMedallion
 {
-	public static final int MAX_STORAGE = Gobber2.CONFIG.GENERAL.medallionExpStorage;
+	public static final int MAX_STORAGE = 1425;
 	private final Random random = new Random();
 
 	public MedallionExp(Settings settings)
 	{
-		super(new Item.Settings().maxDamage(MAX_STORAGE));
+		super(new Item.Settings().maxDamage(MAX_STORAGE).group(Gobber2.GOBBER2_GROUP));
 	}
 
 	// Test code
@@ -62,7 +62,6 @@ public class MedallionExp extends BaseMedallion
 				ExpUtils.addPlayerXP(player, getXPStored(stack));
 				setStoredXP(stack, 0);
 			}
-
 
 			if(!world.isClient)
 			{
@@ -131,7 +130,7 @@ public class MedallionExp extends BaseMedallion
 	public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext)
 	{
 		tooltip.add(Text.translatable("item.gobber2.gobber2_medallion_exp.tip1").formatted(Formatting.GREEN));
-		tooltip.add(Text.translatable("item.gobber2.while_in_off_hand").formatted(Formatting.YELLOW));
+		tooltip.add(Text.translatable("item.gobber2.while_in_inventory").formatted(Formatting.YELLOW));
 		tooltip.add(Text.translatable("item.gobber2.gobber2_medallion_exp.tip2", getXPStored(itemStack)).formatted(Formatting.RED));
 		tooltip.add(Text.translatable("item.gobber2.gobber2_medallion_exp.tip3").formatted(Formatting.YELLOW));
 

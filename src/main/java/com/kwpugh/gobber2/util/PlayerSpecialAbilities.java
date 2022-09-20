@@ -281,9 +281,9 @@ public class PlayerSpecialAbilities
 			}
 		}
 
-		if(offHand.getItem() == ItemInit.GOBBER2_MEDALLION_EXP)
+		if(PlayerEquipUtil.hasItemInInventory(player, ItemInit.GOBBER2_MEDALLION_EXP))
 		{
-			StatusEffectInstance effect = new StatusEffectInstance(EffectsInit.KNOWLEDGE, Gobber2.CONFIG.GENERAL.effectDurationKnowledge, 0, true, true);
+			StatusEffectInstance effect = new StatusEffectInstance(EffectsInit.KNOWLEDGE, Gobber2.CONFIG.GENERAL.effectDurationKnowledge, 5, true, true);
 			player.addStatusEffect(effect);
 		}
 	}

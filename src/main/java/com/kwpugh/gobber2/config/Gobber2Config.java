@@ -171,7 +171,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 				+"\n- only needed if there is a problem"
 				+"\n***********************")
 		public int effectDuration = 8;
-		public int effectDurationKnowledge = 120;
+		public int effectDurationKnowledge = 60;
 		public int effectDurationNightVision = 240;
 
  		 @Comment("\n"
@@ -179,8 +179,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
  				+ "***********************"
   	    		+"\nMedallion Settings"
   	    		+"\n***********************") 
- 		public int medallionExpMultiplier = 2;
-		public int medallionExpStorage = 1425;
+ 		public int medallionExpAmplifer = 2;
 		public int medallionLesserHealingAmount = 1;
 		public int medallionHealingAmount = 2;
 		public int medallionGreaterHealingAmount = 3;
@@ -466,6 +465,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public boolean enableBlinders = true;
 		public boolean enableFasterObsidian = true;
 		public boolean enableFluidMaster = true;
+		public boolean enableKnowledge = true;
 		public boolean enableQuickUse = true;
 		public boolean enableQuietFeet = true;
 		public boolean enableRebuffing = true;

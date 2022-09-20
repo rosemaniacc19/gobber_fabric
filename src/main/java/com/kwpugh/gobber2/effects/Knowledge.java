@@ -1,16 +1,10 @@
 package com.kwpugh.gobber2.effects;
 
 import com.kwpugh.gobber2.Gobber2;
-
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
-
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.player.PlayerEntity;
-
-/*
- * Sample status effect from Fabric wiki
- */
 
 public class Knowledge extends StatusEffect
 {
@@ -21,7 +15,7 @@ public class Knowledge extends StatusEffect
 	      0x98D982); // color in RGB
 	  }
 	 
-	  static int xpAmount = Gobber2.CONFIG.GENERAL.KnowledgeBoostXPPerTick;
+	  int xpAmount = Gobber2.CONFIG.GENERAL.KnowledgeBoostXPPerTick;
 	  
 	  // This method is called every tick to check whether it should apply the status effect or not
 	  @Override
@@ -35,9 +29,9 @@ public class Knowledge extends StatusEffect
 	  @Override
 	  public void applyUpdateEffect(LivingEntity entity, int amplifier) 
 	  {
-	    if (entity instanceof PlayerEntity)
+	    if (entity instanceof PlayerEntity player)
 	    {
-	      ((PlayerEntity) entity).addExperience(xpAmount << amplifier); // Higher amplifier gives you EXP faster
+			player.addExperience(xpAmount * amplifier); // Higher amplifier gives you EXP faster
 	    }
 	  }
 }

@@ -5,12 +5,15 @@ import com.kwpugh.gobber2.enchantments.summoner.SummonerEvent;
 import com.kwpugh.gobber2.enchantments.summoner.SummonerManager;
 import com.kwpugh.gobber2.init.*;
 import com.kwpugh.gobber2.util.ElytraEvent;
+import com.kwpugh.gobber2.util.EventHandler;
 import com.kwpugh.gobber2.world.GobberOrePlacedFeature;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import me.shedaniel.autoconfig.serializer.PartitioningSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
+import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
@@ -41,5 +44,7 @@ public class Gobber2 implements ModInitializer
 		EntityInit.registerEntities();
 		DispenserBehaviorInit.registerBehaviors();
 		ElytraEvent.init();
+		PlayerBlockBreakEvents.AFTER.register(EventHandler::onBlockBreak);
+		UseEntityCallback.EVENT.register(EventHandler::onClickEntity);
     }
 }
