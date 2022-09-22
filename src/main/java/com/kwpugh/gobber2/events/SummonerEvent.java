@@ -23,7 +23,7 @@ import net.minecraft.world.World;
 public class SummonerEvent
 {
     static boolean summonerGoldGear = Gobber2.CONFIG.GENERAL.summonerGoldGear;
-    static boolean bonusStats = Gobber2.CONFIG.GENERAL.enableSummonerBonusStats;
+    static boolean bonusStats = Gobber2.CONFIG.GENERAL.summonerEnableBonusStats;
     static double summonerHealthBonus = Gobber2.CONFIG.GENERAL.summonerHealthBonus;
     static double summonerAttackBonus = Gobber2.CONFIG.GENERAL.summonerAttackBonus;
     static double summonerMovementBonus = Gobber2.CONFIG.GENERAL.summonerMovementBonus;

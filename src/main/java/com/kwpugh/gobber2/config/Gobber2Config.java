@@ -155,6 +155,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
  		public int ringRepairInterval = 90;
 		public int ringStrengthLevel = 2;
 		public int ringStrengthResistenceLevel = 1;
+		public boolean ringSunshineAuto = false;
 		public int ringSwiftnessLevel = 1;
  		public double ringTravelerLaunch = 4.0;
  		public double ringTravelerCruising = 0.2;
@@ -164,23 +165,10 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		@Comment("\n"
 				+"\n"
 				+ "***********************"
-				+"\nEffect Setting"
-				+"\n-used with optimization mods"
-				+"\nthat break things"
-				+"\nValue of 300 works"
-				+"\n- only needed if there is a problem"
+				+"\nMedallion Settings"
 				+"\n***********************")
-		public int effectDuration = 8;
-		public int effectDurationKnowledge = 60;
-		public int effectDurationNightVision = 240;
-
- 		 @Comment("\n"
- 				+"\n"
- 				+ "***********************"
-  	    		+"\nMedallion Settings"
-  	    		+"\n***********************")
- 		public boolean medallionExpXPBoost = true;
-		public int medallionExpAmplifer = 2;
+		public boolean medallionExpXPBoost = true;
+		public int medallionExpAmplifer = 1;
 		public int medallionLesserHealingAmount = 1;
 		public int medallionHealingAmount = 2;
 		public int medallionGreaterHealingAmount = 3;
@@ -190,28 +178,84 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public boolean medallionShieldingAgainstWither = false;
 		public int medallionSufferingRange = 6;
 		public int medallionSufferingDamage = 2;
-		
- 		 @Comment("\n"
- 				+"\n"
- 		 		+ "***********************"
-   	    		+"\nStaff Settings"
-   	    		+"\n***********************") 	 
- 		public int staffTransformationDurability = 1025;
- 		public int staffClearingHorizRange = 6;
+
+		@Comment("\n"
+				+"\n"
+				+ "***********************"
+				+"\nStaff Settings"
+				+"\n***********************")
+		public int staffTransformationDurability = 1025;
+		public int staffClearingHorizRange = 6;
 		public int staffClearingVertRange = 3;
- 		public int staffClearingCooldown = 120;
- 		public int staffSniperCooldown = 240;
+		public int staffClearingCooldown = 120;
+		public int staffSniperCooldown = 240;
 		public float staffSniperArrowVelocity = 60.0F;
 		public int staffSniperArrowExtraDamage = 1;
- 		public boolean staffSniperEnableQuickUse = true;
+		public boolean staffSniperEnableQuickUse = true;
 		public int staffFarmerHorizRange = 12;
 		public int staffFarmerVertRange = 6;
 		public int staffFarmerInterval = 60;
 		public int staffFarmerIntervalCactus = 20;
 		public boolean staffFarmerExtraCrops = false;
- 		public boolean staffFarmerReplant = true;
- 		public boolean staffEnsnarementHotileMobs = false;
-		
+		public boolean staffFarmerReplant = true;
+		public boolean staffEnsnarementHotileMobs = false;
+
+		@Comment("\n"
+				+"\n"
+				+ "***********************"
+				+"\nEffect Settings"
+				+"\n-used with optimization mods"
+				+"\nthat break things"
+				+"\nValue of 300 works"
+				+"\n- only needed if there is a problem"
+				+"\n***********************")
+		public int effectDuration = 8;
+		public int effectDurationExpBoost = 20;
+		public int ExpBoostXPPerTick = 1;
+		public int effectDurationNightVision = 240;
+
+		@Comment("\n"
+				+"\n"
+				+ "***********************"
+				+"\nEnable/Disable Enchantments"
+				+"\n***********************")
+		public boolean enableApotropaic = true;
+		public boolean enableBlinders = true;
+		public boolean enableFasterObsidian = true;
+		public boolean enableFluidMaster = true;
+		public boolean enableExpBoost = true;
+		public boolean enableQuickUse = true;
+		public boolean enableQuietFeet = true;
+		public boolean enableRebuffing = true;
+		public boolean enableSmithBlade = true;
+		public boolean enableSoildFooting = true;
+		public boolean enableSummoner = true;
+		public boolean enableUntouchable = true;
+
+		@Comment("\n"
+				+"\n"
+				+ "***********************"
+				+"\nEnchantment Settings"
+				+"\n***********************")
+		public int smithbladeAttackAmount = 2 ;
+		public int smithbladeMaxLevel = 5;
+		public int rebuffingMaxLevel = 3;
+		public int untouchableBaseDamage = 8;
+		public int untouchableMaxLevel = 4;
+		public float untouchableAttackChance = .5F;
+		public boolean summonerEnableBonusStats = true;
+		public boolean summonerGoldGear = true;
+		public int summonerMobLifespan = 120;
+		public double summonerHealthBonus = 30.0;
+		public double summonerAttackBonus = 10.0;
+		public double summonerMovementBonus = 0.60;
+		public double summonerArmorBonus = 20.0;
+		public boolean summonerEventEnable = true;
+		public boolean enableRingEnchanting = true;
+		public boolean enableStaffEnchanting = true;
+		public boolean enableMedallionEnchanting = true;
+		public boolean apotropaicEventEnable = true;
+
 		@Comment("\n"
 				+"\n"
 				+ "***********************"
@@ -224,6 +268,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public boolean enableEndHammer5x5 = true;
 		public boolean enableEndExcavator5x5 = true;
 		public boolean enableNetherSwordPerks = true;
+		public int netherSwordXPLevel = 3;
 	
 	   	@Comment("\n"
     			+"\n"
@@ -457,55 +502,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public boolean enableDragonNoFallDamage = true;
 		public boolean enableDragonFlying = true;
 
-		@Comment("\n"
-				+"\n"
-				+ "***********************"
-				+"\nEnable/Disable Enchantments"
-				+"\n***********************")
-		public boolean enableApotropaic = true;
-		public boolean enableBlinders = true;
-		public boolean enableFasterObsidian = true;
-		public boolean enableFluidMaster = true;
-		public boolean enableKnowledge = true;
-		public boolean enableQuickUse = true;
-		public boolean enableQuietFeet = true;
-		public boolean enableRebuffing = true;
-		public boolean enableSmithBlade = true;
-		public boolean enableSoildFooting = true;
-		public boolean enableSummoner = true;
-		public boolean enableUntouchable = true;
 
-		@Comment("\n"
-				+"\n"
-				+ "***********************"
-				+"\nEnchantment Settings"
-				+"\n***********************")
-		public int smithbladeAttackAmount = 2 ;
-		public int smithbladeMaxLevel = 5;
-		public int rebuffingMaxLevel = 3;
-		public int untouchableBaseDamage = 8;
-		public int untouchableMaxLevel = 4;
-		public float untouchableAttackChance = .5F;
-		public boolean enableSummonerBonusStats = true;
-		public boolean summonerGoldGear = true;
-		public int summonerMobLifespan = 120;
-		public double summonerHealthBonus = 30.0;
-		public double summonerAttackBonus = 10.0;
-		public double summonerMovementBonus = 0.60;
-		public double summonerArmorBonus = 20.0;
-		public boolean summonerEventEnable = true;
-		public boolean enableRingEnchanting = true;
-		public boolean enableStaffEnchanting = true;
-		public boolean enableMedallionEnchanting = true;
-		public boolean apotropaicEventEnable = true;
-
-		@Comment("\n"
-				+"\n"
-				+ "***********************"
- 	    		+"\nStatus Effects"
- 	    		+"\n***********************")	
-		public int KnowledgeBoostXPPerTick = 1 ;
-	
 		@Comment("\n"
 				+"\n"
 				+ "***********************"

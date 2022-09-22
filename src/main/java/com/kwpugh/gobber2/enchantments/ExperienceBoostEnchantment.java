@@ -5,9 +5,9 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 
-public class KnowledgeEnchantment extends Enchantment
+public class ExperienceBoostEnchantment extends Enchantment
 {
-	public KnowledgeEnchantment(Rarity weight, EnchantmentTarget target, EquipmentSlot[] slots)
+	public ExperienceBoostEnchantment(Rarity weight, EnchantmentTarget target, EquipmentSlot[] slots)
 	{
 		super(weight, target, slots);
 	}
@@ -32,18 +32,18 @@ public class KnowledgeEnchantment extends Enchantment
     @Override
     public boolean isTreasure()
     {
-        return Gobber2.CONFIG.GENERAL.enableKnowledge;
+        return Gobber2.CONFIG.GENERAL.enableExpBoost;
     }
 
     @Override
     public boolean isAvailableForEnchantedBookOffer()
     {
-        return Gobber2.CONFIG.GENERAL.enableKnowledge;
+        return Gobber2.CONFIG.GENERAL.enableExpBoost;
     }
 
     @Override
     public boolean isAvailableForRandomSelection()
     {
-        return Gobber2.CONFIG.GENERAL.enableKnowledge;
+        return Gobber2.CONFIG.GENERAL.enableExpBoost;
     }
 }

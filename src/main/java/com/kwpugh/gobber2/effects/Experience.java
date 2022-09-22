@@ -6,16 +6,16 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.player.PlayerEntity;
 
-public class Knowledge extends StatusEffect
+public class Experience extends StatusEffect
 {
-	  public Knowledge()
+	  public Experience()
 	  {
 	    super(
 				StatusEffectCategory.BENEFICIAL, // whether beneficial or harmful for entities
 	      0x98D982); // color in RGB
 	  }
 	 
-	  int xpAmount = Gobber2.CONFIG.GENERAL.KnowledgeBoostXPPerTick;
+	  int xpAmount = Gobber2.CONFIG.GENERAL.ExpBoostXPPerTick;
 	  
 	  // This method is called every tick to check whether it should apply the status effect or not
 	  @Override
@@ -31,7 +31,7 @@ public class Knowledge extends StatusEffect
 	  {
 	    if (entity instanceof PlayerEntity player)
 	    {
-			player.addExperience(xpAmount * amplifier); // Higher amplifier gives you EXP faster
+	    	player.addExperience(xpAmount * amplifier);
 	    }
 	  }
 }

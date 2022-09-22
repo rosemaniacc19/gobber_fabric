@@ -59,10 +59,11 @@ public abstract class PlayerEntityMixinTick extends LivingEntity
         }
     }
 
+
     @Inject(method = "tick", at = @At("HEAD"))
     public void gobberMinerTick(CallbackInfo ci)
     {
-        if(world instanceof ServerWorld)
+        if(world instanceof ServerWorld server)
         {
             PlayerEntity player = (PlayerEntity) (Object) this;
 
@@ -73,6 +74,15 @@ public abstract class PlayerEntityMixinTick extends LivingEntity
             if(PlayerEquipUtil.hasItemInInventory(player, ItemInit.GOBBER2_RING_REPAIR))
             {
                 RingRepair.repairItems(world, player);
+            }
+
+            // Stops rain if player has Ring of Sunshine in inventory
+            if(PlayerEquipUtil.hasItemInInventory(player, ItemInit.GOBBER2_RING_SUNSHINE) && Gobber2.CONFIG.GENERAL.ringSunshineAuto)
+            {
+                if(server.isRaining())
+                {
+                    server.getLevelProperties().setRaining(false);
+                }
             }
 
             if(allowEnder)

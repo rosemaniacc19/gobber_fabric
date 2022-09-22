@@ -5,7 +5,6 @@ import com.kwpugh.gobber2.init.EffectsInit;
 import com.kwpugh.gobber2.init.ItemInit;
 import com.kwpugh.gobber2.util.PlayerEquipUtil;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.OreBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
@@ -17,16 +16,11 @@ public class PlayerBlockBreak
     // Drop tests performed as a result of the break block event
     public static boolean onBlockBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, BlockEntity entity)
     {
-        if(player.isCreative() || player.isSpectator()) return false;
-        if(world.isClient) return false;
-        if(!Gobber2.CONFIG.GENERAL.medallionExpXPBoost) return false;
-
-        if(PlayerEquipUtil.hasItemInInventory(player, ItemInit.GOBBER2_MEDALLION_EXP) ||
-                (PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_MEDALLION_EXP) && Gobber2.CONFIG.GENERAL.allowWorkInEnderchest))
+        if(Gobber2.CONFIG.GENERAL.medallionExpXPBoost)
         {
-            if(state.getBlock() instanceof OreBlock)
+            if(PlayerEquipUtil.hasItemInInventory(player, ItemInit.GOBBER2_MEDALLION_EXP))
             {
-                StatusEffectInstance effect = new StatusEffectInstance(EffectsInit.KNOWLEDGE, Gobber2.CONFIG.GENERAL.effectDurationKnowledge, Gobber2.CONFIG.GENERAL.medallionExpAmplifer, true, true);
+                StatusEffectInstance effect = new StatusEffectInstance(EffectsInit.EXPERIENCE, Gobber2.CONFIG.GENERAL.effectDurationExpBoost, Gobber2.CONFIG.GENERAL.medallionExpAmplifer, true, true);
                 player.addStatusEffect(effect);
             }
         }

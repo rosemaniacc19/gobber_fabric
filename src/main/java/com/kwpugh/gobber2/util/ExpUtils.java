@@ -73,4 +73,24 @@ public class ExpUtils
         for (int i = enchantment.getMinLevel(); i <= enchantment.getMaxLevel(); i++)
             items.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(enchantment, i)));
     }
+
+    public static int getMultiplier(int amount, int level)
+    {
+        int newAmount = 0;
+
+        if(amount <= 4)
+        {
+            newAmount = amount * 3;
+        }
+        else if(amount <= 8)
+        {
+            newAmount = amount * 2;
+        }
+        else
+        {
+            newAmount = amount;
+        }
+
+        return newAmount;
+    }
 }

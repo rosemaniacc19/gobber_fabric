@@ -2,19 +2,16 @@ package com.kwpugh.gobber2.util;
 
 import com.kwpugh.gobber2.Gobber2;
 import com.kwpugh.gobber2.init.EffectsInit;
-import com.kwpugh.gobber2.init.EnchantmentInit;
 import com.kwpugh.gobber2.init.ItemInit;
 import com.kwpugh.gobber2.items.rings.RingAttraction;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.boss.WitherEntity;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.*;
@@ -266,7 +263,6 @@ public class PlayerSpecialAbilities
 	{
 		PlayerEntity player = (PlayerEntity) source.getAttacker();
 		ItemStack mainHand = player.getEquippedStack(EquipmentSlot.MAINHAND);
-		ItemStack offHand = player.getEquippedStack(EquipmentSlot.OFFHAND);
 
 		if(enableNetherSwordPerks)
 		{
@@ -284,7 +280,7 @@ public class PlayerSpecialAbilities
 		// Give Knowledge Boost even without enchantment, if has medallion of exp
 		if(PlayerEquipUtil.hasItemInInventory(player, ItemInit.GOBBER2_MEDALLION_EXP))
 		{
-			StatusEffectInstance effect = new StatusEffectInstance(EffectsInit.KNOWLEDGE, Gobber2.CONFIG.GENERAL.effectDurationKnowledge, 5, true, true);
+			StatusEffectInstance effect = new StatusEffectInstance(EffectsInit.EXPERIENCE, Gobber2.CONFIG.GENERAL.effectDurationExpBoost, Gobber2.CONFIG.GENERAL.netherSwordXPLevel, true, true);
 			player.addStatusEffect(effect);
 		}
 	}

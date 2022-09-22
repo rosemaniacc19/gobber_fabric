@@ -23,7 +23,7 @@ public class StaffFarmer extends BaseStaff
 	static int interval = Gobber2.CONFIG.GENERAL.staffFarmerInterval;
 	static int intervalCactus = Gobber2.CONFIG.GENERAL.staffFarmerIntervalCactus;
 	static boolean replant = Gobber2.CONFIG.GENERAL.staffFarmerReplant;
-	static boolean extraCrops = Gobber2.CONFIG.GENERAL.ringFarmerExtraCrops;
+	static boolean extraCrops = Gobber2.CONFIG.GENERAL.staffFarmerExtraCrops;
 
 	public StaffFarmer(Settings settings)
 	{

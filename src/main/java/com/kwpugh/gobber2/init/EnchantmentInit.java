@@ -15,7 +15,7 @@ public class EnchantmentInit
 	public static final Enchantment BLINDERS = new BlindersEnchantment(Enchantment.Rarity.RARE, EnchantmentTarget.ARMOR_HEAD, new EquipmentSlot[]{EquipmentSlot.HEAD});
 	public static final Enchantment FLUID_MASTER = new FluidMasterEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
 	public static final Enchantment FASTEROBSIDIAN = new FasterObsidianEnchantment(Enchantment.Rarity.COMMON, EnchantmentTarget.DIGGER, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-	public static final Enchantment KNOWLEDGE = new KnowledgeEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+	public static final Enchantment EXP_BOOST = new ExperienceBoostEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
 	public static final Enchantment QUICKUSE = new QuickUseEnchantment(Enchantment.Rarity.UNCOMMON, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
 	public static final Enchantment QUIETFEET = new QuietFeetEnchantment(Enchantment.Rarity.RARE, EnchantmentTarget.ARMOR_FEET, new EquipmentSlot[]{EquipmentSlot.FEET});
 	public static final Enchantment REBUFFING = new RebuffingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.ARMOR_CHEST, new EquipmentSlot[]{EquipmentSlot.CHEST});
@@ -31,7 +31,7 @@ public class EnchantmentInit
 		Registry.register(Registry.ENCHANTMENT, new Identifier(Gobber2.MOD_ID, "blinders"), BLINDERS);
 		Registry.register(Registry.ENCHANTMENT, new Identifier(Gobber2.MOD_ID, "faster_obsidian"), FASTEROBSIDIAN);
 		Registry.register(Registry.ENCHANTMENT, new Identifier(Gobber2.MOD_ID, "fluid_master"), FLUID_MASTER);
-		Registry.register(Registry.ENCHANTMENT, new Identifier(Gobber2.MOD_ID, "knowledge"), KNOWLEDGE);
+		Registry.register(Registry.ENCHANTMENT, new Identifier(Gobber2.MOD_ID, "exp_boost"), EXP_BOOST);
 		Registry.register(Registry.ENCHANTMENT, new Identifier(Gobber2.MOD_ID, "quickuse"), QUICKUSE);
 		Registry.register(Registry.ENCHANTMENT, new Identifier(Gobber2.MOD_ID, "quietfeet"), QUIETFEET);
 		Registry.register(Registry.ENCHANTMENT, new Identifier(Gobber2.MOD_ID, "rebuffing"), REBUFFING);
