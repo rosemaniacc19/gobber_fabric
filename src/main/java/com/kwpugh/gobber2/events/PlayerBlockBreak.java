@@ -20,7 +20,7 @@ public class PlayerBlockBreak
         {
             if(PlayerEquipUtil.hasItemInInventory(player, ItemInit.GOBBER2_MEDALLION_EXP))
             {
-                StatusEffectInstance effect = new StatusEffectInstance(EffectsInit.EXPERIENCE, Gobber2.CONFIG.GENERAL.effectDurationExpBoost, Gobber2.CONFIG.GENERAL.medallionExpAmplifer, true, true);
+                StatusEffectInstance effect = new StatusEffectInstance(EffectsInit.EXPERIENCE, Gobber2.CONFIG.GENERAL.medallionExpDuration, Gobber2.CONFIG.GENERAL.medallionExpAmplifer, true, true);
                 player.addStatusEffect(effect);
             }
         }

@@ -8,30 +8,32 @@ import net.minecraft.entity.player.PlayerEntity;
 
 public class Experience extends StatusEffect
 {
-	  public Experience()
-	  {
-	    super(
-				StatusEffectCategory.BENEFICIAL, // whether beneficial or harmful for entities
-	      0x98D982); // color in RGB
-	  }
-	 
-	  int xpAmount = Gobber2.CONFIG.GENERAL.ExpBoostXPPerTick;
-	  
-	  // This method is called every tick to check whether it should apply the status effect or not
-	  @Override
-	  public boolean canApplyUpdateEffect(int duration, int amplifier) 	  
-	  {
-	    // In our case, we just make it return true so that it applies the status effect every tick.
-	    return true;
-	  }
-	 
-	  // This method is called when it applies the status effect. We implement custom functionality here.
-	  @Override
-	  public void applyUpdateEffect(LivingEntity entity, int amplifier) 
-	  {
-	    if (entity instanceof PlayerEntity player)
-	    {
-	    	player.addExperience(xpAmount * amplifier);
-	    }
-	  }
+	public Experience()
+	{
+		super(StatusEffectCategory.BENEFICIAL, // whether beneficial or harmful for entities
+		  0x98D982); // color in RGB
+	}
+
+	int xpAmount = Gobber2.CONFIG.GENERAL.ExperienceBaseXPPerTick;
+
+	// This method is called every tick to check whether it should apply the status effect or not
+	@Override
+	public boolean canApplyUpdateEffect(int duration, int amplifier)
+	{
+		// In our case, we just make it return true so that it applies the status effect every tick.
+		return true;
+	}
+
+	// This method is called when it applies the status effect. We implement custom functionality here.
+	@Override
+	public void applyUpdateEffect(LivingEntity entity, int amplifier)
+	{
+		if (entity instanceof PlayerEntity player)
+		{
+			if(player.age % Gobber2.CONFIG.GENERAL.effectDelayExpBoost == 0)
+			{
+				player.addExperience(xpAmount * amplifier);
+			}
+		}
+	}
 }

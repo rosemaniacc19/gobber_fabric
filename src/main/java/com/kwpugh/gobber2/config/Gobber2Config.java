@@ -168,7 +168,6 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 				+"\nMedallion Settings"
 				+"\n***********************")
 		public boolean medallionExpXPBoost = true;
-		public int medallionExpAmplifer = 1;
 		public int medallionLesserHealingAmount = 1;
 		public int medallionHealingAmount = 2;
 		public int medallionGreaterHealingAmount = 3;
@@ -203,16 +202,31 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		@Comment("\n"
 				+"\n"
 				+ "***********************"
-				+"\nEffect Settings"
+				+"\nGeneral Effect Settings"
 				+"\n-used with optimization mods"
 				+"\nthat break things"
 				+"\nValue of 300 works"
 				+"\n- only needed if there is a problem"
 				+"\n***********************")
 		public int effectDuration = 8;
-		public int effectDurationExpBoost = 20;
-		public int ExpBoostXPPerTick = 1;
 		public int effectDurationNightVision = 240;
+
+		@Comment("\n"
+				+"\n"
+				+ "***********************"
+				+"\nExperience Effect Settings"
+				+"\n-used by Experience Boost enchant,"
+				+"\nMedallion of Experience, and"
+				+"\nNether Sword perks"
+				+"\n-to nerf xp, either increase effect"
+				+"\ndelay and/or decrease XP per tick"
+				+"\n***********************")
+		public int effectDurationExpBoost = 60;
+		public int effectDelayExpBoost = 60;
+		public int ExperienceBaseXPPerTick = 8;
+		public int medallionExpAmplifer = 4;
+		public int medallionExpDuration = 60;
+		public int netherSwordXPPerTick = 8;
 
 		@Comment("\n"
 				+"\n"
@@ -268,7 +282,6 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public boolean enableEndHammer5x5 = true;
 		public boolean enableEndExcavator5x5 = true;
 		public boolean enableNetherSwordPerks = true;
-		public int netherSwordXPLevel = 3;
 	
 	   	@Comment("\n"
     			+"\n"
