@@ -226,6 +226,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public int ExperienceBaseXPPerTick = 8;
 		public int medallionExpAmplifer = 4;
 		public int medallionExpDuration = 60;
+		public boolean medallionExpFromAnyBlock = false;
 		public int netherSwordXPPerTick = 8;
 
 		@Comment("\n"

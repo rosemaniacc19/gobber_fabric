@@ -29,7 +29,7 @@ public abstract class LivingEntityMixinKnowledge
     @Shadow protected abstract void attackLivingEntity(LivingEntity target);
 
     @Inject(at = @At("HEAD"), method = "onDeath", cancellable = true)
-    private void gobberKnowledge(DamageSource source, CallbackInfo ci)
+    private void gobberExpEffect(DamageSource source, CallbackInfo ci)
     {
         if(attackingPlayer instanceof ServerPlayerEntity serverPlayer)
         {
@@ -43,7 +43,6 @@ public abstract class LivingEntityMixinKnowledge
                 int level = EnchantmentHelper.getLevel(EnchantmentInit.EXP_BOOST, stack);
                 StatusEffectInstance effect = new StatusEffectInstance(EffectsInit.EXPERIENCE, Gobber2.CONFIG.GENERAL.effectDurationExpBoost, level, true, true);
                 serverPlayer.addStatusEffect(effect);
-                serverPlayer.sendMessage((Text.translatable("XP Boosted by Enchantment")), true);
             }
             else if(Gobber2.CONFIG.GENERAL.medallionExpXPBoost)
             {
@@ -51,7 +50,6 @@ public abstract class LivingEntityMixinKnowledge
                 {
                     StatusEffectInstance effect = new StatusEffectInstance(EffectsInit.EXPERIENCE, Gobber2.CONFIG.GENERAL.effectDurationExpBoost, Gobber2.CONFIG.GENERAL.medallionExpAmplifer, true, true);
                     serverPlayer.addStatusEffect(effect);
-                    serverPlayer.sendMessage((Text.translatable("XP Boosted by Medallion")), true);
                 }
             }
         }

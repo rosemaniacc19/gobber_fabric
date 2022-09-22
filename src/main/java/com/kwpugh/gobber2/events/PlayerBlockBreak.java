@@ -5,6 +5,7 @@ import com.kwpugh.gobber2.init.EffectsInit;
 import com.kwpugh.gobber2.init.ItemInit;
 import com.kwpugh.gobber2.util.PlayerEquipUtil;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.OreBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
@@ -20,8 +21,11 @@ public class PlayerBlockBreak
         {
             if(PlayerEquipUtil.hasItemInInventory(player, ItemInit.GOBBER2_MEDALLION_EXP))
             {
-                StatusEffectInstance effect = new StatusEffectInstance(EffectsInit.EXPERIENCE, Gobber2.CONFIG.GENERAL.medallionExpDuration, Gobber2.CONFIG.GENERAL.medallionExpAmplifer, true, true);
-                player.addStatusEffect(effect);
+                if(state.getBlock() instanceof OreBlock || Gobber2.CONFIG.GENERAL.medallionExpFromAnyBlock)
+                {
+                    StatusEffectInstance effect = new StatusEffectInstance(EffectsInit.EXPERIENCE, Gobber2.CONFIG.GENERAL.medallionExpDuration, Gobber2.CONFIG.GENERAL.medallionExpAmplifer, true, true);
+                    player.addStatusEffect(effect);
+                }
             }
         }
 
