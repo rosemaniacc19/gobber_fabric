@@ -1,17 +1,15 @@
 package com.kwpugh.gobber2;
 
 import com.kwpugh.gobber2.config.Gobber2Config;
-import com.kwpugh.gobber2.events.SummonerEvent;
-import com.kwpugh.gobber2.events.SummonerManager;
+import com.kwpugh.gobber2.events.*;
 import com.kwpugh.gobber2.init.*;
-import com.kwpugh.gobber2.events.ElytraEvent;
-import com.kwpugh.gobber2.events.PlayerBlockBreak;
 import com.kwpugh.gobber2.world.GobberOrePlacedFeature;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import me.shedaniel.autoconfig.serializer.PartitioningSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;

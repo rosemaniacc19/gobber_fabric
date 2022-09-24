@@ -15,21 +15,20 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixinAttack extends LivingEntity
 {
-	public PlayerEntityMixinAttack(EntityType<? extends LivingEntity> entityType, World world) 
+	public PlayerEntityMixinAttack(EntityType<? extends LivingEntity> entityType, World world)
 	{
 		super(entityType, world);
 	}
-	
-	@Inject(at = @At("TAIL"), method = "attack")
+
+	@Inject(at = @At("HEAD"), method = "attack")
 	public void gobberAttack(Entity target, CallbackInfo ci)
 	{
 		PlayerEntity player = (PlayerEntity) (Object) this;
-
 		Item item = player.getMainHandStack().getItem();
-		
+
 		if(item == ItemInit.GOBBER2_SWORD_NETHER)
 		{
 			target.setOnFireFor(10);
-		}	  
+		}
 	}
 }
