@@ -15,7 +15,6 @@
     "EntityMixinFireFreeze",
     "LivingEntityMixinBreathing",
     "LivingEntityMixinClimbing",
-    "LivingEntityMixinKnowledge",
     "MobEntityMixinSetTarget",
     "ParrotEntityMixinInteract",
     "PiglinBrainMixinGlided",
@@ -36,7 +35,9 @@
   "client": [
     "ClientPlayerEntityMixinFallFlying",
     "EntityRenderDispatcherMixinStealth",
-    "LivingEntityRendererMixinStealth"
+    "LivingEntityRendererMixinStealth",
+    "MouseHandlerMixin",
+    "WindowHintsMixin"
   ],
   "injectors": {
     "defaultRequire": 1

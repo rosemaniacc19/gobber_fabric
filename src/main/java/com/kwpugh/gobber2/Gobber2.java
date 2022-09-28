@@ -9,7 +9,7 @@ import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import me.shedaniel.autoconfig.serializer.PartitioningSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
+import net.fabricmc.fabric.api.entity.event.v1.ServerEntityCombatEvents;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -42,5 +42,7 @@ public class Gobber2 implements ModInitializer
 		DispenserBehaviorInit.registerBehaviors();
 		ElytraEvent.init();
 		PlayerBlockBreakEvents.AFTER.register(PlayerBlockBreak::onBlockBreak);
+		ServerEntityCombatEvents.AFTER_KILLED_OTHER_ENTITY.register(new AfterKilledOtherEntityEvent());
+		GobberTraderOffersInit.register();
     }
 }
