@@ -42,11 +42,14 @@ public class StaffHostileEnsnarement extends BaseStaff
         {
             if((stack.getOrCreateSubNbt("captured_entity").isEmpty()) &&
                     (entity instanceof AnimalEntity ||
+                            entity instanceof MerchantEntity ||
                             entity instanceof GolemEntity ||
-                            entity instanceof VillagerEntity) ||
-                            entity instanceof WanderingTraderEntity ||
+                            entity instanceof SquidEntity ||
+                            entity instanceof FishEntity ||
+                            entity instanceof DolphinEntity ||
                             entity instanceof AllayEntity ||
-                            ((entity instanceof HostileEntity) && !(entity instanceof WitherEntity)))
+                            entity instanceof BatEntity ||
+                            ((entity instanceof HostileEntity) && !(entity instanceof WitherEntity))))
             {
                 if(EnsnarementUtil.saveEntityToStack(entity, stack))
                 {
