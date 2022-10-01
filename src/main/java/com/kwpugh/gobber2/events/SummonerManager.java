@@ -40,6 +40,19 @@ public class  SummonerManager
         entityList.add(entity);
     }
 
+    // compares entity's uuid to each in list looking for a match
+    public static boolean isInList(Entity entity)
+    {
+        for(Iterator<Entity> iterator = entityList.iterator(); iterator.hasNext();)
+        {
+            Entity entityToTest = iterator.next();
+
+            if(entityToTest.getUuid() == entity.getUuid()) return true;
+        }
+
+        return false;
+    }
+
     // For Debugging
     public static void showList()
     {

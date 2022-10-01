@@ -1,7 +1,6 @@
 package com.kwpugh.gobber2.events;
 
 import com.kwpugh.gobber2.Gobber2;
-import com.kwpugh.gobber2.events.SummonerManager;
 import com.kwpugh.gobber2.init.EnchantmentInit;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -45,6 +44,9 @@ public class SummonerEvent
             {
                 if(EnchantmentHelper.getLevel(EnchantmentInit.SUMMONER, player.getEquippedStack(EquipmentSlot.MAINHAND)) > 0)
                 {
+                    // don't summon new mobs bby hitting existing one
+                    if(SummonerManager.isInList(target)) return ActionResult.PASS;
+
                     int currentLevel = EnchantmentHelper.getLevel(EnchantmentInit.SUMMONER, player.getEquippedStack(EquipmentSlot.MAINHAND));
                     Random random = new Random();
                     int amount = random.nextInt(currentLevel); // random amount of mobs
