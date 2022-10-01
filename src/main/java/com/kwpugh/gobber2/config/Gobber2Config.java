@@ -258,18 +258,20 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public int untouchableBaseDamage = 8;
 		public int untouchableMaxLevel = 4;
 		public float untouchableAttackChance = .5F;
-		public boolean summonerEnableBonusStats = true;
-		public boolean summonerGoldGear = true;
-		public int summonerMobLifespan = 120;
-		public double summonerHealthBonus = 30.0;
-		public double summonerAttackBonus = 10.0;
-		public double summonerMovementBonus = 0.60;
-		public double summonerArmorBonus = 20.0;
-		public boolean summonerEventEnable = true;
 		public boolean enableRingEnchanting = true;
 		public boolean enableStaffEnchanting = true;
 		public boolean enableMedallionEnchanting = true;
 		public boolean apotropaicEventEnable = true;
+		public boolean summonerEventEnable = true;
+		public boolean summonerEnableRandomMode = false;
+		public float summonerRandomModeChance = .3F;
+		public boolean summonerEnableBonusStats = true;
+		public boolean summonerGoldGear = true;
+		public int summonerMobLifespan = 90;
+		public double summonerHealthBonus = 5.0D;
+		public double summonerAttackBonus = 5.0D;
+		public double summonerMovementBonus = 0.30D;
+		public double summonerArmorBonus = 0.0D;
 
 		@Comment("\n"
 				+"\n"

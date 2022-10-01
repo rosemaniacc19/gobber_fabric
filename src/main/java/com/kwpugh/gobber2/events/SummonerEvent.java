@@ -11,10 +11,14 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.ZombifiedPiglinEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 /*
     NOTE: SummonerManager will handle deleting
@@ -28,6 +32,8 @@ public class SummonerEvent
     static double summonerAttackBonus = Gobber2.CONFIG.GENERAL.summonerAttackBonus;
     static double summonerMovementBonus = Gobber2.CONFIG.GENERAL.summonerMovementBonus;
     static double summonerArmorBonus = Gobber2.CONFIG.GENERAL.summonerArmorBonus;
+    static boolean summonerRandomMode = Gobber2.CONFIG.GENERAL.summonerEnableRandomMode;
+    static float summerRandomChance = Gobber2.CONFIG.GENERAL.summonerRandomModeChance;
 
     public static void register()
     {
@@ -40,10 +46,27 @@ public class SummonerEvent
                 if(EnchantmentHelper.getLevel(EnchantmentInit.SUMMONER, player.getEquippedStack(EquipmentSlot.MAINHAND)) > 0)
                 {
                     int currentLevel = EnchantmentHelper.getLevel(EnchantmentInit.SUMMONER, player.getEquippedStack(EquipmentSlot.MAINHAND));
+                    Random random = new Random();
+                    int amount = random.nextInt(currentLevel); // random amount of mobs
 
-                    for(int i = 0; i < currentLevel; i++)
+                    if(summonerRandomMode)
                     {
-                        setupMob(world, target);
+                        double chance = random.nextDouble(); // random chance to spawn
+
+                        if(chance <= summerRandomChance) // random mode
+                        {
+                            for(int i = 0; i < amount; i++)
+                            {
+                                setupMob(world, target, player);
+                            }
+                        }
+                    }
+                    else // default mode, all mobs all the time
+                    {
+                        for(int i = 0; i < currentLevel; i++)
+                        {
+                            setupMob(world, target, player);
+                        }
                     }
                 }
             }
@@ -52,7 +75,7 @@ public class SummonerEvent
         });
     }
 
-    public static void setupMob(World world, LivingEntity target)
+    public static void setupMob(World world, LivingEntity target, PlayerEntity player)
     {
         ZombifiedPiglinEntity mob = EntityType.ZOMBIFIED_PIGLIN.create(world);
 
@@ -80,6 +103,7 @@ public class SummonerEvent
 
         // spawn them
         world.spawnEntity(mob);
+        player.sendMessage((Text.translatable("Help has arrived!")), true);
 
         // add them to the list to be tracked for removal
         SummonerManager.addToList(mob);

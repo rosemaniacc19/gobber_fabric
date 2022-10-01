@@ -72,7 +72,7 @@ public abstract class EntityMixinFireFreeze
         if(entity instanceof PlayerEntity player)
         {
             if(player.isInLava() && (PlayerEquipUtil.hasItemInInventory(player, ItemInit.GOBBER2_RING_PHOENIX) ||
-                    PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_RING_PHOENIX)))
+                    PlayerEquipUtil.hasItemInEnderchest(player, ItemInit.GOBBER2_RING_PHOENIX)))
             {
                 PlayerSpecialAbilities.giveHealing(player, Gobber2.CONFIG.GENERAL.ringPhoenixHealAmount);
                 PlayerSpecialAbilities.giveSaturationEffect(player);

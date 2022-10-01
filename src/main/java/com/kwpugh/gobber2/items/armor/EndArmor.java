@@ -36,9 +36,8 @@ public class EndArmor extends ArmorItem implements FabricElytraItem
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected)
 	{
-		if(!world.isClient && entity instanceof PlayerEntity)
+		if(!world.isClient && entity instanceof PlayerEntity player)
 		{
-			PlayerEntity player = (PlayerEntity) entity;
 			if(PlayerEquipUtil.isWearingEndArmor(player))
 			{
 				if(enableEndHealthPerks)

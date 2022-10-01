@@ -1,6 +1,7 @@
 package com.kwpugh.gobber2.items.armor;
 
 import com.kwpugh.gobber2.Gobber2;
+import com.kwpugh.gobber2.init.ItemInit;
 import com.kwpugh.gobber2.util.PlayerEquipUtil;
 import com.kwpugh.gobber2.util.PlayerSpecialAbilities;
 import net.minecraft.client.item.TooltipContext;
@@ -30,9 +31,8 @@ public class GobberArmor extends ArmorItem
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected)
 	{
-		if(!world.isClient && (entity instanceof PlayerEntity))
+		if(!world.isClient && (entity instanceof PlayerEntity player))
 		{
-			PlayerEntity player = (PlayerEntity) entity;
 			if(PlayerEquipUtil.isWearingGobberArmor(player))
 			{
 				if(player.age % 180 == 0)

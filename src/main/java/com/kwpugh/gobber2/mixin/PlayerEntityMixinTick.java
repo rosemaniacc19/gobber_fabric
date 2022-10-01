@@ -10,19 +10,15 @@ import com.kwpugh.gobber2.util.PlayerSpecialAbilities;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.stat.Stat;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -87,7 +83,7 @@ public abstract class PlayerEntityMixinTick extends LivingEntity
 
             if(allowEnder)
             {
-                if(PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_RING_STRENGTH))
+                if(PlayerEquipUtil.hasItemInEnderchest(player, ItemInit.GOBBER2_RING_STRENGTH))
                 {
                     StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.STRENGTH, Gobber2.CONFIG.GENERAL.effectDuration, strengthLevel, false, false);
                     StatusEffectInstance effect2 = new StatusEffectInstance(StatusEffects.RESISTANCE, Gobber2.CONFIG.GENERAL.effectDuration, resistenceLevel, false, false);
@@ -96,20 +92,20 @@ public abstract class PlayerEntityMixinTick extends LivingEntity
                     player.addStatusEffect(effect2);
                 }
 
-                if(PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_RING_REPAIR))
+                if(PlayerEquipUtil.hasItemInEnderchest(player, ItemInit.GOBBER2_RING_REPAIR))
                 {
                     RingRepair.repairItems(world, player);
                 }
 
-                if(PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_RING_ATTRACTION))
+                if(PlayerEquipUtil.hasItemInEnderchest(player, ItemInit.GOBBER2_RING_ATTRACTION))
                 {
-                    ItemStack stack = PlayerEquipUtil.getItemStackInEnder(player, ItemInit.GOBBER2_RING_ATTRACTION);
+                    ItemStack stack = PlayerEquipUtil.getItemStackInEnderchest(player, ItemInit.GOBBER2_RING_ATTRACTION);
                     PlayerSpecialAbilities.doItemAttraction(world, player, stack);
                 }
 
-                if(PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_RING_HASTE))
+                if(PlayerEquipUtil.hasItemInEnderchest(player, ItemInit.GOBBER2_RING_HASTE))
                 {
-                    ItemStack stack = PlayerEquipUtil.getItemStackInEnder(player, ItemInit.GOBBER2_RING_HASTE);
+                    ItemStack stack = PlayerEquipUtil.getItemStackInEnderchest(player, ItemInit.GOBBER2_RING_HASTE);
                     if(EnableUtil.isEnabled(stack))
                     {
                         StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.HASTE, Gobber2.CONFIG.GENERAL.effectDuration, hasteLevel, false, false);
@@ -117,9 +113,9 @@ public abstract class PlayerEntityMixinTick extends LivingEntity
                     }
                 }
 
-                if(PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_RING_LUCK))
+                if(PlayerEquipUtil.hasItemInEnderchest(player, ItemInit.GOBBER2_RING_LUCK))
                 {
-                    ItemStack stack = PlayerEquipUtil.getItemStackInEnder(player, ItemInit.GOBBER2_RING_LUCK);
+                    ItemStack stack = PlayerEquipUtil.getItemStackInEnderchest(player, ItemInit.GOBBER2_RING_LUCK);
                     if(EnableUtil.isEnabled(stack))
                     {
                         StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.LUCK, Gobber2.CONFIG.GENERAL.effectDuration, luckLevel, false, false);
@@ -127,9 +123,9 @@ public abstract class PlayerEntityMixinTick extends LivingEntity
                     }
                 }
 
-                if(PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_RING_SWIFTNESS))
+                if(PlayerEquipUtil.hasItemInEnderchest(player, ItemInit.GOBBER2_RING_SWIFTNESS))
                 {
-                    ItemStack stack = PlayerEquipUtil.getItemStackInEnder(player, ItemInit.GOBBER2_RING_SWIFTNESS);
+                    ItemStack stack = PlayerEquipUtil.getItemStackInEnderchest(player, ItemInit.GOBBER2_RING_SWIFTNESS);
                     if(EnableUtil.isEnabled(stack))
                     {
                         StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.SPEED, Gobber2.CONFIG.GENERAL.effectDuration, speedLevel, false, false);
@@ -137,9 +133,9 @@ public abstract class PlayerEntityMixinTick extends LivingEntity
                     }
                 }
 
-                if(PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_RING_VISION))
+                if(PlayerEquipUtil.hasItemInEnderchest(player, ItemInit.GOBBER2_RING_VISION))
                 {
-                    ItemStack stack = PlayerEquipUtil.getItemStackInEnder(player, ItemInit.GOBBER2_RING_VISION);
+                    ItemStack stack = PlayerEquipUtil.getItemStackInEnderchest(player, ItemInit.GOBBER2_RING_VISION);
                     if(EnableUtil.isEnabled(stack))
                     {
                         StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.NIGHT_VISION, Gobber2.CONFIG.GENERAL.effectDurationNightVision, 0, false, false);
@@ -152,7 +148,7 @@ public abstract class PlayerEntityMixinTick extends LivingEntity
                     }
                 }
 
-                if(PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_MEDALLION_HERO))
+                if(PlayerEquipUtil.hasItemInEnderchest(player, ItemInit.GOBBER2_MEDALLION_HERO))
                 {
                     StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.HERO_OF_THE_VILLAGE, 8, 0, false, false);
                     player.addStatusEffect(effect);
@@ -163,7 +159,7 @@ public abstract class PlayerEntityMixinTick extends LivingEntity
                     }
                 }
 
-                if(PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_MEDALLION_SEA))
+                if(PlayerEquipUtil.hasItemInEnderchest(player, ItemInit.GOBBER2_MEDALLION_SEA))
                 {
                     if(player.isSubmergedInWater())
                     {
@@ -174,29 +170,29 @@ public abstract class PlayerEntityMixinTick extends LivingEntity
                     }
                 }
 
-                if(PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_MEDALLION_HEALING))
+                if(PlayerEquipUtil.hasItemInEnderchest(player, ItemInit.GOBBER2_MEDALLION_HEALING))
                 {
                     PlayerSpecialAbilities.giveHealing(player, amount1);
                 }
 
-                if(PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_MEDALLION_HEALING2))
+                if(PlayerEquipUtil.hasItemInEnderchest(player, ItemInit.GOBBER2_MEDALLION_HEALING2))
                 {
                     PlayerSpecialAbilities.giveHealing(player, amount2);
                     PlayerSpecialAbilities.giveSaturationEffect(player);
                 }
 
-                if(PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_MEDALLION_HEALING3))
+                if(PlayerEquipUtil.hasItemInEnderchest(player, ItemInit.GOBBER2_MEDALLION_HEALING3))
                 {
                     PlayerSpecialAbilities.giveHealing(player, amount3);
                     PlayerSpecialAbilities.giveSaturationEffect(player);
                 }
 
-                if(PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_MEDALLION_SHIELDING))
+                if(PlayerEquipUtil.hasItemInEnderchest(player, ItemInit.GOBBER2_MEDALLION_SHIELDING))
                 {
                     PlayerSpecialAbilities.giveProjectileShield(world, player, shieldingVert, shieldingHoriz);
                 }
 
-                if(PlayerEquipUtil.hasItemInEnder(player, ItemInit.GOBBER2_MEDALLION_SUFFERING))
+                if(PlayerEquipUtil.hasItemInEnderchest(player, ItemInit.GOBBER2_MEDALLION_SUFFERING))
                 {
                     BlockPos pos = player.getBlockPos();
                     PlayerSpecialAbilities.inflictSuffering(world, pos, rangeSuffering, damageSuffering);

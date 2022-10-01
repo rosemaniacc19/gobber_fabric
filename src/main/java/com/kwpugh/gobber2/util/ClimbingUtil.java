@@ -29,7 +29,7 @@ public class ClimbingUtil
 
             if(PlayerEquipUtil.hasItemInInventory(player, ItemInit.GOBBER2_RING_ASCENT))
             {
-                ItemStack ring = PlayerEquipUtil.getItemInInventory(player, ItemInit.GOBBER2_RING_ASCENT);
+                ItemStack ring = PlayerEquipUtil.getItemStackInInventory(player, ItemInit.GOBBER2_RING_ASCENT);
                 if(!EnableUtil.isEnabled(ring)) return value;
 
                 BlockState stateNorth = world.getBlockState(pos.north());

@@ -30,9 +30,8 @@ public class NetherArmor extends ArmorItem
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected)
 	{				
-		if(!world.isClient && entity instanceof PlayerEntity)
+		if(!world.isClient && entity instanceof PlayerEntity player)
 		{
-			PlayerEntity player = (PlayerEntity) entity;
 			if(PlayerEquipUtil.isWearingNetherArmor(player))
 	      	{
 	    		if(player.age % 180 == 0)

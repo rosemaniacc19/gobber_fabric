@@ -91,7 +91,7 @@ public final class PlayerEquipUtil
 		return false;
 	}
 
-	// Generalized check for itemstack in off hand
+	// Generalized check for item in offhand
 	public static boolean hasItemInOffHand(PlayerEntity player, Item item)
 	{
 		ItemStack offHand = player.getOffHandStack();
@@ -104,7 +104,7 @@ public final class PlayerEquipUtil
 		return false;
 	}
 
-	// Generalized check for itemstack in main hand
+	// Generalized check for item in main hand
 	public static boolean hasItemInMainHand(PlayerEntity player, Item item)
 	{
 		ItemStack offHand = player.getMainHandStack();
@@ -117,7 +117,7 @@ public final class PlayerEquipUtil
 		return false;
 	}
 
-	// Generalized check for itemstack in inventory
+	// Generalized check for item in inventory
 	public static boolean hasItemInInventory(PlayerEntity player, Item item)
 	{
 		PlayerInventory inv = player.getInventory();
@@ -137,7 +137,7 @@ public final class PlayerEquipUtil
 	}
 
 	// Return Itemtack for Item in inventory
-	public static ItemStack getItemInInventory(PlayerEntity player, Item item)
+	public static ItemStack getItemStackInInventory(PlayerEntity player, Item item)
 	{
 		PlayerInventory inv = player.getInventory();
 		int size = inv.size();
@@ -155,8 +155,8 @@ public final class PlayerEquipUtil
 		return ItemStack.EMPTY;
 	}
 
-	// Generalized check for itemstack in ender chest
-	public static boolean hasItemInEnder(PlayerEntity player, Item item)
+	// Generalized check for item in ender chest
+	public static boolean hasItemInEnderchest(PlayerEntity player, Item item)
 	{
 		if(!(player instanceof ServerPlayerEntity serverPlayer)) return false;
 
@@ -177,7 +177,7 @@ public final class PlayerEquipUtil
 	}
 
 	// Return itemstack for item in ender chest
-	public static ItemStack getItemStackInEnder(PlayerEntity player, Item item)
+	public static ItemStack getItemStackInEnderchest(PlayerEntity player, Item item)
 	{
 		if(!(player instanceof ServerPlayerEntity serverPlayer)) return ItemStack.EMPTY;
 

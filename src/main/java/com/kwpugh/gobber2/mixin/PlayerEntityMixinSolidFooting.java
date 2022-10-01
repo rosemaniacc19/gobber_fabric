@@ -32,7 +32,7 @@ public abstract class PlayerEntityMixinSolidFooting extends LivingEntity
 		PlayerEntity self = (PlayerEntity) (Object) this;
 		float speed = self.getInventory().getBlockBreakingSpeed(state);		
 
-		if (EnchantmentHelper.getLevel(EnchantmentInit.SOLIDFOOTING, self.getEquippedStack(EquipmentSlot.FEET)) > 0)
+		if(EnchantmentHelper.getLevel(EnchantmentInit.SOLIDFOOTING, self.getEquippedStack(EquipmentSlot.FEET)) > 0)
 		{
 			if(speed > 1.0F && !self.isOnGround())
 			{
