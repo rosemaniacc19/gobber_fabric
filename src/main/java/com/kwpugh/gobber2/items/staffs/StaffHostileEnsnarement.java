@@ -6,7 +6,9 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.boss.WitherEntity;
+import net.minecraft.entity.mob.GhastEntity;
 import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.entity.mob.PhantomEntity;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -49,6 +51,8 @@ public class StaffHostileEnsnarement extends BaseStaff
                             entity instanceof DolphinEntity ||
                             entity instanceof AllayEntity ||
                             entity instanceof BatEntity ||
+                            entity instanceof GhastEntity ||
+                            entity instanceof PhantomEntity ||
                             ((entity instanceof HostileEntity) && !(entity instanceof WitherEntity))))
             {
                 if(EnsnarementUtil.saveEntityToStack(entity, stack))
