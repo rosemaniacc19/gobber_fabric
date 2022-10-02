@@ -267,11 +267,11 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public float summonerRandomModeChance = .3F;
 		public boolean summonerEnableBonusStats = true;
 		public boolean summonerGoldGear = true;
-		public int summonerMobLifespan = 90;
-		public double summonerHealthBonus = 5.0D;
-		public double summonerAttackBonus = 5.0D;
-		public double summonerMovementBonus = 0.30D;
-		public double summonerArmorBonus = 0.0D;
+		public int summonerMobLifespan = 120;
+		public double summonerHealthBonus = 10.0D;
+		public double summonerAttackBonus = 10.0D;
+		public double summonerMovementBonus = 0.40D;
+		public double summonerArmorBonus = 10.0D;
 
 		@Comment("\n"
 				+"\n"
