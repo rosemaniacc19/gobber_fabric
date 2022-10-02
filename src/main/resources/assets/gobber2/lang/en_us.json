@@ -407,7 +407,7 @@
 	"enchantment.gobber2.untouchable": "Untouchable",
 	"enchantment.gobber2.untouchable.desc": "Gobber2: (Leggings) Deals damage to attackers.",
 
-	 "effect.gobber2.knowledge": "Knowledge Boost",
+	 "effect.gobber2.experience": "Experience Boost",
 
 	 "advancements.gobber2.root.title": "The Gobber Adventure",
 	 "advancements.gobber2.root.desc": "Smelt a Gobber Ore",
