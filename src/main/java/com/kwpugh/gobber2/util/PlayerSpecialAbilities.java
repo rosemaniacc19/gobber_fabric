@@ -33,6 +33,7 @@ public class PlayerSpecialAbilities
 {
 	static boolean enableNetherSwordPerks = Gobber2.CONFIG.GENERAL.enableNetherSwordPerks;
 	static int configRange = Gobber2.CONFIG.GENERAL.ringAttractionRange;
+	static boolean enableCoalBlock = Gobber2.CONFIG.GENERAL.ringAttractionEnableCoal;
 
 	//Increases the player's health amount to max on tick update, based on inputs
 	public static void giveHealing(PlayerEntity player, int amount)
@@ -293,13 +294,16 @@ public class PlayerSpecialAbilities
 			BlockPos playerPos = new BlockPos(player.getPos());
 
 			// Check for a particular block that stops the attraction
-			for (BlockPos targetPos : BlockPos.iterateOutwards(playerPos, configRange, 5, configRange))
+			if(enableCoalBlock)
 			{
-				BlockState blockstate = world.getBlockState(targetPos);
-
-				if ((blockstate.getBlock() == Blocks.COAL_BLOCK))
+				for(BlockPos targetPos : BlockPos.iterateOutwards(playerPos, configRange, 5, configRange))
 				{
-					return;
+					BlockState blockstate = world.getBlockState(targetPos);
+
+					if((blockstate.getBlock() == Blocks.COAL_BLOCK))
+					{
+						return;
+					}
 				}
 			}
 
