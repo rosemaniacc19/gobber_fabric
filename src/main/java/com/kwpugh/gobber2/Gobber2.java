@@ -36,15 +36,9 @@ public class Gobber2 implements ModInitializer
     	FuelInit.registerFuels();;
     	EnchantmentInit.registerEnchantments();
     	EffectsInit.registerEffects();
-    	LootTableInit.registerLoot();
-		SummonerEvent.register();
-		SummonerManager.init();
 		EntityInit.registerEntities();
 		DispenserBehaviorInit.registerBehaviors();
-		ElytraEvent.init();
-		PlayerBlockBreakEvents.AFTER.register(PlayerBlockBreak::onBlockBreak);
-		ServerEntityCombatEvents.AFTER_KILLED_OTHER_ENTITY.register(new AfterKilledOtherEntityEvent());
 		GobberTraderOffersInit.register();
-		UseEntityCallback.EVENT.register(EntityInteractEvent::onUseEntity);
+		ModEvents.register();
     }
 }

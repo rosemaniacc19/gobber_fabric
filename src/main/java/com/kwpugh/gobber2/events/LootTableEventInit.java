@@ -1,6 +1,7 @@
-package com.kwpugh.gobber2.init;
+package com.kwpugh.gobber2.events;
 
 import com.kwpugh.gobber2.Gobber2;
+import com.kwpugh.gobber2.init.ItemInit;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTables;
@@ -8,7 +9,7 @@ import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 
-public class LootTableInit
+public class LootTableEventInit
 {
 	static boolean lootEnable = Gobber2.CONFIG.GENERAL.lootEnable;
 	static float lootChance = Gobber2.CONFIG.GENERAL.lootChance;
