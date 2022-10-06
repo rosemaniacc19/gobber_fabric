@@ -35,9 +35,7 @@
   "client": [
     "ClientPlayerEntityMixinFallFlying",
     "EntityRenderDispatcherMixinStealth",
-    "LivingEntityRendererMixinStealth",
-    "MouseHandlerMixin",
-    "WindowHintsMixin"
+    "LivingEntityRendererMixinStealth"
   ],
   "injectors": {
     "defaultRequire": 1
