@@ -4,8 +4,7 @@
   "package": "com.kwpugh.gobber2.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
-    "AbstractDonkeyEntityMixinInteract",
-    "AllayEntityMixinInteract",
+
     "ArmorItemMixinKnockback",
     "ClampedEntityAttributeMixin",
     "EnchantmentTargetMixin",
@@ -16,7 +15,7 @@
     "LivingEntityMixinBreathing",
     "LivingEntityMixinClimbing",
     "MobEntityMixinSetTarget",
-    "ParrotEntityMixinInteract",
+
     "PiglinBrainMixinGlided",
     "PlayerEntityMixinArmor",
     "PlayerEntityMixinAttack",
@@ -27,10 +26,9 @@
     "PowderSnowBlockMixin",
     "UnbreakingEnchantmentMixin",
     "VibrationListenerMixin",
-    "VillagerEntityMixinInteract",
-    "WanderingTraderEntityMixinInteract",
-    "WitherSkeletonEntityMixin",
-    "WolfEntityMixinInteract"
+
+
+    "WitherSkeletonEntityMixin"
   ],
   "client": [
     "ClientPlayerEntityMixinFallFlying",
