@@ -81,8 +81,7 @@ public class DragonArmor extends ArmorItem implements ArmorRemoveHandler, ArmorT
             if(this.slot == EquipmentSlot.HEAD ||
                     this.slot == EquipmentSlot.CHEST ||
                     this.slot == EquipmentSlot.LEGS ||
-                    this.slot == EquipmentSlot.FEET
-            )
+                    this.slot == EquipmentSlot.FEET)
             {
                 if(!player.isCreative() && !player.isSpectator())
                 {

@@ -6,7 +6,7 @@ import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 
 public class ModEvents
 {
-    public static void register()
+    public static void registerEvents()
     {
         LootTableEventInit.registerLoot();
         ElytraEvent.init();

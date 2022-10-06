@@ -9,9 +9,6 @@ import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import me.shedaniel.autoconfig.serializer.PartitioningSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.fabricmc.fabric.api.entity.event.v1.ServerEntityCombatEvents;
-import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
-import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
@@ -38,7 +35,7 @@ public class Gobber2 implements ModInitializer
     	EffectsInit.registerEffects();
 		EntityInit.registerEntities();
 		DispenserBehaviorInit.registerBehaviors();
-		GobberTraderOffersInit.register();
-		ModEvents.register();
+		TraderOffersInit.registerOffers();
+		ModEvents.registerEvents();
     }
 }
