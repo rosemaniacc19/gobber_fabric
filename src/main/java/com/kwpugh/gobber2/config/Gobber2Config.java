@@ -215,6 +215,16 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		@Comment("\n"
 				+"\n"
 				+ "***********************"
+				+"\nBlessing Effect Settings"
+				+"\n***********************")
+		public int effectBlessingDuration = 90;
+		public int effectBlessingPoints = 1;
+		public int effectBlessingFood = 1;
+		public int effectBlessingDelay = 20;
+
+		@Comment("\n"
+				+"\n"
+				+ "***********************"
 				+"\nExperience Effect Settings"
 				+"\n-used by Experience Boost enchant,"
 				+"\nMedallion of Experience, and"
@@ -237,6 +247,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 				+"\n***********************")
 		public boolean enableApotropaic = true;
 		public boolean enableBlinders = true;
+		public boolean enableBlessing = true;
 		public boolean enableFasterObsidian = true;
 		public boolean enableFluidMaster = true;
 		public boolean enableExpBoost = true;
@@ -479,8 +490,8 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 				+ "***********************"
 				+"\nGobber Armor Features"
 				+"\n***********************")
-		public boolean enableGobberBreathing = true;
-		public boolean enableGobberHealthPerks = true;
+		public boolean enableGobberBreathing = false;
+		public boolean enableGobberHealthPerks = false;
 		public int healingPointsGobberArmor = 2;
 
 		@Comment("\n"
@@ -488,8 +499,8 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 				+ "***********************"
 				+"\nNether Armor Features"
 				+"\n***********************")
-		public boolean enableNetherFirePerk = true;
-		public boolean enableNetherHealthPerks = true;
+		public boolean enableNetherFirePerk = false;
+		public boolean enableNetherHealthPerks = false;
 		public int healingPointsNetherArmor = 2;
 
 		@Comment("\n"
@@ -498,9 +509,9 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 				+"\nEnd Armor Features"
 				+"\n***********************")
 		public boolean unbreakableEndArmor = true;
-		public boolean enableEndBreathing = true;
-		public boolean enableEndFirePerk = true;
-		public boolean enableEndHealthPerks = true;
+		public boolean enableEndBreathing = false;
+		public boolean enableEndFirePerk = false;
+		public boolean enableEndHealthPerks = false;
 		public int healingPointsEndArmor = 3;
 		public boolean enableEndNoFallDamage = true;
 		public boolean enableGlidingEndArmor = true;
@@ -513,7 +524,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public boolean unbreakableDragonArmor = true;
 		public boolean enableDragonBreathing = true;
 		public boolean enableDragonFirePerk = true;
-		public boolean enableDragonHealthPerks = true;
+		public boolean enableDragonHealthPerks = false;
 		public int healingPointsDragonArmor = 4;
 		public boolean enableDragonCuring  =  true;
 		public boolean enableDragonNoFallDamage = true;

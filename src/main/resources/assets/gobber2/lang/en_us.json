@@ -384,6 +384,8 @@
 
 	"enchantment.gobber2.apotropaic": "Aotropaic",
 	"enchantment.gobber2.apotropaic.desc": "Gobber2: (Chest) Powerful protection against magic",
+	"enchantment.gobber2.blessing": "Blessing",
+	"enchantment.gobber2.blessing.desc": "Gobber2: (Sword) Provides blessing of healing.",
 	"enchantment.gobber2.blinders": "Blinders",
 	"enchantment.gobber2.blinders.desc": "Gobber2: (Helmet) Staring at an Enderman will not cause them to attack.",
 	"enchantment.gobber2.faster_obsidian": "Faster Obsidian",
@@ -407,7 +409,8 @@
 	"enchantment.gobber2.untouchable": "Untouchable",
 	"enchantment.gobber2.untouchable.desc": "Gobber2: (Leggings) Deals damage to attackers.",
 
-	 "effect.gobber2.experience": "Experience Boost",
+	"effect.gobber2.experience": "Experience Boost",
+	"effect.gobber2.blessing": "Blessing",
 
 	 "advancements.gobber2.root.title": "The Gobber Adventure",
 	 "advancements.gobber2.root.desc": "Smelt a Gobber Ore",

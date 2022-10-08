@@ -1,28 +1,32 @@
 package com.kwpugh.gobber2.enchantments;
 
 import com.kwpugh.gobber2.Gobber2;
-
 import com.kwpugh.gobber2.init.EffectsInit;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityGroup;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 
-public class SmithBladeEnchantment extends Enchantment
-{ 
-	public SmithBladeEnchantment(Rarity weight, EnchantmentTarget target, EquipmentSlot[] slots)
+public class BlessingEnchantment extends Enchantment
+{
+	public BlessingEnchantment(Rarity weight, EnchantmentTarget target, EquipmentSlot[] slots)
 	{
 		super(weight, target, slots);
 	}
-    
-    static int attackAmount = Gobber2.CONFIG.GENERAL.smithbladeAttackAmount;
-    static int maxLevel = Gobber2.CONFIG.GENERAL.smithbladeMaxLevel;
 
     @Override
     public void onUserDamaged(LivingEntity user, Entity attacker, int level)
     {
-        // no op
+        StatusEffectInstance effect = new StatusEffectInstance(EffectsInit.BLESSING, Gobber2.CONFIG.GENERAL.effectBlessingDuration, 0, false, true);
+
+        if(user instanceof PlayerEntity player)
+        {
+            player.addStatusEffect(effect);
+        }
     }
 
     @Override
@@ -40,30 +44,24 @@ public class SmithBladeEnchantment extends Enchantment
     @Override
     public int getMaxLevel()
     {
-        return maxLevel;
+        return 1;
     }
-    
-    @Override
-	public float getAttackDamage(int level, EntityGroup group)
-	{
-		return attackAmount * level;
-   }
 
     @Override
     public boolean isTreasure()
     {
-        return Gobber2.CONFIG.GENERAL.enableSmithBlade;
+        return Gobber2.CONFIG.GENERAL.enableBlessing;
     }
 
     @Override
     public boolean isAvailableForEnchantedBookOffer()
     {
-        return Gobber2.CONFIG.GENERAL.enableSmithBlade;
+        return Gobber2.CONFIG.GENERAL.enableBlessing;
     }
 
     @Override
     public boolean isAvailableForRandomSelection()
     {
-        return Gobber2.CONFIG.GENERAL.enableSmithBlade;
+        return Gobber2.CONFIG.GENERAL.enableBlessing;
     }
 }
