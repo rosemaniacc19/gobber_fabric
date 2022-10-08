@@ -29,7 +29,7 @@ public class Gobber2 implements ModInitializer
     	BlockInit.registerBlockItems();
     	BlockInit.registerBlockEntities();
     	ItemInit.registerItems();
-		GobberOrePlacedFeature.init();
+		GobberOrePlacedFeature.register();
     	FuelInit.registerFuels();;
     	EnchantmentInit.registerEnchantments();
     	EffectsInit.registerEffects();

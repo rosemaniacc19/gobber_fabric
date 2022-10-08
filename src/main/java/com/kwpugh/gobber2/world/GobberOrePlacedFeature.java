@@ -44,7 +44,7 @@ public class GobberOrePlacedFeature
     }
 
 
-    public static void init()
+    public static void register()
     {
         // Cast the RegistryEntry to RegistryKey for use with BiomModification API
         RegistryKey<PlacedFeature> overworldLuckyBlock = ORE_LUCKY_BLOCK_OVERWORLD.getKey().get();

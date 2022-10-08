@@ -44,7 +44,7 @@ public class SummonerEvent
             {
                 if(EnchantmentHelper.getLevel(EnchantmentInit.SUMMONER, player.getEquippedStack(EquipmentSlot.MAINHAND)) > 0)
                 {
-                    // don't summon new mobs bby hitting existing one
+                    // don't summon new mobs by hitting existing one
                     if(SummonerManager.isInList(target)) return ActionResult.PASS;
 
                     int currentLevel = EnchantmentHelper.getLevel(EnchantmentInit.SUMMONER, player.getEquippedStack(EquipmentSlot.MAINHAND));
