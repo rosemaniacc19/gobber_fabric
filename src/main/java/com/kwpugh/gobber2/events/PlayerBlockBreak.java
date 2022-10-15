@@ -3,6 +3,7 @@ package com.kwpugh.gobber2.events;
 import com.kwpugh.gobber2.Gobber2;
 import com.kwpugh.gobber2.init.EffectsInit;
 import com.kwpugh.gobber2.init.ItemInit;
+import com.kwpugh.gobber2.util.GobberForceManager;
 import com.kwpugh.gobber2.util.PlayerEquipUtil;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.OreBlock;
@@ -27,6 +28,12 @@ public class PlayerBlockBreak
                     player.addStatusEffect(effect);
                 }
             }
+        }
+
+        // give gobberplanck if mining ore
+        if(PlayerEquipUtil.isWearingGobberArmor(player) && (state.getBlock() instanceof OreBlock) && Gobber2.CONFIG.GENERAL.enableGobberForce)
+        {
+            GobberForceManager.addGobberForce(player, 1);
         }
 
         return true;

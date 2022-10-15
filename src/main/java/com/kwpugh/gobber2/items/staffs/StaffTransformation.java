@@ -99,9 +99,11 @@ public class StaffTransformation extends BaseStaff implements CustomRecipeRemain
 
 		return TypedActionResult.success(stack);
 	}
+
 	@Override
 	public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
 		super.appendTooltip(stack, world, tooltip, context);
+
 		tooltip.add((Text.translatable("item.gobber2.gobber2_staff_transformation.tip1").formatted(Formatting.GREEN)));
 		tooltip.add((Text.translatable("item.gobber2.gobber2_staff_transformation.tip2").formatted(Formatting.YELLOW)));
 	}

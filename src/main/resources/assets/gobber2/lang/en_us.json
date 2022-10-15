@@ -352,7 +352,13 @@
 	"item.gobber2.gobber2_staff_transformation": "Staff of Transformation",
 	"item.gobber2.gobber2_staff_transformation.tip1": "Transforms some blocks into other blocks",
 	"item.gobber2.gobber2_staff_transformation.tip2": "Works in a crafting table",
-	
+
+	"item.gobber2.gobber2_staff_channeling": "Staff of Channeling",
+	"item.gobber2.gobber2_staff_channeling.tip1": "View and use your GobberForce energy",
+	"item.gobber2.gobber2_staff_channeling.tip2": "Right-click to view current GobberForce",
+	"item.gobber2.gobber2_staff_channeling.tip3": "Sneak + right-click to clear GobberForce",
+	"item.gobber2.gobber2_staff_channeling.tip4": "Your GobberForce amount: %s",
+
 	"item.gobber2.gobber2_staff_clearing": "Staff of Clearing",
 	"item.gobber2.gobber2_staff_clearing.tip1": "Breaks most grass, flowers, and bush",
 	"item.gobber2.gobber2_staff_clearing.tip2": "Clearing area: %s X %s X %s",

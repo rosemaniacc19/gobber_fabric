@@ -20,6 +20,7 @@ import net.minecraft.entity.projectile.*;
 import net.minecraft.entity.projectile.thrown.PotionEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
@@ -253,7 +254,7 @@ public class PlayerSpecialAbilities
 					targetEntity instanceof VexEntity)
 				continue;
 
-			if(targetEntity instanceof HostileEntity)
+			if(targetEntity instanceof HostileEntity || targetEntity instanceof HoglinEntity)
 			{
 				targetEntity.damage(DamageSource.GENERIC, damage);
 			}

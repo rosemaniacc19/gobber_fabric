@@ -225,6 +225,15 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		@Comment("\n"
 				+"\n"
 				+ "***********************"
+				+"\nGobberForce Settings (WIP)"
+				+"\n***********************")
+		public boolean enableGobberForce = false;
+		public int forceNaturalRegenDelay = 300;
+		public int forceEarnedGobberArmor = 1;
+
+		@Comment("\n"
+				+"\n"
+				+ "***********************"
 				+"\nExperience Effect Settings"
 				+"\n-used by Experience Boost enchant,"
 				+"\nMedallion of Experience, and"

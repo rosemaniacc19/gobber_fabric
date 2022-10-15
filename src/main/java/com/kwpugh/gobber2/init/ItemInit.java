@@ -204,6 +204,7 @@ public class ItemInit
 	public static final Item GOBBER2_STAFF_NATURE = new StaffNature((new Item.Settings()).maxCount(1).group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_STAFF_HOSTILE_ENSNAREMENT = new StaffHostileEnsnarement((new Item.Settings()).maxCount(1).group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_STAFF_SNIPER = new StaffSniper((new Item.Settings()).maxCount(1).group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_STAFF_CHANNELING = new StaffChanneling((new Item.Settings()).maxCount(1).group(Gobber2.GOBBER2_GROUP));
 
 	public static final Item GOBBER2_SPECIAL_ITEM = new SpecialItem((new Item.Settings()).maxCount(1).group(Gobber2.GOBBER2_GROUP));
 
@@ -358,6 +359,7 @@ public class ItemInit
 		Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_staff_stars"), GOBBER2_STAFF_STARS);
 		Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_staff_hostile_ensnarement"), GOBBER2_STAFF_HOSTILE_ENSNAREMENT);
 		Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_staff_sniper"), GOBBER2_STAFF_SNIPER);
+		Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_staff_channeling"), GOBBER2_STAFF_CHANNELING);
 		Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_special_item"), GOBBER2_SPECIAL_ITEM);
 	}
 }

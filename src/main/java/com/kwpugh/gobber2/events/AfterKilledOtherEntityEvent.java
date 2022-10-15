@@ -4,6 +4,7 @@ import com.kwpugh.gobber2.Gobber2;
 import com.kwpugh.gobber2.init.EffectsInit;
 import com.kwpugh.gobber2.init.EnchantmentInit;
 import com.kwpugh.gobber2.init.ItemInit;
+import com.kwpugh.gobber2.util.GobberForceManager;
 import com.kwpugh.gobber2.util.PlayerEquipUtil;
 import net.fabricmc.fabric.api.entity.event.v1.ServerEntityCombatEvents;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -40,6 +41,12 @@ public class AfterKilledOtherEntityEvent implements ServerEntityCombatEvents.Aft
                     StatusEffectInstance effect = new StatusEffectInstance(EffectsInit.EXPERIENCE, Gobber2.CONFIG.GENERAL.effectDurationExpBoost, Gobber2.CONFIG.GENERAL.medallionExpAmplifer, true, true);
                     player.addStatusEffect(effect);
                 }
+            }
+
+            // give gobberplanck if killing a mob
+            if(PlayerEquipUtil.isWearingGobberArmor(player) && Gobber2.CONFIG.GENERAL.enableGobberForce)
+            {
+                GobberForceManager.addGobberForce(player, 2);
             }
         }
     }
