@@ -2,7 +2,6 @@ package com.kwpugh.gobber2.mixin;
 
 import com.kwpugh.gobber2.Gobber2;
 import com.kwpugh.gobber2.util.GobberForceManager;
-import com.kwpugh.gobber2.util.PlayerEquipUtil;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -50,16 +49,22 @@ public abstract class PlayerEntityMixinPlanck extends LivingEntity
             PlayerEntity player = (PlayerEntity) (Object) this;
             int damageAmount = (int) amount;
 
-            if(GobberForceManager.getGobberForce(player) > 100 && damageAmount < 100)
+            //damage reduction only available above a certain GobberForce level
+            if(GobberForceManager.getGobberForce(player) > 30)
             {
-                GobberForceManager.subtractGobberForce(player, damageAmount);
-                player.sendMessage((Text.translatable("Player damage absorbed by GobberForce: " + damageAmount).formatted(Formatting.GOLD).formatted(Formatting.BOLD)), true);
-                cir.setReturnValue(false);
-            }
-            else if(GobberForceManager.getGobberForce(player) > damageAmount)
-            {
-                player.sendMessage((Text.translatable("Your GobberForce amount reduced by: " + damageAmount).formatted(Formatting.DARK_PURPLE).formatted(Formatting.BOLD)), true);
-                GobberForceManager.subtractGobberForce(player, damageAmount);
+                if(damageAmount <= GobberForceManager.getGobberForce(player))
+                {
+                    GobberForceManager.subtractGobberForce(player, damageAmount);
+                    player.sendMessage((Text.translatable("Player damage absorbed by GobberForce: " + damageAmount).formatted(Formatting.GOLD).formatted(Formatting.BOLD)), true);
+                    cir.setReturnValue(false);
+                }
+                else if(damageAmount > GobberForceManager.getGobberForce(player))
+                {
+                    int diff = damageAmount - GobberForceManager.getGobberForce(player);
+                    amount = damageAmount - diff;
+                    player.sendMessage((Text.translatable("Your GobberForce amount reduced by: " + diff).formatted(Formatting.DARK_PURPLE).formatted(Formatting.BOLD)), true);
+                    GobberForceManager.subtractGobberForce(player, diff);
+                }
             }
         }
     }
@@ -70,9 +75,9 @@ public abstract class PlayerEntityMixinPlanck extends LivingEntity
     {
         PlayerEntity player = (PlayerEntity) (Object) this;
 
-        if(GobberForceManager.getGobberForce(player) > 10)
+        if((exhaustion > 0.0F) && (GobberForceManager.getGobberForce(player) > 30))
         {
-            GobberForceManager.subtractGobberForce(player, 5);
+            GobberForceManager.subtractGobberForce(player, 1);
             ci.cancel();
         }
     }

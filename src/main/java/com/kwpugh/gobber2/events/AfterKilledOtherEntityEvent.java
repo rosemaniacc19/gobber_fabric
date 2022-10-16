@@ -43,10 +43,10 @@ public class AfterKilledOtherEntityEvent implements ServerEntityCombatEvents.Aft
                 }
             }
 
-            // give gobberplanck if killing a mob
+            // give GobberForce if killing a mob
             if(PlayerEquipUtil.isWearingGobberArmor(player) && Gobber2.CONFIG.GENERAL.enableGobberForce)
             {
-                GobberForceManager.addGobberForce(player, 2);
+                GobberForceManager.addGobberForce(player, 5);
             }
         }
     }

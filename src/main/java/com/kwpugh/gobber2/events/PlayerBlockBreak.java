@@ -30,10 +30,10 @@ public class PlayerBlockBreak
             }
         }
 
-        // give gobberplanck if mining ore
+        // give GobberForce if mining ore
         if(PlayerEquipUtil.isWearingGobberArmor(player) && (state.getBlock() instanceof OreBlock) && Gobber2.CONFIG.GENERAL.enableGobberForce)
         {
-            GobberForceManager.addGobberForce(player, 1);
+            GobberForceManager.addGobberForce(player, 3);
         }
 
         return true;

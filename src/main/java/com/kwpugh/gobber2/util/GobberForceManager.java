@@ -23,7 +23,7 @@ public class GobberForceManager
             if(PlayerEquipUtil.isWearingGobberArmor(player))
             {
                 // Naturally earned planck
-                if(getGobberForce(player) < Integer.MAX_VALUE && player.age % Gobber2.CONFIG.GENERAL.forceNaturalRegenDelay == 0)
+                if((getGobberForce(player) < Integer.MAX_VALUE) && (player.age % Gobber2.CONFIG.GENERAL.forceNaturalRegenDelay == 0))
                 {
                     addGobberForce(player, Gobber2.CONFIG.GENERAL.forceEarnedGobberArmor);
                 }
