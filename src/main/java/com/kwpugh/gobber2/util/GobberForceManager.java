@@ -47,7 +47,7 @@ public class GobberForceManager
                 }
 
                 // Restore full health
-                if((player.getHealth() < 15) && (getGobberForce(player) > 50))
+                if((player.getHealth() < 15) && (getGobberForce(player) > 40))
                 {
                     player.setHealth(20.0F);
                     subtractGobberForce(player, 1);
@@ -56,10 +56,10 @@ public class GobberForceManager
                 }
 
                 // Give extra health check
-                if((player.getHealth() == 20) && (getGobberForce(player) > 70))
+                if((player.getHealth() == 20) && (getGobberForce(player) > 50))
                 {
                     float current = player.getAbsorptionAmount();
-                    if(current < 6)
+                    if(current < 8)
                     {
                         player.setAbsorptionAmount(current + 1.0F);
                         subtractGobberForce(player, 1);

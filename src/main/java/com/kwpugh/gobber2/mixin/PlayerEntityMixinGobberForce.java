@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 /*
-    Mixins into various methods in PlayerEntity
+    Mixins for various methods in PlayerEntity
     class to support Gobber Force
  */
 
@@ -34,7 +34,7 @@ public abstract class PlayerEntityMixinGobberForce extends LivingEntity
         super(type, world);
     }
 
-    // run various tasks each player tick
+    // Run various tasks each player tick
     @Inject(method = "tick", at = @At("TAIL"))
     public void gobberForceTick(CallbackInfo ci)
     {
@@ -84,6 +84,7 @@ public abstract class PlayerEntityMixinGobberForce extends LivingEntity
         {
             if((exhaustion > 0.0F) && (GobberForceManager.getGobberForce(player) > 30))
             {
+                player.sendMessage((Text.translatable("GobberForce vigor!").formatted(Formatting.BLUE).formatted(Formatting.BOLD)), true);
                 GobberForceManager.subtractGobberForce(player, 1);
                 ci.cancel();
             }

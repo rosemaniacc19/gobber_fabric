@@ -1,7 +1,6 @@
 package com.kwpugh.gobber2.items.armor;
 
 import com.kwpugh.gobber2.Gobber2;
-import com.kwpugh.gobber2.init.ItemInit;
 import com.kwpugh.gobber2.util.PlayerEquipUtil;
 import com.kwpugh.gobber2.util.PlayerSpecialAbilities;
 import net.minecraft.client.item.TooltipContext;
