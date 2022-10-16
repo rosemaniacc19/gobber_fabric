@@ -19,7 +19,7 @@
     "PlayerEntityMixinAttack",
     "PlayerEntityMixinDamage",
     "PlayerEntityMixinSolidFooting",
-    "PlayerEntityMixinPlanck",
+    "PlayerEntityMixinGobberForce",
     "PlayerEntityMixinTick",
     "PlayerEntityMixinTickHand",
     "PowderSnowBlockMixin",

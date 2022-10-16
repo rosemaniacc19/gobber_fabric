@@ -28,29 +28,29 @@ public class GobberForceManager
                     addGobberForce(player, Gobber2.CONFIG.GENERAL.forceEarnedGobberArmor);
                 }
 
-                // Provide water breathing
-                if(player.getAir() < 2 && getGobberForce(player) > 5)
+                // Provide max air
+                if(player.getAir() < 2 && getGobberForce(player) > 20)
                 {
                     player.setAir(300);
-                    subtractGobberForce(player, 5);
+                    subtractGobberForce(player, 1);
 
                     player.sendMessage((Text.translatable("GobberForce breathing!").formatted(Formatting.AQUA).formatted(Formatting.BOLD)), true);
                 }
 
-                // Restore saturation check
+                // Restore food level
                 if((player.getHungerManager().getFoodLevel() < 20) && (getGobberForce(player) > 30))
                 {
                     player.getHungerManager().setFoodLevel(40);
-                    subtractGobberForce(player, 20);
+                    subtractGobberForce(player, 1);
 
                     player.sendMessage((Text.translatable("GobberForce feeding!").formatted(Formatting.GREEN).formatted(Formatting.BOLD)), true);
                 }
 
-                // Restore health check
+                // Restore full health
                 if((player.getHealth() < 15) && (getGobberForce(player) > 50))
                 {
                     player.setHealth(20.0F);
-                    subtractGobberForce(player, 50);
+                    subtractGobberForce(player, 1);
 
                     player.sendMessage((Text.translatable("GobberForce healing!").formatted(Formatting.RED).formatted(Formatting.BOLD)), true);
                 }
@@ -59,10 +59,10 @@ public class GobberForceManager
                 if((player.getHealth() == 20) && (getGobberForce(player) > 70))
                 {
                     float current = player.getAbsorptionAmount();
-                    if(current < 4)
+                    if(current < 6)
                     {
                         player.setAbsorptionAmount(current + 1.0F);
-                        subtractGobberForce(player, 70);
+                        subtractGobberForce(player, 1);
                         player.sendMessage((Text.translatable("GobberForce extra hearts!").formatted(Formatting.YELLOW).formatted(Formatting.BOLD)), true);
                     }
                 }
@@ -112,6 +112,7 @@ public class GobberForceManager
         }
     }
 
+    // called from PlayerEntityMixinGobberForce#tick()
     public static void readNbt(NbtCompound nbt)
     {
         if(nbt.contains("gobberForce"))
@@ -120,6 +121,7 @@ public class GobberForceManager
         }
     }
 
+    // called from PlayerEntityMixinGobberForce#tick()
     public static void writeNbt(NbtCompound nbt)
     {
         nbt.putInt("gobberForce", gobberForce);

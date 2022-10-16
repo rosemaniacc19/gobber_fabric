@@ -1,6 +1,8 @@
 package com.kwpugh.gobber2.mixin;
 
 import com.kwpugh.gobber2.init.EnchantmentInit;
+import com.kwpugh.gobber2.util.GobberForceManager;
+import com.kwpugh.gobber2.util.PlayerEquipUtil;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.mob.EndermanEntity;

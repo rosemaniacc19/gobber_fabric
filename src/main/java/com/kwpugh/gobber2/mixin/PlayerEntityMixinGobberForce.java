@@ -18,13 +18,18 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+/*
+    Mixins into various methods in PlayerEntity
+    class to support Gobber Force
+ */
+
 @Mixin(PlayerEntity.class)
-public abstract class PlayerEntityMixinPlanck extends LivingEntity
+public abstract class PlayerEntityMixinGobberForce extends LivingEntity
 {
     @Shadow public abstract void readCustomDataFromNbt(NbtCompound nbt);
     @Shadow public abstract void writeCustomDataToNbt(NbtCompound nbt);
 
-    protected PlayerEntityMixinPlanck(EntityType<? extends LivingEntity> type, World world)
+    protected PlayerEntityMixinGobberForce(EntityType<? extends LivingEntity> type, World world)
     {
         super(type, world);
     }
@@ -40,7 +45,7 @@ public abstract class PlayerEntityMixinPlanck extends LivingEntity
         }
     }
 
-    // subtract planck when damaged by mobs
+    // Gobber Force damage shield
     @Inject(method = "damage", at = @At("HEAD"), cancellable = true)
     public void gobberForceDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir)
     {
@@ -69,22 +74,25 @@ public abstract class PlayerEntityMixinPlanck extends LivingEntity
         }
     }
 
-    // cancel exhaustion
+    // Cancel exhaustion
     @Inject(method = "addExhaustion", at = @At("HEAD"), cancellable = true)
     public void gobberForceAddExhaustion(float exhaustion, CallbackInfo ci)
     {
         PlayerEntity player = (PlayerEntity) (Object) this;
 
-        if((exhaustion > 0.0F) && (GobberForceManager.getGobberForce(player) > 30))
+        if(player.world.isClient)
         {
-            GobberForceManager.subtractGobberForce(player, 1);
-            ci.cancel();
+            if((exhaustion > 0.0F) && (GobberForceManager.getGobberForce(player) > 30))
+            {
+                GobberForceManager.subtractGobberForce(player, 1);
+                ci.cancel();
+            }
         }
     }
 
-    // add writeNbt to player class
+    // Add writeNbt to player class
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
-    public void writeNbtPlanck(NbtCompound nbt, CallbackInfo ci)
+    public void writeNbtGobberForce(NbtCompound nbt, CallbackInfo ci)
     {
         if(world instanceof ServerWorld && Gobber2.CONFIG.GENERAL.enableGobberForce)
         {
@@ -92,9 +100,9 @@ public abstract class PlayerEntityMixinPlanck extends LivingEntity
         }
     }
 
-    // add readNbt to player class
+    // Add readNbt to player class
     @Inject(method = "readCustomDataFromNbt", at = @At("TAIL"))
-    public void readNbtPlanck(NbtCompound nbt, CallbackInfo ci)
+    public void readNbtGobberForce(NbtCompound nbt, CallbackInfo ci)
     {
         if(world instanceof ServerWorld && Gobber2.CONFIG.GENERAL.enableGobberForce)
         {
