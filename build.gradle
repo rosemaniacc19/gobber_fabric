@@ -30,7 +30,7 @@ repositories {
 
 	maven {
 		url = 'https://maven.terraformersmc.com/releases/'
-	} //for mod menu
+	}
 }
 
 dependencies {
@@ -58,7 +58,6 @@ dependencies {
 //	modImplementation ("com.terraformersmc:modmenu:${project.modmenu}") {
 //		exclude(group: "net.fabricmc.fabric-api")
 //	}
-
 }
 
 processResources {

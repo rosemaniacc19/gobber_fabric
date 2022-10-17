@@ -29,40 +29,40 @@ public class GobberForceManager
                 }
 
                 // Provide max air
-                if(player.getAir() < 2 && getGobberForce(player) > 20)
+                if(player.getAir() < 2 && getGobberForce(player) > Gobber2.CONFIG.GENERAL.forceAirLevel)
                 {
                     player.setAir(300);
-                    subtractGobberForce(player, 1);
+                    subtractGobberForce(player, Gobber2.CONFIG.GENERAL.forceAirCost);
 
                     player.sendMessage((Text.translatable("GobberForce breathing!").formatted(Formatting.AQUA).formatted(Formatting.BOLD)), true);
                 }
 
                 // Restore food level
-                if((player.getHungerManager().getFoodLevel() < 20) && (getGobberForce(player) > 30))
+                if((player.getHungerManager().getFoodLevel() < 20) && (getGobberForce(player) > Gobber2.CONFIG.GENERAL.forceHungerRestoreLevel))
                 {
                     player.getHungerManager().setFoodLevel(40);
-                    subtractGobberForce(player, 1);
+                    subtractGobberForce(player, Gobber2.CONFIG.GENERAL.forceHungerRestoreCost);
 
                     player.sendMessage((Text.translatable("GobberForce feeding!").formatted(Formatting.GREEN).formatted(Formatting.BOLD)), true);
                 }
 
                 // Restore full health
-                if((player.getHealth() < 15) && (getGobberForce(player) > 40))
+                if((player.getHealth() < 15) && (getGobberForce(player) > Gobber2.CONFIG.GENERAL.forceHealthRestoreLevel))
                 {
                     player.setHealth(20.0F);
-                    subtractGobberForce(player, 1);
+                    subtractGobberForce(player, Gobber2.CONFIG.GENERAL.forceHealthRestoreCost);
 
                     player.sendMessage((Text.translatable("GobberForce healing!").formatted(Formatting.RED).formatted(Formatting.BOLD)), true);
                 }
 
                 // Give extra health check
-                if((player.getHealth() == 20) && (getGobberForce(player) > 50))
+                if((player.getHealth() == 20) && (getGobberForce(player) > Gobber2.CONFIG.GENERAL.forceExtraHeartsLevel))
                 {
                     float current = player.getAbsorptionAmount();
-                    if(current < 8)
+                    if(current < Gobber2.CONFIG.GENERAL.forceExtraHeartsGobber)
                     {
                         player.setAbsorptionAmount(current + 1.0F);
-                        subtractGobberForce(player, 1);
+                        subtractGobberForce(player, Gobber2.CONFIG.GENERAL.forceExtraHeartsCost);
                         player.sendMessage((Text.translatable("GobberForce extra hearts!").formatted(Formatting.YELLOW).formatted(Formatting.BOLD)), true);
                     }
                 }

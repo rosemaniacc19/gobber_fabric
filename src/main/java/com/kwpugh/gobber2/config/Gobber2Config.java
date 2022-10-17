@@ -228,8 +228,23 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 				+"\nGobberForce Settings (WIP)"
 				+"\n***********************")
 		public boolean enableGobberForce = false;
-		public int forceNaturalRegenDelay = 300;
+		public int forceNaturalRegenDelay = 1200;
 		public int forceEarnedGobberArmor = 1;
+		public int forceDamageAbsorbLevel = 50;
+		public int forceExhausionLevel = 50;
+		public int forceExhausionCost = 1;
+		public int forceAirLevel = 30;
+		public int forceAirCost = 1;
+		public int forceHungerRestoreLevel = 50;
+		public int forceHungerRestoreCost = 1;
+		public int forceHealthRestoreLevel = 50;
+		public int forceHealthRestoreCost = 1;
+		public int forceExtraHeartsLevel = 100;
+		public int forceExtraHeartsGobber = 2;
+		public int forceExtraHeartsNether = 4;
+		public int forceExtraHeartsEnd = 6;
+		public int forceExtraHeartsDragon = 10;
+		public int forceExtraHeartsCost = 1;
 
 		@Comment("\n"
 				+"\n"

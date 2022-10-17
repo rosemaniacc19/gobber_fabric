@@ -1,7 +1,7 @@
 package com.kwpugh.gobber2;
 
 import com.kwpugh.gobber2.config.Gobber2Config;
-import com.kwpugh.gobber2.events.*;
+import com.kwpugh.gobber2.events.ModEvents;
 import com.kwpugh.gobber2.init.*;
 import com.kwpugh.gobber2.world.GobberOrePlacedFeature;
 import me.shedaniel.autoconfig.AutoConfig;
