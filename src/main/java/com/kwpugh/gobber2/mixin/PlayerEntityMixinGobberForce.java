@@ -62,7 +62,7 @@ public abstract class PlayerEntityMixinGobberForce extends LivingEntity
             int damageAmount = (int) amount;
 
             //damage reduction only available above a certain GobberForce level
-            if((PlayerEquipUtil.isWearingGobberArmor(player)) &&
+            if((PlayerEquipUtil.isWearingFullArmor(player)) &&
                     (GobberForceManager.getGobberForce(player) > Gobber2.CONFIG.GENERAL.forceDamageAbsorbLevel))
             {
                 if(damageAmount <= GobberForceManager.getGobberForce(player))
@@ -100,7 +100,7 @@ public abstract class PlayerEntityMixinGobberForce extends LivingEntity
     {
         PlayerEntity player = (PlayerEntity) (Object) this;
 
-        if(!player.world.isClient && PlayerEquipUtil.isWearingGobberArmor(player))
+        if(!player.world.isClient && PlayerEquipUtil.isWearingFullArmor(player))
         {
             if((exhaustion > 0.0F) && (GobberForceManager.getGobberForce(player) > Gobber2.CONFIG.GENERAL.forceExhausionLevel))
             {

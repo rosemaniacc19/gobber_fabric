@@ -31,7 +31,8 @@ public class PlayerBlockBreakEvent
         }
 
         // give GobberForce if mining ore
-        if(PlayerEquipUtil.isWearingGobberArmor(player) && (state.getBlock() instanceof OreBlock) && Gobber2.CONFIG.GENERAL.enableGobberForce)
+        if(PlayerEquipUtil.isWearingFullArmor(player) &&
+                (state.getBlock() instanceof OreBlock) && Gobber2.CONFIG.GENERAL.enableGobberForce)
         {
             GobberForceManager.addGobberForce(player, Gobber2.CONFIG.GENERAL.forceEarnedFromOre);
         }

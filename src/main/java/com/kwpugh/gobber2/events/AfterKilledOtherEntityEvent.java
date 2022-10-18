@@ -44,7 +44,8 @@ public class AfterKilledOtherEntityEvent implements ServerEntityCombatEvents.Aft
             }
 
             // give GobberForce if killing a mob
-            if(PlayerEquipUtil.isWearingGobberArmor(player) && Gobber2.CONFIG.GENERAL.enableGobberForce)
+            if(PlayerEquipUtil.isWearingFullArmor(player) &&
+                    Gobber2.CONFIG.GENERAL.enableGobberForce)
             {
                 GobberForceManager.addGobberForce(player, Gobber2.CONFIG.GENERAL.forceEarnedFromKill);
             }

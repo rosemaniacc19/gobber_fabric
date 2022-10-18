@@ -39,7 +39,7 @@ public abstract class VillagerEntityMixinGobberForce extends MerchantEntity
     private void gobberForcePrepareOffersFor(PlayerEntity player, CallbackInfo ci)
     {
         if (Gobber2.CONFIG.GENERAL.enableGobberForce &&
-                PlayerEquipUtil.isWearingGobberArmor(player) &&
+                PlayerEquipUtil.isWearingFullArmor(player) &&
                 (GobberForceManager.getGobberForce(player) > Gobber2.CONFIG.GENERAL.forceCharismaLevel))
         {
 

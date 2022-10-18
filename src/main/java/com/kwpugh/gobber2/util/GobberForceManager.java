@@ -30,7 +30,7 @@ public class GobberForceManager
     {
         if(!player.world.isClient)
         {
-            if(PlayerEquipUtil.isWearingGobberArmor(player))
+            if(PlayerEquipUtil.isWearingFullArmor(player))
             {
                 // Naturally earned gobber force
                 if((getGobberForce(player) < Integer.MAX_VALUE) && (player.age % Gobber2.CONFIG.GENERAL.forceNaturalRegenDelay == 0))
@@ -97,7 +97,7 @@ public class GobberForceManager
     {
         if(!player.world.isClient)
         {
-            if(PlayerEquipUtil.isWearingGobberArmor(player))
+            if(PlayerEquipUtil.isWearingFullArmor(player))
             {
                 if(getGobberForce(player) < Integer.MAX_VALUE)
                 {

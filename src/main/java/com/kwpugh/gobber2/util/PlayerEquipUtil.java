@@ -11,6 +11,19 @@ import net.minecraft.server.network.ServerPlayerEntity;
 
 public final class PlayerEquipUtil
 {
+	public static boolean isWearingFullArmor(PlayerEntity player)
+	{
+		if(isWearingGobberArmor(player) ||
+				isWearingNetherArmor(player) ||
+				isWearingEndArmor(player) ||
+				isWearingDragonArmor(player))
+		{
+			return true;
+		}
+
+		return false;
+	}
+
     public static boolean isWearingGobberArmor(PlayerEntity player)
     {
 		ItemStack head = player.getEquippedStack(EquipmentSlot.HEAD);
