@@ -13,9 +13,9 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class PlayerBlockBreak
+public class PlayerBlockBreakEvent
 {
-    // Drop tests performed as a result of the break block event
+    // Actionss performed as a result of the break block event
     public static boolean onBlockBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, BlockEntity entity)
     {
         if(Gobber2.CONFIG.GENERAL.medallionExpXPBoost)
@@ -33,7 +33,7 @@ public class PlayerBlockBreak
         // give GobberForce if mining ore
         if(PlayerEquipUtil.isWearingGobberArmor(player) && (state.getBlock() instanceof OreBlock) && Gobber2.CONFIG.GENERAL.enableGobberForce)
         {
-            GobberForceManager.addGobberForce(player, 3);
+            GobberForceManager.addGobberForce(player, Gobber2.CONFIG.GENERAL.forceEarnedFromOre);
         }
 
         return true;

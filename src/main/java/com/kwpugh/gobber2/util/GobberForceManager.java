@@ -1,6 +1,7 @@
 package com.kwpugh.gobber2.util;
 
 import com.kwpugh.gobber2.Gobber2;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
@@ -9,6 +10,15 @@ import net.minecraft.util.Formatting;
 /*
     Collection of methods to
     support GobberForce
+
+    - natural gobber force regen
+    - player air refresh
+    - player food restore
+    - player health restore
+    - extra yellow hearts
+    - remove of bad omen curse
+
+    Also relies on: VillagerEntityMixinGobberForce for Charisma
  */
 
 public class GobberForceManager
@@ -22,7 +32,7 @@ public class GobberForceManager
         {
             if(PlayerEquipUtil.isWearingGobberArmor(player))
             {
-                // Naturally earned planck
+                // Naturally earned gobber force
                 if((getGobberForce(player) < Integer.MAX_VALUE) && (player.age % Gobber2.CONFIG.GENERAL.forceNaturalRegenDelay == 0))
                 {
                     addGobberForce(player, Gobber2.CONFIG.GENERAL.forceEarnedGobberArmor);
@@ -33,8 +43,7 @@ public class GobberForceManager
                 {
                     player.setAir(300);
                     subtractGobberForce(player, Gobber2.CONFIG.GENERAL.forceAirCost);
-
-                    player.sendMessage((Text.translatable("GobberForce breathing!").formatted(Formatting.AQUA).formatted(Formatting.BOLD)), true);
+                    player.sendMessage((Text.translatable("gobber2.gobber_force.breathing").formatted(Formatting.AQUA).formatted(Formatting.BOLD)), true);
                 }
 
                 // Restore food level
@@ -42,8 +51,7 @@ public class GobberForceManager
                 {
                     player.getHungerManager().setFoodLevel(40);
                     subtractGobberForce(player, Gobber2.CONFIG.GENERAL.forceHungerRestoreCost);
-
-                    player.sendMessage((Text.translatable("GobberForce feeding!").formatted(Formatting.GREEN).formatted(Formatting.BOLD)), true);
+                    player.sendMessage((Text.translatable("gobber2.gobber_force.feeding").formatted(Formatting.DARK_BLUE).formatted(Formatting.BOLD)), true);
                 }
 
                 // Restore full health
@@ -51,8 +59,7 @@ public class GobberForceManager
                 {
                     player.setHealth(20.0F);
                     subtractGobberForce(player, Gobber2.CONFIG.GENERAL.forceHealthRestoreCost);
-
-                    player.sendMessage((Text.translatable("GobberForce healing!").formatted(Formatting.RED).formatted(Formatting.BOLD)), true);
+                    player.sendMessage((Text.translatable("gobber2.gobber_force.healing").formatted(Formatting.DARK_GRAY).formatted(Formatting.BOLD)), true);
                 }
 
                 // Give extra health check
@@ -63,7 +70,18 @@ public class GobberForceManager
                     {
                         player.setAbsorptionAmount(current + 1.0F);
                         subtractGobberForce(player, Gobber2.CONFIG.GENERAL.forceExtraHeartsCost);
-                        player.sendMessage((Text.translatable("GobberForce extra hearts!").formatted(Formatting.YELLOW).formatted(Formatting.BOLD)), true);
+                        player.sendMessage((Text.translatable("gobber2.gobber_force.extra_hearts").formatted(Formatting.YELLOW).formatted(Formatting.BOLD)), true);
+                    }
+                }
+
+                // Remove Bad Omen
+                if(getGobberForce(player) > Gobber2.CONFIG.GENERAL.forceRemoveBadOmenLevel)
+                {
+                    if(player.hasStatusEffect(StatusEffects.BAD_OMEN))
+                    {
+                        player.removeStatusEffect(StatusEffects.BAD_OMEN);
+                        subtractGobberForce(player, Gobber2.CONFIG.GENERAL.forceRemoveBadOmenCost);
+                        player.sendMessage((Text.translatable("gobber2.gobber_force.bad_omen").formatted(Formatting.DARK_PURPLE).formatted(Formatting.BOLD)), true);
                     }
                 }
             }

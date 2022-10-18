@@ -10,7 +10,7 @@ public class ModEvents
     {
         LootTableEventInit.registerLoot();
         ElytraEvent.init();
-        PlayerBlockBreakEvents.AFTER.register(PlayerBlockBreak::onBlockBreak);
+        PlayerBlockBreakEvents.AFTER.register(PlayerBlockBreakEvent::onBlockBreak);
         ServerEntityCombatEvents.AFTER_KILLED_OTHER_ENTITY.register(new AfterKilledOtherEntityEvent());
         UseEntityCallback.EVENT.register(EntityInteractEvent::onUseEntity);
         SummonerEvent.register();

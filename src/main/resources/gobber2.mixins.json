@@ -18,13 +18,14 @@
     "PlayerEntityMixinArmor",
     "PlayerEntityMixinAttack",
     "PlayerEntityMixinDamage",
-    "PlayerEntityMixinSolidFooting",
     "PlayerEntityMixinGobberForce",
+    "PlayerEntityMixinSolidFooting",
     "PlayerEntityMixinTick",
     "PlayerEntityMixinTickHand",
     "PowderSnowBlockMixin",
     "UnbreakingEnchantmentMixin",
     "VibrationListenerMixin",
+    "VillagerEntityMixinGobberForce",
     "WitherSkeletonEntityMixin"
   ],
   "client": [

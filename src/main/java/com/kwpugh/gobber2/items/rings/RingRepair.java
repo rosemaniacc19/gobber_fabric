@@ -2,6 +2,8 @@ package com.kwpugh.gobber2.items.rings;
 
 import com.kwpugh.gobber2.Gobber2;
 import com.kwpugh.gobber2.init.TagInit;
+import com.kwpugh.gobber2.util.GobberForceManager;
+import com.kwpugh.gobber2.util.PlayerEquipUtil;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -37,9 +39,9 @@ public class RingRepair extends BaseRing
 					{
 						if(!stack2.isEmpty())
 						{
-							if (!(stack2 == serverPlayer.getMainHandStack()))
+							if(!(stack2 == serverPlayer.getMainHandStack()))
 							{
-								if (stack2.isDamaged())
+								if(stack2.isDamaged())
 								{
 									stack2.setDamage(stack2.getDamage() - 1);
 									break;

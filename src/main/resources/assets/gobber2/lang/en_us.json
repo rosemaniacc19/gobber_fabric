@@ -597,5 +597,14 @@
 	"advancements.gobber2.block_maturator.title": "Grow! Baby! Grow!",
 	"advancements.gobber2.block_maturator.desc": "Craft a Maturator Block",
 
+	"gobber2.gobber_force.breathing": "GobberForce breathing",
+	"gobber2.gobber_force.feeding": "GobberForce feeding",
+	"gobber2.gobber_force.healing": "GobberForce healing",
+	"gobber2.gobber_force.extra_hearts": "GobberForce extra hearts",
+	"gobber2.gobber_force.vigor": "GobberForce vigor",
+	"gobber2.gobber_force.damage_absorbed": "Damage absorbed: %s",
+	"gobber2.gobber_force.damage_reduced": "Damage reduced by: %s",
+	"gobber2.gobber_force.bad_omen": "Removed Bad Omen",
+
 	 "itemGroup.gobber2.gobber2_group": "Gobber 2"
 }

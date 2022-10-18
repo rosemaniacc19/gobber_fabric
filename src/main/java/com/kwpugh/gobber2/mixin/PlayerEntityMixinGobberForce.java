@@ -2,6 +2,7 @@ package com.kwpugh.gobber2.mixin;
 
 import com.kwpugh.gobber2.Gobber2;
 import com.kwpugh.gobber2.util.GobberForceManager;
+import com.kwpugh.gobber2.util.PlayerEquipUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -20,11 +21,13 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.Random;
-
 /*
     Mixins for various methods in PlayerEntity
     class to support Gobber Force
+
+    Relies on events:
+    - AfterKilledOtherEntityEvent
+    - PlayerBlockBreak
  */
 
 @Mixin(PlayerEntity.class)
@@ -59,12 +62,13 @@ public abstract class PlayerEntityMixinGobberForce extends LivingEntity
             int damageAmount = (int) amount;
 
             //damage reduction only available above a certain GobberForce level
-            if(GobberForceManager.getGobberForce(player) > Gobber2.CONFIG.GENERAL.forceDamageAbsorbLevel)
+            if((PlayerEquipUtil.isWearingGobberArmor(player)) &&
+                    (GobberForceManager.getGobberForce(player) > Gobber2.CONFIG.GENERAL.forceDamageAbsorbLevel))
             {
                 if(damageAmount <= GobberForceManager.getGobberForce(player))
                 {
                     GobberForceManager.subtractGobberForce(player, damageAmount);
-                    player.sendMessage((Text.translatable("Player damage absorbed by GobberForce: " + damageAmount).formatted(Formatting.GOLD).formatted(Formatting.BOLD)), true);
+                    player.sendMessage((Text.translatable("gobber2.gobber_force.damage_absorbed", damageAmount).formatted(Formatting.GREEN).formatted(Formatting.BOLD)), true);
 
                     if(source.getAttacker() != null)
                     {
@@ -83,7 +87,7 @@ public abstract class PlayerEntityMixinGobberForce extends LivingEntity
                 {
                     int excessDamage = damageAmount - GobberForceManager.getGobberForce(player);
                     amount = damageAmount - excessDamage;
-                    player.sendMessage((Text.translatable("Your GobberForce amount reduced by: " + excessDamage).formatted(Formatting.DARK_PURPLE).formatted(Formatting.BOLD)), true);
+                    player.sendMessage((Text.translatable("gobber2.gobber_force.damage_reduced", excessDamage).formatted(Formatting.RED).formatted(Formatting.BOLD)), true);
                     GobberForceManager.subtractGobberForce(player, excessDamage);
                 }
             }
@@ -96,11 +100,11 @@ public abstract class PlayerEntityMixinGobberForce extends LivingEntity
     {
         PlayerEntity player = (PlayerEntity) (Object) this;
 
-        if(player.world.isClient)
+        if(!player.world.isClient && PlayerEquipUtil.isWearingGobberArmor(player))
         {
             if((exhaustion > 0.0F) && (GobberForceManager.getGobberForce(player) > Gobber2.CONFIG.GENERAL.forceExhausionLevel))
             {
-                player.sendMessage((Text.translatable("GobberForce vigor!").formatted(Formatting.BLUE).formatted(Formatting.BOLD)), true);
+                player.sendMessage((Text.translatable("gobber2.gobber_force.vigor").formatted(Formatting.DARK_BLUE).formatted(Formatting.BOLD)), true);
                 GobberForceManager.subtractGobberForce(player, Gobber2.CONFIG.GENERAL.forceExhausionCost);
                 ci.cancel();
             }
