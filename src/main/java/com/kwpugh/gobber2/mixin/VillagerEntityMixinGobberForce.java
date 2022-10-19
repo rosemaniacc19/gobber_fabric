@@ -4,17 +4,12 @@ import com.kwpugh.gobber2.Gobber2;
 import com.kwpugh.gobber2.util.GobberForceManager;
 import com.kwpugh.gobber2.util.PlayerEquipUtil;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.passive.MerchantEntity;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.village.TradeOffer;
-import net.minecraft.village.VillagerGossips;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -43,7 +38,7 @@ public abstract class VillagerEntityMixinGobberForce extends MerchantEntity
                 (GobberForceManager.getGobberForce(player) > Gobber2.CONFIG.GENERAL.forceCharismaLevel))
         {
 
-            int j = 12;  // Need to look for a way to scale this value with total gobber force on player
+            int j = offerScale(GobberForceManager.getGobberForce(player));
 
             Iterator var = this.getOffers().iterator();
 
@@ -59,4 +54,27 @@ public abstract class VillagerEntityMixinGobberForce extends MerchantEntity
         }
     }
 
+    public int offerScale(int gobberForce)
+    {
+        int offerLevel = 0;
+
+        if(gobberForce >= 50 && gobberForce < 100)
+        {
+            offerLevel = 3;
+        }
+        else if(gobberForce >= 100 && gobberForce < 300)
+        {
+            offerLevel = 6;
+        }
+        else if(gobberForce >= 300 && gobberForce < 500)
+        {
+            offerLevel = 9;
+        }
+        else
+        {
+            offerLevel = 12;
+        }
+
+        return offerLevel;
+    }
 }
