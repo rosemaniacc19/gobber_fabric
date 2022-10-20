@@ -4,6 +4,7 @@
   "package": "com.kwpugh.gobber2.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
+    "AnvilScreenHandlerMixin",
     "ArmorItemMixinKnockback",
     "ClampedEntityAttributeMixin",
     "EnchantmentTargetMixin",
@@ -11,6 +12,7 @@
     "EndermanEntityMixinDamage",
     "EntityAttributeMixinArmor",
     "EntityMixinFireFreeze",
+    "ForgingScreenHandlerAccessor",
     "LivingEntityMixinBreathing",
     "LivingEntityMixinClimbing",
     "MobEntityMixinSetTarget",

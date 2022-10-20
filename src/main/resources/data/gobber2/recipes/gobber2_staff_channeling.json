@@ -1,0 +1,33 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        " CA",
+        " BC",
+        "B  "
+    ],
+    
+    "key":
+    {
+        "A":
+        {
+            "item": "gobber2:gobber2_glob"
+        },
+        
+        "B":
+        {
+            "item": "gobber2:gobber2_rod"
+        },
+        "C":
+        {
+            "item": "minecraft:amethyst_shard"
+        }
+    },
+    
+    "result":
+    {
+        "item": "gobber2:gobber2_staff_channeling",
+        "count": 1
+    }
+}

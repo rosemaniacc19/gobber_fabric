@@ -62,6 +62,8 @@ public class StaffFarmer extends BaseStaff
 			for (BlockPos targetPos : BlockPos.iterateOutwards(playerPos, range, range, range))
     		{
 				Block block = world.getBlockState(targetPos).getBlock();
+				BlockPos posAbove = targetPos.up();
+				Block blockAbove = world.getBlockState(posAbove).getBlock();
 				BlockState state = world.getBlockState(targetPos);
 				BlockState defaultState = block.getDefaultState();
 				
@@ -69,12 +71,19 @@ public class StaffFarmer extends BaseStaff
 				if(block instanceof CocoaBlock ||
 						block instanceof MelonBlock ||
 						block instanceof PumpkinBlock ||
-						block instanceof CactusBlock ||
-						block instanceof SugarCaneBlock ||
-						block instanceof NetherWartBlock ||
-						block instanceof BambooBlock)
+						block instanceof NetherWartBlock)
 				{
 					world.breakBlock(targetPos, true);
+				}
+
+				if (block instanceof CactusBlock ||
+						block instanceof SugarCaneBlock ||
+						block instanceof BambooBlock)
+				{
+					if(block == blockAbove)
+					{
+						world.breakBlock(posAbove, true);
+					}
 				}
 				
 				//Crops are harvested, if at max age, and re-planted
