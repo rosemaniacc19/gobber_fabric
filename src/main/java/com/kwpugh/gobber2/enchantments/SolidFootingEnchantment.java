@@ -31,18 +31,18 @@ public class SolidFootingEnchantment extends Enchantment
 	@Override
 	public boolean isTreasure()
 	{
-		return Gobber2.CONFIG.GENERAL.enableSoildFooting;
+		return Gobber2.CONFIG.GENERAL.enableSolidFooting;
 	}
 
 	@Override
 	public boolean isAvailableForEnchantedBookOffer()
 	{
-		return Gobber2.CONFIG.GENERAL.enableSoildFooting;
+		return Gobber2.CONFIG.GENERAL.enableSolidFooting;
 	}
 
 	@Override
 	public boolean isAvailableForRandomSelection()
 	{
-		return Gobber2.CONFIG.GENERAL.enableSoildFooting;
+		return Gobber2.CONFIG.GENERAL.enableSolidFooting;
 	}
 }

@@ -24,6 +24,8 @@ public class GrowingUtil
 					block instanceof BambooBlock ||
 					block instanceof CocoaBlock ||
 					block instanceof StemBlock ||
+					block instanceof PumpkinBlock ||
+					block instanceof MelonBlock ||
 					block instanceof SweetBerryBushBlock ||
 					block instanceof FungusBlock ||
 					block instanceof SaplingBlock || //all sapling

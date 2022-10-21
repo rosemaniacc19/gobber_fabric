@@ -6,7 +6,6 @@ import com.kwpugh.gobber2.items.tools.basetools.ModBow;
 import com.kwpugh.gobber2.items.tools.basetools.ModPickaxe;
 import com.kwpugh.gobber2.items.tools.basetools.ModSword;
 import com.kwpugh.gobber2.mixin.ForgingScreenHandlerAccessor;
-import com.kwpugh.gobber2.util.GobberForceManager;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.Property;
@@ -21,7 +20,6 @@ public class EnhancedGobberSword
         if(accessor.getInput().getStack(1).getItem().equals(ItemInit.GOBBER2_STAFF_CHANNELING))
         {
             ItemStack result = accessor.getInput().getStack(0).copy();
-            //result.getOrCreateNbt().putByte("Unbreakable", (byte) 1);
 
             if(result.getItem() instanceof ModPickaxe)
             {

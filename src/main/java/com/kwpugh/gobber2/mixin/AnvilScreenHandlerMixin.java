@@ -27,7 +27,7 @@ public class AnvilScreenHandlerMixin
 
         if(accessor.getInput().getStack(1).getItem().equals(ItemInit.GOBBER2_STAFF_CHANNELING))
         {
-            cir.setReturnValue(GobberForceManager.getGobberForce(player) > 350);
+            cir.setReturnValue(GobberForceManager.canEnchantInAnvil(player, 100));
             cir.cancel();
         }
     }
@@ -36,7 +36,6 @@ public class AnvilScreenHandlerMixin
     public void emeraldUpdateResult(CallbackInfo ci)
     {
         ForgingScreenHandlerAccessor accessor = (ForgingScreenHandlerAccessor) this;
-
         EnhancedGobberSword.anvilAction(accessor, levelCost,  newItemName, ci);
     }
 }

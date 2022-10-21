@@ -231,25 +231,25 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 				+"\n- values are unbalanced"
 				+"\n***********************")
 		public boolean enableGobberForce = false;
-		public int forceNaturalRegenDelay = 300;
+		public int forceNaturalRegenDelay = 1200;
 		public int forceEarnedGobberArmor = 1;
 		public int forceEarnedFromKill = 2;
 		public int forceEarnedFromOre = 3;
 		public int forceDamageAbsorbLevel = 50;
-		public int forceExhausionLevel = 50;
-		public int forceExhausionCost = 1;
+		public int forceExhausionLevel = 75;
+		public int forceExhausionCost = 5;
 		public int forceAirLevel = 30;
-		public int forceAirCost = 1;
+		public int forceAirCost = 5;
 		public int forceHungerRestoreLevel = 50;
-		public int forceHungerRestoreCost = 1;
+		public int forceHungerRestoreCost = 5;
 		public int forceHealthRestoreLevel = 50;
-		public int forceHealthRestoreCost = 1;
+		public int forceHealthRestoreCost = 5;
 		public int forceExtraHeartsLevel = 100;
-		public int forceExtraHeartsCost = 1;
+		public int forceExtraHeartsCost = 10;
 		public int forceExtraHeartsGobber = 2;
 		public int forceRemoveBadOmenLevel = 50;
-		public int forceRemoveBadOmenCost = 1;
-		public int forceCharismaLevel = 50;
+		public int forceRemoveBadOmenCost = 5;
+		public int forceCharismaLevel = 100;
 		public int forceCharismaCost = 1;
 
 		@Comment("\n"
@@ -285,7 +285,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public boolean enableQuietFeet = true;
 		public boolean enableRebuffing = true;
 		public boolean enableSmithBlade = true;
-		public boolean enableSoildFooting = true;
+		public boolean enableSolidFooting = true;
 		public boolean enableSummoner = true;
 		public boolean enableUntouchable = true;
 

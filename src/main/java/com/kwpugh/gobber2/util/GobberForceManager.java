@@ -93,6 +93,17 @@ public class GobberForceManager
         return gobberForce;
     }
 
+    public static boolean canEnchantInAnvil(PlayerEntity player, int amount)
+    {
+        if(getGobberForce(player) > amount)
+        {
+            subtractGobberForce(player, amount);
+            return true;
+        }
+
+        return false;
+    }
+
     public static void addGobberForce(PlayerEntity player, int amount)
     {
         if(!player.world.isClient)
