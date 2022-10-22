@@ -247,6 +247,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public int forceExtraHeartsLevel = 100;
 		public int forceExtraHeartsCost = 10;
 		public int forceExtraHeartsGobber = 2;
+		public boolean forceEnableBadOmen = true;
 		public int forceRemoveBadOmenLevel = 50;
 		public int forceRemoveBadOmenCost = 5;
 		public int forceCharismaLevel = 100;

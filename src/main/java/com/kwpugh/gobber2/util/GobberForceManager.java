@@ -75,7 +75,7 @@ public class GobberForceManager
                 }
 
                 // Remove Bad Omen
-                if(getGobberForce(player) > Gobber2.CONFIG.GENERAL.forceRemoveBadOmenLevel)
+                if(Gobber2.CONFIG.GENERAL.forceEnableBadOmen && (getGobberForce(player) > Gobber2.CONFIG.GENERAL.forceRemoveBadOmenLevel))
                 {
                     if(player.hasStatusEffect(StatusEffects.BAD_OMEN))
                     {
