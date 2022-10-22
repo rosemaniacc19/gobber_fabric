@@ -28,6 +28,7 @@ public class AfterKilledOtherEntityEvent implements ServerEntityCombatEvents.Aft
             Hand hand = player.getActiveHand();
             ItemStack stack = player.getStackInHand(hand);
 
+            // a sword with Experience Boost overrides a Medallion of Exp to avoid stacking effect
             if(EnchantmentHelper.getLevel(EnchantmentInit.EXP_BOOST, stack) > 0)
             {
                 int level = EnchantmentHelper.getLevel(EnchantmentInit.EXP_BOOST, stack);
@@ -38,8 +39,11 @@ public class AfterKilledOtherEntityEvent implements ServerEntityCombatEvents.Aft
             {
                 if(PlayerEquipUtil.hasItemInInventory(player, ItemInit.GOBBER2_MEDALLION_EXP))
                 {
-                    StatusEffectInstance effect = new StatusEffectInstance(EffectsInit.EXPERIENCE, Gobber2.CONFIG.GENERAL.effectDurationExpBoost, Gobber2.CONFIG.GENERAL.medallionExpAmplifer, true, true);
-                    player.addStatusEffect(effect);
+                    giveEffect(player);
+                }
+                else if(Gobber2.CONFIG.GENERAL.allowWorkInEnderchest && PlayerEquipUtil.hasItemInEnderchest(player, ItemInit.GOBBER2_MEDALLION_EXP))
+                {
+                    giveEffect(player);
                 }
             }
 
@@ -50,5 +54,11 @@ public class AfterKilledOtherEntityEvent implements ServerEntityCombatEvents.Aft
                 GobberForceManager.addGobberForce(player, Gobber2.CONFIG.GENERAL.forceEarnedFromKill);
             }
         }
+    }
+
+    public void giveEffect(PlayerEntity player)
+    {
+        StatusEffectInstance effect = new StatusEffectInstance(EffectsInit.EXPERIENCE, Gobber2.CONFIG.GENERAL.effectDurationExpBoost, Gobber2.CONFIG.GENERAL.medallionExpAmplifer, true, true);
+        player.addStatusEffect(effect);
     }
 }

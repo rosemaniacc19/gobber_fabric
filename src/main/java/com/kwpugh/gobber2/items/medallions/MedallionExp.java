@@ -131,6 +131,12 @@ public class MedallionExp extends BaseMedallion
 	{
 		tooltip.add(Text.translatable("item.gobber2.gobber2_medallion_exp.tip1").formatted(Formatting.GREEN));
 		tooltip.add(Text.translatable("item.gobber2.while_in_inventory").formatted(Formatting.YELLOW));
+
+		if(Gobber2.CONFIG.GENERAL.allowWorkInEnderchest)
+		{
+			tooltip.add(Text.translatable("item.gobber2.while_in_enderchest").formatted(Formatting.AQUA));
+		}
+
 		tooltip.add(Text.translatable("item.gobber2.gobber2_medallion_exp.tip2", getXPStored(itemStack)).formatted(Formatting.RED));
 		tooltip.add(Text.translatable("item.gobber2.gobber2_medallion_exp.tip3").formatted(Formatting.YELLOW));
 	} 

@@ -15,18 +15,19 @@ import net.minecraft.world.World;
 
 public class PlayerBlockBreakEvent
 {
-    // Actionss performed as a result of the break block event
+    // actions performed as a result of the break block event
     public static boolean onBlockBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, BlockEntity entity)
     {
         if(Gobber2.CONFIG.GENERAL.medallionExpXPBoost)
         {
             if(PlayerEquipUtil.hasItemInInventory(player, ItemInit.GOBBER2_MEDALLION_EXP))
             {
-                if(state.getBlock() instanceof OreBlock || Gobber2.CONFIG.GENERAL.medallionExpFromAnyBlock)
-                {
-                    StatusEffectInstance effect = new StatusEffectInstance(EffectsInit.EXPERIENCE, Gobber2.CONFIG.GENERAL.medallionExpDuration, Gobber2.CONFIG.GENERAL.medallionExpAmplifer, true, true);
-                    player.addStatusEffect(effect);
-                }
+                giveEffect(player, state);
+            }
+            else if(Gobber2.CONFIG.GENERAL.allowWorkInEnderchest &&
+                    PlayerEquipUtil.hasItemInEnderchest(player, ItemInit.GOBBER2_MEDALLION_EXP))
+            {
+                giveEffect(player, state);
             }
         }
 
@@ -38,5 +39,14 @@ public class PlayerBlockBreakEvent
         }
 
         return true;
+    }
+
+    public static void giveEffect(PlayerEntity player, BlockState state)
+    {
+        if(state.getBlock() instanceof OreBlock || Gobber2.CONFIG.GENERAL.medallionExpFromAnyBlock)
+        {
+            StatusEffectInstance effect = new StatusEffectInstance(EffectsInit.EXPERIENCE, Gobber2.CONFIG.GENERAL.medallionExpDuration, Gobber2.CONFIG.GENERAL.medallionExpAmplifer, true, true);
+            player.addStatusEffect(effect);
+        }
     }
 }
