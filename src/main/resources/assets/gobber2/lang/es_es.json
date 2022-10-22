@@ -433,16 +433,6 @@
   "advancements.gobber2.gobber2_sword_end.desc": "Fabrica una Espada de Ender",
   "advancements.gobber2.gobber2_sword_sniper.title": "Es una espada o un arco!",
   "advancements.gobber2.gobber2_sword_sniper.desc": "Fabrica una Espada de francotirador",
-  "advancements.gobber2.block_healer.title": "Mejor que una faro?",
-  "advancements.gobber2.block_healer.desc": "Fabrica un Bloque de Sanador",
-  "advancements.gobber2.block_defender.title": "Defiende tu base",
-  "advancements.gobber2.block_defender.desc": "Fabrica un Bloque de Defensor",
-  "advancements.gobber2.block_protector.title": "La máxima protección de una Base",
-  "advancements.gobber2.block_protector.desc": "Fabrica un Bloque Protector",
-  "advancements.gobber2.block_maturator.title": "Crece! Bebé! Crece!",
-  "advancements.gobber2.block_maturator.desc": "Fabrica un Bloque de Crecimiento",
-  "entity.gobber2.nemesis": "Gobber Nemesis",
-  "entity.gobber2.nemesis_nether": "Gobber Nemesis",
-  "entity.gobber2.nemesis_end": "Gobber Nemesis",
+
   "itemGroup.gobber2.gobber2_group": "Gobber 2"
 }

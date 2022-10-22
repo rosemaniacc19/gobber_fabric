@@ -516,18 +516,5 @@
 	"advancements.gobber2.gobber2_sword_sniper.title": "Это меч и лук!",
 	"advancements.gobber2.gobber2_sword_sniper.desc": "Создайте Меч-Снайпер",
 
-	"advancements.gobber2.block_healer.title": "Лучше, чем маяк?",
-	"advancements.gobber2.block_healer.desc": "Создайте блок Исцеления",
-	"advancements.gobber2.block_defender.title": "Защита базы",
-	"advancements.gobber2.block_defender.desc": "Создайте блок Защитника",
-	"advancements.gobber2.block_protector.title": "Лучшая защита базы",
-	"advancements.gobber2.block_protector.desc": "Создайте блок Покровитель",
-	"advancements.gobber2.block_maturator.title": "Расти, детка! Расти!",
-	"advancements.gobber2.block_maturator.desc": "Создайте блок Созреватель",
-
-	"entity.gobber2.nemesis": "Gobber Nemesis",
-	"entity.gobber2.nemesis_nether": "Gobber Nemesis",
-	"entity.gobber2.nemesis_end": "Gobber Nemesis",
-
 	 "itemGroup.gobber2.gobber2_group": "Gobber 2"
 }

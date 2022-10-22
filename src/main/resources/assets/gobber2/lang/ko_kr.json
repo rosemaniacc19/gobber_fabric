@@ -555,17 +555,5 @@
 	"advancements.gobber2.gobber2_sword_sniper.title": "검이기도 하고 활이기도 해요!",
 	"advancements.gobber2.gobber2_sword_sniper.desc": "스나이퍼 검을 만드세요",
 
-	"advancements.gobber2.block_healer.title": "비콘 보다 더 좋은 것?",
-	"advancements.gobber2.block_healer.desc": "힐러 블록을 만드세요",
-	"advancements.gobber2.block_defender.title": "기지를 방어하세요",
-	"advancements.gobber2.block_defender.desc": "디펜더 블록을 만드세요",
-	"advancements.gobber2.block_protector.title": "궁극의 기지 방어",
-	"advancements.gobber2.block_protector.desc": "프로텍터 블록을 만드세요",
-	"advancements.gobber2.block_maturator.title": "자라라! 아기야! 자라라!",
-	"advancements.gobber2.block_maturator.desc": "성장 블록을 만드세요",
-
-	"entity.gobber2.nemesis": "고버 네메시스",
-	"item.gobber2.nemesis_spawn_egg": "고버 네메시스 생성 알",
-
 	"itemGroup.gobber2.gobber2_group": "Gobber 2"
 }
