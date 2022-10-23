@@ -39,11 +39,11 @@ public class AfterKilledOtherEntityEvent implements ServerEntityCombatEvents.Aft
             {
                 if(PlayerEquipUtil.hasItemInInventory(player, ItemInit.GOBBER2_MEDALLION_EXP))
                 {
-                    giveEffect(player);
+                    giveExperienceEffect(player);
                 }
                 else if(Gobber2.CONFIG.GENERAL.allowWorkInEnderchest && PlayerEquipUtil.hasItemInEnderchest(player, ItemInit.GOBBER2_MEDALLION_EXP))
                 {
-                    giveEffect(player);
+                    giveExperienceEffect(player);
                 }
             }
 
@@ -56,7 +56,7 @@ public class AfterKilledOtherEntityEvent implements ServerEntityCombatEvents.Aft
         }
     }
 
-    public void giveEffect(PlayerEntity player)
+    public void giveExperienceEffect(PlayerEntity player)
     {
         StatusEffectInstance effect = new StatusEffectInstance(EffectsInit.EXPERIENCE, Gobber2.CONFIG.GENERAL.effectDurationExpBoost, Gobber2.CONFIG.GENERAL.medallionExpAmplifer, true, true);
         player.addStatusEffect(effect);

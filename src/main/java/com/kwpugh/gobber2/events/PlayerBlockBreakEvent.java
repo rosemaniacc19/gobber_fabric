@@ -22,12 +22,12 @@ public class PlayerBlockBreakEvent
         {
             if(PlayerEquipUtil.hasItemInInventory(player, ItemInit.GOBBER2_MEDALLION_EXP))
             {
-                giveEffect(player, state);
+                giveExperienceEffect(player, state);
             }
             else if(Gobber2.CONFIG.GENERAL.allowWorkInEnderchest &&
                     PlayerEquipUtil.hasItemInEnderchest(player, ItemInit.GOBBER2_MEDALLION_EXP))
             {
-                giveEffect(player, state);
+                giveExperienceEffect(player, state);
             }
         }
 
@@ -41,7 +41,7 @@ public class PlayerBlockBreakEvent
         return true;
     }
 
-    public static void giveEffect(PlayerEntity player, BlockState state)
+    public static void giveExperienceEffect(PlayerEntity player, BlockState state)
     {
         if(state.getBlock() instanceof OreBlock || Gobber2.CONFIG.GENERAL.medallionExpFromAnyBlock)
         {

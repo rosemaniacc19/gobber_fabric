@@ -1,18 +1,19 @@
 package com.kwpugh.gobber2.lists;
 
+import com.kwpugh.gobber2.Gobber2;
 import net.minecraft.item.FoodComponent;
 
 public class FoodList
 {
-    public static FoodComponent goo = (new FoodComponent.Builder()).hunger(7).saturationModifier(0.7F).build();
-    public static FoodComponent gooey_apple = (new FoodComponent.Builder()).hunger(8).saturationModifier(0.8F).build();
-    public static FoodComponent gooey_bread = (new FoodComponent.Builder()).hunger(8).saturationModifier(0.8F).build();
-    public static FoodComponent gooey_beef = (new FoodComponent.Builder()).hunger(9).saturationModifier(0.9F).build();
-    public static FoodComponent gooey_beefstew = (new FoodComponent.Builder()).hunger(10).saturationModifier(1.0F).build();
+    public static FoodComponent goo = (new FoodComponent.Builder()).hunger(Gobber2.CONFIG.GENERAL.gooHunger).saturationModifier(Gobber2.CONFIG.GENERAL.gooSaturation).build();
+    public static FoodComponent gooeyApple = (new FoodComponent.Builder()).hunger(Gobber2.CONFIG.GENERAL.gooeyAppleHunger).saturationModifier(Gobber2.CONFIG.GENERAL.gooeyAppleSaturation).build();
+    public static FoodComponent gooeyBread = (new FoodComponent.Builder()).hunger(Gobber2.CONFIG.GENERAL.gooeyBreadHunger).saturationModifier(Gobber2.CONFIG.GENERAL.gooeyBreadSaturation).build();
+    public static FoodComponent gooeyBeef = (new FoodComponent.Builder()).hunger(Gobber2.CONFIG.GENERAL.gooeyBeefHunger).saturationModifier(Gobber2.CONFIG.GENERAL.gooeyBeefSaturation).build();
+    public static FoodComponent gooeyBeefstew = (new FoodComponent.Builder()).hunger(Gobber2.CONFIG.GENERAL.gooeyBeefStewHunger).saturationModifier(Gobber2.CONFIG.GENERAL.gooeyBeefStewSaturation).build();
     
-    public static FoodComponent goo_nether = (new FoodComponent.Builder()).hunger(9).saturationModifier(0.9F).build();
-    public static FoodComponent gooey_apple_nether = (new FoodComponent.Builder()).hunger(10).saturationModifier(1.0F).build();
-    public static FoodComponent gooey_bread_nether = (new FoodComponent.Builder()).hunger(10).saturationModifier(1.0F).build();
-    public static FoodComponent gooey_beef_nether = (new FoodComponent.Builder()).hunger(12).saturationModifier(1.2F).build();
-    public static FoodComponent gooey_beefstew_nether = (new FoodComponent.Builder()).hunger(14).saturationModifier(1.5F).build();
+    public static FoodComponent gooNether = (new FoodComponent.Builder()).hunger(Gobber2.CONFIG.GENERAL.gooHungerNether).saturationModifier(Gobber2.CONFIG.GENERAL.gooSaturationNether).build();
+    public static FoodComponent gooeyAppleNether = (new FoodComponent.Builder()).hunger(Gobber2.CONFIG.GENERAL.gooeyAppleHungerNether).saturationModifier(Gobber2.CONFIG.GENERAL.gooeyAppleSaturationNether).build();
+    public static FoodComponent gooeyBreadNether = (new FoodComponent.Builder()).hunger(Gobber2.CONFIG.GENERAL.gooeyBreadHungerNether).saturationModifier(Gobber2.CONFIG.GENERAL.gooeyBreadSaturationNether).build();
+    public static FoodComponent gooeyBeefNether = (new FoodComponent.Builder()).hunger(Gobber2.CONFIG.GENERAL.gooeyBeefHungerNether).saturationModifier(Gobber2.CONFIG.GENERAL.gooeyBeefSaturationNether).build();
+    public static FoodComponent gooeyBeefstewNether = (new FoodComponent.Builder()).hunger(Gobber2.CONFIG.GENERAL.gooeyBeefStewHungerNether).saturationModifier(Gobber2.CONFIG.GENERAL.gooeyBeefStewSaturationNether).build();
 }

@@ -594,5 +594,32 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public int fooBurntime = 12000;
 		public int fooNetherBurntime = 24000;
 		public int fooEndBurntime= 32000;
+
+		@Comment("\n"
+				+"\n"
+				+ "***********************"
+				+"\nGobber Food Settings"
+
+				+ "\n***********************")
+		public int gooHunger = 7;
+		public float gooSaturation = 0.7F;
+		public int gooeyAppleHunger = 8;
+		public float gooeyAppleSaturation = 0.8F;
+		public int gooeyBreadHunger = 8;
+		public float gooeyBreadSaturation = 0.8F;
+		public int gooeyBeefHunger = 9;
+		public float gooeyBeefSaturation = 0.9F;
+		public int gooeyBeefStewHunger = 10;
+		public float gooeyBeefStewSaturation = 1.0F;
+		public int gooHungerNether = 8;
+		public float gooSaturationNether = 0.8F;
+		public int gooeyAppleHungerNether = 8;
+		public float gooeyAppleSaturationNether = 0.8F;
+		public int gooeyBreadHungerNether = 9;
+		public float gooeyBreadSaturationNether = 0.9F;
+		public int gooeyBeefHungerNether = 10;
+		public float gooeyBeefSaturationNether = 1.0F;
+		public int gooeyBeefStewHungerNether = 12;
+		public float gooeyBeefStewSaturationNether = 1.5F;
     }
 }

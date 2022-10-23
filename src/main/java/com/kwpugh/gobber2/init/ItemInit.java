@@ -62,16 +62,16 @@ public class ItemInit
 	public static final Item GOBBER2_FOO_END = new FooEnd((new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
 
 	public static final Item GOBBER2_GOO = new Goo((new Item.Settings()).food(FoodList.goo).group(Gobber2.GOBBER2_GROUP));
-	public static final Item GOBBER2_GOOEY_APPLE = new GooeyApple((new Item.Settings()).food(FoodList.gooey_apple).group(Gobber2.GOBBER2_GROUP));
-	public static final Item GOBBER2_GOOEY_BREAD = new GooeyBread((new Item.Settings()).food(FoodList.gooey_bread).group(Gobber2.GOBBER2_GROUP));
-	public static final Item GOBBER2_GOOEY_BEEF = new GooeyBeef((new Item.Settings()).food(FoodList.gooey_beef).group(Gobber2.GOBBER2_GROUP));
-	public static final StewItem GOBBER2_GOOEY_BEEFSTEW = new GooeyBeefstew((new Item.Settings()).food(FoodList.gooey_beefstew).maxCount(1).group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_GOOEY_APPLE = new GooeyApple((new Item.Settings()).food(FoodList.gooeyApple).group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_GOOEY_BREAD = new GooeyBread((new Item.Settings()).food(FoodList.gooeyBread).group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_GOOEY_BEEF = new GooeyBeef((new Item.Settings()).food(FoodList.gooeyBeef).group(Gobber2.GOBBER2_GROUP));
+	public static final StewItem GOBBER2_GOOEY_BEEFSTEW = new GooeyBeefstew((new Item.Settings()).food(FoodList.gooeyBeefstew).maxCount(1).group(Gobber2.GOBBER2_GROUP));
 
-	public static final Item GOBBER2_GOO_NETHER = new Goo((new Item.Settings()).food(FoodList.goo_nether).group(Gobber2.GOBBER2_GROUP));
-	public static final Item GOBBER2_GOOEY_APPLE_NETHER = new GooeyApple((new Item.Settings()).food(FoodList.gooey_apple_nether).group(Gobber2.GOBBER2_GROUP));
-	public static final Item GOBBER2_GOOEY_BREAD_NETHER = new GooeyBread((new Item.Settings()).food(FoodList.gooey_bread_nether).group(Gobber2.GOBBER2_GROUP));
-	public static final Item GOBBER2_GOOEY_BEEF_NETHER = new GooeyBeef((new Item.Settings()).food(FoodList.gooey_beef_nether).group(Gobber2.GOBBER2_GROUP));
-	public static final StewItem GOBBER2_GOOEY_BEEFSTEW_NETHER = new GooeyBeefstew((new Item.Settings()).food(FoodList.gooey_beefstew_nether).maxCount(1).group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_GOO_NETHER = new Goo((new Item.Settings()).food(FoodList.gooNether).group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_GOOEY_APPLE_NETHER = new GooeyApple((new Item.Settings()).food(FoodList.gooeyAppleNether).group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_GOOEY_BREAD_NETHER = new GooeyBread((new Item.Settings()).food(FoodList.gooeyBreadNether).group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_GOOEY_BEEF_NETHER = new GooeyBeef((new Item.Settings()).food(FoodList.gooeyBeefNether).group(Gobber2.GOBBER2_GROUP));
+	public static final StewItem GOBBER2_GOOEY_BEEFSTEW_NETHER = new GooeyBeefstew((new Item.Settings()).food(FoodList.gooeyBeefstewNether).maxCount(1).group(Gobber2.GOBBER2_GROUP));
 
 	public static final Item GOBBER2_INGOT = new Item((new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_INGOT_NETHER = new Item((new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
