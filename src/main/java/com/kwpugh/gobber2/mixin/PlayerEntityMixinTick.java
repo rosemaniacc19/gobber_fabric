@@ -97,6 +97,11 @@ public abstract class PlayerEntityMixinTick extends LivingEntity
                     RingRepair.repairItems(world, player);
                 }
 
+                if(PlayerEquipUtil.hasItemInEnderchest(player, ItemInit.GOBBER2_RING_ASCENT))
+                {
+                    player.fallDistance = 0.0F;
+                }
+
                 if(PlayerEquipUtil.hasItemInEnderchest(player, ItemInit.GOBBER2_RING_ATTRACTION))
                 {
                     ItemStack stack = PlayerEquipUtil.getItemStackInEnderchest(player, ItemInit.GOBBER2_RING_ATTRACTION);

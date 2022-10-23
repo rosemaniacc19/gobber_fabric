@@ -104,5 +104,10 @@ public class RingAscent extends BaseRing implements HandRemoveHandler, HandTicka
 		tooltip.add(Text.translatable("item.gobber2.gobber2_ring_ascent.tip2").formatted(Formatting.GREEN));
 		tooltip.add(Text.translatable("item.gobber2.gobber2_ring_ascent.tip3").formatted(Formatting.YELLOW));
 		tooltip.add(Text.translatable("item.gobber2.gobber2_ring_ascent.tip4").formatted(Formatting.BLUE));
+
+		if(Gobber2.CONFIG.GENERAL.allowWorkInEnderchest)
+		{
+			tooltip.add(Text.translatable("item.gobber2.while_in_enderchest").formatted(Formatting.AQUA));
+		}
 	}
 }

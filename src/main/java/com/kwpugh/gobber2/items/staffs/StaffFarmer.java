@@ -76,6 +76,7 @@ public class StaffFarmer extends BaseStaff
 					world.breakBlock(targetPos, true);
 				}
 
+				// Some crops are broken one-up from bottom
 				if (block instanceof CactusBlock ||
 						block instanceof SugarCaneBlock ||
 						block instanceof BambooBlock)
