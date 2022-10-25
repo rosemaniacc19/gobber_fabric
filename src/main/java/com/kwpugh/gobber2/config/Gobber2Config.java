@@ -55,7 +55,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 				+ "\n"
 				+ "***********************"
 				+ "\nLucky Block - Drops"
-				+ "\n- only use values between .01 to .99"
+				+ "\n- only use values between .001 to .999"
 				+ "\n- values cannot overlap"
 				+ "\n- values should be in decending order from"
 				+ "\ncutoff, common, uncommon, and rare"
@@ -63,10 +63,10 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 				+ "\n***********************")
 		public boolean enableExtraLoot = false;
 		public boolean enableFortune = false;
-		public double cutoffThreshold = .20;
-		public double commonThreshold = .10;
-		public double uncommonThreshold = .04;
-		public double rareThreshold = .01;
+		public double cutoffThreshold = .10;
+		public double commonThreshold = .02;
+		public double uncommonThreshold = .009;
+		public double rareThreshold = .006;
 		public String defaultDrop = "gobbers:gobber2_foo";
 
 		@Comment("\n"
@@ -231,15 +231,28 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 				+"\n- values are unbalanced"
 				+"\n***********************")
 		public boolean enableGobberForce = false;
-		public int forceNaturalRegenDelay = 1200;
-		public int forceEarnedGobberArmor = 1;
+		public boolean enableGFNaturalRegen = true;
+		public boolean enableGFBreathing = true;
+		public boolean enableGFDamageShield = true;
+		public boolean enableGFVigor = true;
+		public boolean enableGFAutoFeed = true;
+		public boolean enableGFExtraHearts = true;
+		public boolean enableGFChrisma = true;
+		public boolean enableGFBadOmen = true;
+		public boolean enableGFKillEarning = true;
+		public boolean enableGFMiningEarning = true;
+		public int forceNaturalRegenDelayGobber = 1200;
+		public int forceNaturalRegenDelayNether = 900;
+		public int forceNaturalRegenDelayEnd = 600;
+		public int forceNaturalRegenDelayDragon = 300;
+		public int forceEarnedFullArmor = 1;
 		public int forceEarnedFromKill = 2;
 		public int forceEarnedFromOre = 3;
 		public int forceDamageAbsorbLevel = 50;
 		public int forceExhausionLevel = 75;
-		public int forceExhausionCost = 5;
+		public int forceExhausionCost = 1;
 		public int forceAirLevel = 30;
-		public int forceAirCost = 5;
+		public int forceAirCost = 1;
 		public int forceHungerRestoreLevel = 50;
 		public int forceHungerRestoreCost = 5;
 		public int forceHealthRestoreLevel = 50;
@@ -247,7 +260,6 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public int forceExtraHeartsLevel = 100;
 		public int forceExtraHeartsCost = 10;
 		public int forceExtraHeartsGobber = 2;
-		public boolean forceEnableBadOmen = true;
 		public int forceRemoveBadOmenLevel = 50;
 		public int forceRemoveBadOmenCost = 5;
 		public int forceCharismaLevel = 100;

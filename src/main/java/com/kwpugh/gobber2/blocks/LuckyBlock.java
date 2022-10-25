@@ -33,6 +33,8 @@ public class LuckyBlock extends BaseOreBlock
 
 	static boolean enableExtraLoot = Gobber2.CONFIG.ORES.enableExtraLoot;
 	static boolean enableFortune = Gobber2.CONFIG.ORES.enableFortune;
+	static boolean enchanted;
+	static boolean hasFortune;
 
 	// Get the default item string from config and cast to ItemStack
 	Identifier id = Identifier.tryParse(Gobber2.CONFIG.ORES.defaultDrop);
@@ -45,26 +47,21 @@ public class LuckyBlock extends BaseOreBlock
 
 		ItemStack tool = player.getMainHandStack();
 		boolean suitable = tool.isSuitableFor(world.getBlockState(pos));
-
 		int tries = 1;  // Default value if Fortune not enabled
 		
 		if(enableFortune)
 		{
-			boolean enchanted = player.getMainHandStack().hasEnchantments();	
-			boolean hasFortune = tool.getEnchantments().toString().contains("fortune");
+			enchanted = player.getMainHandStack().hasEnchantments();
+			hasFortune = tool.getEnchantments().toString().contains("fortune");
 			int level = EnchantmentHelper.getLevel(Enchantments.FORTUNE, tool);
 						
 			if(enchanted && hasFortune)
 			{
-				tries = level + 1;
+				tries = level;
 			}
-			else
-			{
-				tries = 1;
-			}			
 		}
 
-		if(enableExtraLoot & suitable)
+		if(enableExtraLoot && hasFortune && suitable)
 		{
 			for(int i = 1; i < (tries + 1); i++)
 			{
@@ -101,7 +98,8 @@ public class LuckyBlock extends BaseOreBlock
 				}
 
 				dropStack(world, pos, stack);
-			}			
+				stack = ItemStack.EMPTY;
+			}
 		}
 	}
 }

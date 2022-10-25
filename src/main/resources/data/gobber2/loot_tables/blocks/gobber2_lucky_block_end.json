@@ -19,6 +19,11 @@
           "type": "minecraft:item",
           "weight": 20,
           "name": "gobber2:gobber2_arrow_end"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 20,
+          "name": "gobber2:gobber2_rod_end"
         }
       ],
       "conditions": [

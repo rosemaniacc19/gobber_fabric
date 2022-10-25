@@ -24,8 +24,13 @@
 		  "type": "minecraft:item",
 		  "weight": 50,
 		  "name": "gobber2:gobber2_goo"
+		},
+		{
+		  "type": "minecraft:item",
+		  "weight": 20,
+		  "name": "gobber2:gobber2_foo"
 		}
-      ],
+	  ],
       "conditions": [
         {
           "condition": "minecraft:survives_explosion"

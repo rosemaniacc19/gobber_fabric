@@ -18,12 +18,17 @@ import net.minecraft.util.Formatting;
     - extra yellow hearts
     - remove of bad omen curse
 
-    Also relies on: VillagerEntityMixinGobberForce for Charisma
+    Also relies on:
+    - VillagerEntityMixinGobberForce for Charisma
+    - AfterKilledOtherEntityEvent for earning GF from kills
+    - PlayerBlockBreakEvent for earning GF from mining
+    - PlayerEntityMixinGobberForce for tick update, damage shield, and vigor
  */
 
 public class GobberForceManager
 {
     private static int gobberForce;
+    static int regenRate;
 
     // various methods trigger on every player tick
     public static void update(PlayerEntity player)
@@ -33,25 +38,36 @@ public class GobberForceManager
             if(PlayerEquipUtil.isWearingFullArmor(player))
             {
                 // Naturally earned gobber force
-                if((getGobberForce(player) < Integer.MAX_VALUE) && (player.age % Gobber2.CONFIG.GENERAL.forceNaturalRegenDelay == 0))
+                if(Gobber2.CONFIG.GENERAL.enableGFNaturalRegen)
                 {
-                    addGobberForce(player, Gobber2.CONFIG.GENERAL.forceEarnedGobberArmor);
+                    regenRate = getArmorRegenDelay(player);
+
+                    if((getGobberForce(player) < Integer.MAX_VALUE) && (player.age % regenRate == 0))
+                    {
+                        addGobberForce(player, Gobber2.CONFIG.GENERAL.forceEarnedFullArmor);
+                    }
                 }
 
                 // Provide max air
-                if(player.getAir() < 2 && getGobberForce(player) > Gobber2.CONFIG.GENERAL.forceAirLevel)
+                if(Gobber2.CONFIG.GENERAL.enableGFBreathing)
                 {
-                    player.setAir(300);
-                    subtractGobberForce(player, Gobber2.CONFIG.GENERAL.forceAirCost);
-                    player.sendMessage((Text.translatable("gobber2.gobber_force.breathing").formatted(Formatting.AQUA).formatted(Formatting.BOLD)), true);
+                    if(player.getAir() < 2 && getGobberForce(player) > Gobber2.CONFIG.GENERAL.forceAirLevel)
+                    {
+                        player.setAir(300);
+                        subtractGobberForce(player, Gobber2.CONFIG.GENERAL.forceAirCost);
+                        player.sendMessage((Text.translatable("gobber2.gobber_force.breathing").formatted(Formatting.AQUA).formatted(Formatting.BOLD)), true);
+                    }
                 }
 
                 // Restore food level
-                if((player.getHungerManager().getFoodLevel() < 20) && (getGobberForce(player) > Gobber2.CONFIG.GENERAL.forceHungerRestoreLevel))
+                if(Gobber2.CONFIG.GENERAL.enableGFAutoFeed)
                 {
-                    player.getHungerManager().setFoodLevel(40);
-                    subtractGobberForce(player, Gobber2.CONFIG.GENERAL.forceHungerRestoreCost);
-                    player.sendMessage((Text.translatable("gobber2.gobber_force.feeding").formatted(Formatting.DARK_BLUE).formatted(Formatting.BOLD)), true);
+                    if((player.getHungerManager().getFoodLevel() < 20) && (getGobberForce(player) > Gobber2.CONFIG.GENERAL.forceHungerRestoreLevel))
+                    {
+                        player.getHungerManager().setFoodLevel(40);
+                        subtractGobberForce(player, Gobber2.CONFIG.GENERAL.forceHungerRestoreCost);
+                        player.sendMessage((Text.translatable("gobber2.gobber_force.feeding").formatted(Formatting.DARK_BLUE).formatted(Formatting.BOLD)), true);
+                    }
                 }
 
                 // Restore full health
@@ -62,20 +78,23 @@ public class GobberForceManager
                     player.sendMessage((Text.translatable("gobber2.gobber_force.healing").formatted(Formatting.DARK_GRAY).formatted(Formatting.BOLD)), true);
                 }
 
-                // Give extra health check
-                if((player.getHealth() == 20) && (getGobberForce(player) > Gobber2.CONFIG.GENERAL.forceExtraHeartsLevel))
+                // Give extra hearts
+                if(Gobber2.CONFIG.GENERAL.enableGFExtraHearts)
                 {
-                    float current = player.getAbsorptionAmount();
-                    if(current < Gobber2.CONFIG.GENERAL.forceExtraHeartsGobber)
+                    if((player.getHealth() == 20) && (getGobberForce(player) > Gobber2.CONFIG.GENERAL.forceExtraHeartsLevel))
                     {
-                        player.setAbsorptionAmount(current + 1.0F);
-                        subtractGobberForce(player, Gobber2.CONFIG.GENERAL.forceExtraHeartsCost);
-                        player.sendMessage((Text.translatable("gobber2.gobber_force.extra_hearts").formatted(Formatting.YELLOW).formatted(Formatting.BOLD)), true);
+                        float current = player.getAbsorptionAmount();
+                        if(current < Gobber2.CONFIG.GENERAL.forceExtraHeartsGobber)
+                        {
+                            player.setAbsorptionAmount(current + 1.0F);
+                            subtractGobberForce(player, Gobber2.CONFIG.GENERAL.forceExtraHeartsCost);
+                            player.sendMessage((Text.translatable("gobber2.gobber_force.extra_hearts").formatted(Formatting.YELLOW).formatted(Formatting.BOLD)), true);
+                        }
                     }
                 }
 
                 // Remove Bad Omen
-                if(Gobber2.CONFIG.GENERAL.forceEnableBadOmen && (getGobberForce(player) > Gobber2.CONFIG.GENERAL.forceRemoveBadOmenLevel))
+                if(Gobber2.CONFIG.GENERAL.enableGFBadOmen && (getGobberForce(player) > Gobber2.CONFIG.GENERAL.forceRemoveBadOmenLevel))
                 {
                     if(player.hasStatusEffect(StatusEffects.BAD_OMEN))
                     {
@@ -86,6 +105,18 @@ public class GobberForceManager
                 }
             }
         }
+    }
+
+    public static int getArmorRegenDelay(PlayerEntity player)
+    {
+        int rate = 0;
+
+        if(PlayerEquipUtil.isWearingGobberArmor(player)) rate = Gobber2.CONFIG.GENERAL.forceNaturalRegenDelayGobber;
+        if(PlayerEquipUtil.isWearingNetherArmor(player)) rate = Gobber2.CONFIG.GENERAL.forceNaturalRegenDelayNether;
+        if(PlayerEquipUtil.isWearingEndArmor(player)) rate = Gobber2.CONFIG.GENERAL.forceNaturalRegenDelayEnd;
+        if(PlayerEquipUtil.isWearingDragonArmor(player)) rate = Gobber2.CONFIG.GENERAL.forceNaturalRegenDelayDragon;
+
+        return rate;
     }
 
     public static int getGobberForce(PlayerEntity player)
