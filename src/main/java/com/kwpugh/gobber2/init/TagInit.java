@@ -17,18 +17,18 @@ public class TagInit
 
 	// Fabric c tags used by the Ring of Miner
 	public static final TagKey<Block> INFESTED = TagKey.of(Registry.BLOCK_KEY, new Identifier("c", "infested"));
-	public static final TagKey<Block> COBBLESTONE = TagKey.of(Registry.BLOCK_KEY, new Identifier("c", "cobblestone"));
-	public static final TagKey<Block> DIRT = TagKey.of(Registry.BLOCK_KEY, new Identifier("c", "dirt"));
-	public static final TagKey<Block> NETHERRACK = TagKey.of(Registry.BLOCK_KEY, new Identifier("c", "netherrack"));
-	public static final TagKey<Block> SAND = TagKey.of(Registry.BLOCK_KEY, new Identifier("c", "sand"));
-	public static final TagKey<Block> SANDSTONE = TagKey.of(Registry.BLOCK_KEY, new Identifier("c", "sandstone"));
+	public static final TagKey<Block> COBBLESTONE = TagKey.of(Registry.BLOCK_KEY, new Identifier("c", "cobblestones"));
+	public static final TagKey<Block> DIRT = TagKey.of(Registry.BLOCK_KEY, new Identifier("c", "dirts"));
+	public static final TagKey<Block> NETHERRACK = TagKey.of(Registry.BLOCK_KEY, new Identifier("c", "netherracks"));
+	public static final TagKey<Block> SAND = TagKey.of(Registry.BLOCK_KEY, new Identifier("c", "sands"));
+	public static final TagKey<Block> SANDSTONE = TagKey.of(Registry.BLOCK_KEY, new Identifier("c", "sandstones"));
 	public static final TagKey<Block> SOUL_GROUND = TagKey.of(Registry.BLOCK_KEY, new Identifier("c", "soul_ground"));
-	public static final TagKey<Block> STONE = TagKey.of(Registry.BLOCK_KEY, new Identifier("c", "stone"));
+	public static final TagKey<Block> STONE = TagKey.of(Registry.BLOCK_KEY, new Identifier("c", "stones"));
 	public static final TagKey<Block> END_STONES = TagKey.of(Registry.BLOCK_KEY, new Identifier("c", "end_stones"));
 
 	// Fabric c tags used by the Staff of Clearing
 	public static final TagKey<Block> FLOWERS = TagKey.of(Registry.BLOCK_KEY, new Identifier("c", "flowers"));
-	public static final TagKey<Block> GRASS = TagKey.of(Registry.BLOCK_KEY, new Identifier("c", "grass"));
+	public static final TagKey<Block> GRASS = TagKey.of(Registry.BLOCK_KEY, new Identifier("c", "grasses"));
 	public static final TagKey<Block> BUSHES = TagKey.of(Registry.BLOCK_KEY, new Identifier("c", "bushes"));
 
 
