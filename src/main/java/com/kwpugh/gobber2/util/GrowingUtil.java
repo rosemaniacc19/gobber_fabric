@@ -1,5 +1,6 @@
 package com.kwpugh.gobber2.util;
 
+import com.kwpugh.gobber2.Gobber2;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -67,10 +68,10 @@ public class GrowingUtil
 				}
 			}
 
-			// Random tick for special case
+			// Random tick for special case, crops that are not fertilizable
 			if (block instanceof CropBlock && extraCrops)
 			{
-				if (world.getTime() % (cactusDelay) == 0)
+				if (world.getTime() % (Gobber2.CONFIG.GENERAL.staffFarmerIntervalExtra) == 0)
 				{
 					if (world instanceof ServerWorld)
 					{

@@ -196,6 +196,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public int staffFarmerVertRange = 6;
 		public int staffFarmerInterval = 60;
 		public int staffFarmerIntervalCactus = 20;
+		public int staffFarmerIntervalExtra = 20;
 		public boolean staffFarmerExtraCrops = false;
 		public boolean staffFarmerReplant = true;
 		public boolean staffEnsnarementHotileMobs = false;
@@ -236,6 +237,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public boolean enableGFDamageShield = true;
 		public boolean enableGFVigor = true;
 		public boolean enableGFAutoFeed = true;
+		public boolean enableGFHealthRestore = true;
 		public boolean enableGFExtraHearts = true;
 		public boolean enableGFChrisma = true;
 		public boolean enableGFBadOmen = true;

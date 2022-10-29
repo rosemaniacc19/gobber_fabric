@@ -71,11 +71,14 @@ public class GobberForceManager
                 }
 
                 // Restore full health
-                if((player.getHealth() < 15) && (getGobberForce(player) > Gobber2.CONFIG.GENERAL.forceHealthRestoreLevel))
+                if(Gobber2.CONFIG.GENERAL.enableGFHealthRestore)
                 {
-                    player.setHealth(20.0F);
-                    subtractGobberForce(player, Gobber2.CONFIG.GENERAL.forceHealthRestoreCost);
-                    player.sendMessage((Text.translatable("gobber2.gobber_force.healing").formatted(Formatting.DARK_GRAY).formatted(Formatting.BOLD)), true);
+                    if((player.getHealth() < 15) && (getGobberForce(player) > Gobber2.CONFIG.GENERAL.forceHealthRestoreLevel))
+                    {
+                        player.setHealth(20.0F);
+                        subtractGobberForce(player, Gobber2.CONFIG.GENERAL.forceHealthRestoreCost);
+                        player.sendMessage((Text.translatable("gobber2.gobber_force.healing").formatted(Formatting.DARK_GRAY).formatted(Formatting.BOLD)), true);
+                    }
                 }
 
                 // Give extra hearts
