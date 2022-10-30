@@ -32,6 +32,7 @@ public abstract class PlayerEntityMixinTick extends LivingEntity
     private static int hasteLevel = Gobber2.CONFIG.GENERAL.ringHasteLevel;
     private static int luckLevel = Gobber2.CONFIG.GENERAL.ringLuckLevel;
     private static int speedLevel = Gobber2.CONFIG.GENERAL.ringSwiftnessLevel;
+    private static int jumpLevel = Gobber2.CONFIG.GENERAL.ringSwiftnessJump;
     private static int amount1 = Gobber2.CONFIG.GENERAL.medallionLesserHealingAmount;
     private static int amount2 = Gobber2.CONFIG.GENERAL.medallionHealingAmount;
     private static int amount3 = Gobber2.CONFIG.GENERAL.medallionGreaterHealingAmount;
@@ -133,8 +134,11 @@ public abstract class PlayerEntityMixinTick extends LivingEntity
                     ItemStack stack = PlayerEquipUtil.getItemStackInEnderchest(player, ItemInit.GOBBER2_RING_SWIFTNESS);
                     if(EnableUtil.isEnabled(stack))
                     {
-                        StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.SPEED, Gobber2.CONFIG.GENERAL.effectDuration, speedLevel, false, false);
-                        player.addStatusEffect(effect);
+                        StatusEffectInstance speed = new StatusEffectInstance(StatusEffects.SPEED, Gobber2.CONFIG.GENERAL.effectDuration, speedLevel, false, false);
+                        StatusEffectInstance jump = new StatusEffectInstance(StatusEffects.JUMP_BOOST, Gobber2.CONFIG.GENERAL.effectDuration, jumpLevel, false, false);
+
+                        player.addStatusEffect(speed);
+                        player.addStatusEffect(jump);
                     }
                 }
 

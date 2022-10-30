@@ -20,6 +20,7 @@ import java.util.List;
 public class RingSwiftness extends BaseRing
 {
 	static int speedLevel = Gobber2.CONFIG.GENERAL.ringSwiftnessLevel;
+	static int jumpLevel = Gobber2.CONFIG.GENERAL.ringSwiftnessJump;
 
 	public RingSwiftness(Settings settings)
 	{
@@ -31,13 +32,15 @@ public class RingSwiftness extends BaseRing
 	{
 		if(EnableUtil.isEnabled(stack))
 		{
-			StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.SPEED, Gobber2.CONFIG.GENERAL.effectDuration, speedLevel, false, false);
+			StatusEffectInstance speed = new StatusEffectInstance(StatusEffects.SPEED, Gobber2.CONFIG.GENERAL.effectDuration, speedLevel, false, false);
+			StatusEffectInstance jump = new StatusEffectInstance(StatusEffects.JUMP_BOOST, Gobber2.CONFIG.GENERAL.effectDuration, jumpLevel, false, false);
 
 			if(entity instanceof PlayerEntity)
 			{
 				LivingEntity player = (LivingEntity) entity;
 
-				player.addStatusEffect(effect);
+				player.addStatusEffect(speed);
+				player.addStatusEffect(jump);
 			}
 		}
 	}

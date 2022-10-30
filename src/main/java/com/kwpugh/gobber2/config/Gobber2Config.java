@@ -158,6 +158,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public int ringStrengthResistenceLevel = 1;
 		public boolean ringSunshineAuto = false;
 		public int ringSwiftnessLevel = 1;
+		public int ringSwiftnessJump = 3;
  		public double ringTravelerLaunch = 4.0;
  		public double ringTravelerCruising = 0.2;
  		public boolean allowWorkInEnderchest = false;
