@@ -173,6 +173,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public int medallionLesserHealingAmount = 1;
 		public int medallionHealingAmount = 2;
 		public int medallionGreaterHealingAmount = 3;
+		public boolean medallionHealingIncludesSaturation = false;
 		public boolean medallionSeaAlwaysOn = false;
 		public int medallionShieldingHorizRange = 3;
 		public int medallionShieldingVertRange = 2;
