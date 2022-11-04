@@ -1,5 +1,7 @@
 package com.kwpugh.gobber2.mixin;
 
+import net.minecraft.entity.effect.StatusEffectUtil;
+import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -34,8 +36,24 @@ public abstract class PlayerEntityMixinSolidFooting extends LivingEntity
 
 		if(EnchantmentHelper.getLevel(EnchantmentInit.SOLIDFOOTING, self.getEquippedStack(EquipmentSlot.FEET)) > 0)
 		{
-			if(speed > 1.0F && !self.isOnGround())
+			if(!self.isOnGround())
 			{
+				if(speed > 1.0f)
+				{
+					int i = EnchantmentHelper.getEfficiency(this);
+					ItemStack itemStack = this.getMainHandStack();
+
+					if(i > 0 && !itemStack.isEmpty())
+					{
+						speed += (float)(i * i + 1);
+					}
+				}
+
+				if(StatusEffectUtil.hasHaste(this))
+				{
+					speed *= 1.0f + (float)(StatusEffectUtil.getHasteAmplifier(this) + 1) * 0.2f;
+				}
+
 				cir.setReturnValue(speed);
 			}
 		}
