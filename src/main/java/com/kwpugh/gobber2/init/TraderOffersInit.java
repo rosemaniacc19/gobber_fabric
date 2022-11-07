@@ -17,7 +17,7 @@ public class TraderOffersInit
             factories.add(((entity, random) -> new TradeOffer(new ItemStack(Items.EMERALD, 5), new ItemStack(Items.BOOK), EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantmentInit.REBUFFING, 1)), 3, 2, 0.05f)));
             factories.add(((entity, random) -> new TradeOffer(new ItemStack(Items.EMERALD, 5), new ItemStack(Items.BOOK), EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantmentInit.SOLIDFOOTING, 1)), 3, 2, 0.05f)));
             factories.add(((entity, random) -> new TradeOffer(new ItemStack(Items.EMERALD, 5), new ItemStack(Items.BOOK), EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantmentInit.EXP_BOOST, 1)), 3, 2, 0.05f)));
-            factories.add(((entity, random) -> new TradeOffer(new ItemStack(Items.EMERALD, 6), new ItemStack(Items.AMETHYST_SHARD, 4), new ItemStack(ItemInit.GOBBER2_INGOT), 3, 2, 0.05f)));
+            factories.add(((entity, random) -> new TradeOffer(new ItemStack(Items.EMERALD, 6), new ItemStack(Items.AMETHYST_SHARD, 6), new ItemStack(ItemInit.GOBBER2_GLOB), 3, 2, 0.05f)));
         });
     }
 }
