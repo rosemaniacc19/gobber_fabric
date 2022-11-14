@@ -14,13 +14,13 @@ public class GrowingUtil
 	{
 		BlockPos playerPos = new BlockPos(player.getPos());
 
-		for (BlockPos targetPos : BlockPos.iterateOutwards(playerPos, horiz, vertical, horiz))
+		for(BlockPos targetPos : BlockPos.iterateOutwards(playerPos, horiz, vertical, horiz))
 		{
 			BlockState blockstate = world.getBlockState(targetPos);
 			Block block = blockstate.getBlock();
 
 			// Fertilizable crops
-			if ((block instanceof CropBlock) ||  //Beets Carrots Potatoes
+			if((block instanceof CropBlock) ||  //Beets Carrots Potatoes
 					block instanceof BambooSaplingBlock ||
 					block instanceof BambooBlock ||
 					block instanceof CocoaBlock ||
@@ -32,20 +32,25 @@ public class GrowingUtil
 					block instanceof SaplingBlock || //all sapling
 					block instanceof KelpBlock ||
 					block instanceof KelpPlantBlock ||
+					block instanceof SeagrassBlock ||
+					block instanceof SeaPickleBlock ||
 					block instanceof AzaleaBlock ||
 					block instanceof SmallDripleafBlock ||
 					block instanceof BigDripleafStemBlock)
 			{
-				if (player.age % (regularDelay) == 0)
+				if(player.age % (regularDelay) == 0)
 				{
-					Fertilizable fertilizable = (Fertilizable) blockstate.getBlock();
-					if (fertilizable.isFertilizable(world, targetPos, blockstate, world.isClient))
+					if(block instanceof Fertilizable)
 					{
-						if (world instanceof ServerWorld)
+						Fertilizable fertilizable = (Fertilizable) blockstate.getBlock();
+						if(fertilizable.isFertilizable(world, targetPos, blockstate, world.isClient))
 						{
-							if (fertilizable.canGrow(world, world.random, targetPos, blockstate))
+							if(world instanceof ServerWorld)
 							{
-								fertilizable.grow((ServerWorld) world, world.random, targetPos, blockstate);
+								if(fertilizable.canGrow(world, world.random, targetPos, blockstate))
+								{
+									fertilizable.grow((ServerWorld) world, world.random, targetPos, blockstate);
+								}
 							}
 						}
 					}
@@ -53,15 +58,15 @@ public class GrowingUtil
 			}
 
 			// Random tick crops
-			if (block instanceof SugarCaneBlock ||
+			if(block instanceof SugarCaneBlock ||
 					block instanceof CactusBlock ||
 					block instanceof BuddingAmethystBlock ||
 					block instanceof NetherWartBlock ||
 					block instanceof ChorusFlowerBlock)
 			{
-				if (world.getTime() % (cactusDelay) == 0)
+				if(world.getTime() % (cactusDelay) == 0)
 				{
-					if (world instanceof ServerWorld)
+					if(world instanceof ServerWorld)
 					{
 						block.randomTick(blockstate, (ServerWorld) world, targetPos, world.random);
 					}
@@ -69,11 +74,11 @@ public class GrowingUtil
 			}
 
 			// Random tick for special case, crops that are not fertilizable
-			if (block instanceof CropBlock && extraCrops)
+			if(block instanceof CropBlock && extraCrops)
 			{
-				if (world.getTime() % (Gobber2.CONFIG.GENERAL.staffFarmerIntervalExtra) == 0)
+				if(world.getTime() % (Gobber2.CONFIG.GENERAL.staffFarmerIntervalExtra) == 0)
 				{
-					if (world instanceof ServerWorld)
+					if(world instanceof ServerWorld)
 					{
 						block.randomTick(blockstate, (ServerWorld) world, targetPos, world.random);
 					}
@@ -81,11 +86,11 @@ public class GrowingUtil
 			}
 
 			// Random tick for dripstone
-			if (block instanceof PointedDripstoneBlock)
+			if(block instanceof PointedDripstoneBlock)
 			{
-				if (world.getTime() % (regularDelay) == 0)
+				if(world.getTime() % (regularDelay) == 0)
 				{
-					if (world instanceof ServerWorld)
+					if(world instanceof ServerWorld)
 					{
 						block.randomTick(blockstate, (ServerWorld) world, targetPos, world.random);
 
